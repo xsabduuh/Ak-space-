@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>📿 ملاذُنا</title>
+    <style>
+        body {
+            background: #1a0b0e; /* لون عنابي داكن */
+            font-family: 'Tajawal', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fce4e4;
+        }
+        #login-box, #love-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            padding: 30px;
+            border-radius: 40px;
+            border: 1px solid #d4af37;
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.2);
+            width: 85%;
+            max-width: 400px;
+            text-align: center;
+        }
+        input {
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid #d4af37;
+            color: white;
+            font-size: 18px;
+            padding: 12px;
+            width: 80%;
+            margin: 20px 0;
+            text-align: center;
+            outline: none;
+        }
+        button {
+            background: #d4af37;
+            color: #1a0b0e;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+        .hidden { display: none; }
+        .heart { font-size: 50px; margin: 0; }
+        .message-box {
+            background: #2d151a;
+            border-radius: 30px 30px 30px 5px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #f8e3e3;
+            text-align: right;
+            border-right: 5px solid #d4af37;
+        }
+        /* إخفاء زر GitHub في الزاوية */
+        .github-corner { display: none; }
+    </style>
+    <!-- الخط العربي الجميل -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- شاشة كلمة المرور -->
+    <div id="login-box">
+        <div class="heart">🤍</div>
+        <h2>عالمنا الذي لا يراه أحد</h2>
+        <p>ما هو تاريخ أول لقاء لنا؟</p>
+        <input type="text" id="password-input" placeholder="مثال: 14 فبراير">
+        <button onclick="checkPassword()">ادخلي يا عمري</button>
+        <p style="font-size: 12px; opacity: 0.6; margin-top: 30px;">مكاننا السري، أنا وأنت فقط</p>
+    </div>
+
+    <!-- شاشة المحتوى السري (تظهر بعد كلمة المرور) -->
+    <div id="love-box" class="hidden">
+        <div class="heart">✨</div>
+        <h2>مساء الورد يا سكر</h2>
+        <div class="message-box">
+            هنا أكتب لكِ رسائلي الصباحية..<br>
+            اليوم نظرت للقمر وتذكرت ضحكتك.<br>
+            أحبك.
+        </div>
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <button style="background: transparent; border: 1px solid #d4af37; color: #d4af37;" onclick="alert('قريباً سنضيف ألبوم صورنا 🥰')">📸 ذكرياتنا</button>
+            <button style="background: transparent; border: 1px solid #d4af37; color: #d4af37;" onclick="alert('سأضيف لكِ أغنية جديدة غداً')">🎵 أغنيتنا</button>
+        </div>
+        <p style="margin-top: 30px;">❤️ إلى الأبد</p>
+    </div>
+
+    <script>
+        // ⚠️ غير كلمة السر هنا من جوالك (أكتب تاريخ أول لقاء مثلاً)
+        const SECRET_PASSWORD = "14 فبراير"; // <-- غير هذا النص لسركما الخاص
+
+        function checkPassword() {
+            const input = document.getElementById('password-input').value.trim();
+            if (input === SECRET_PASSWORD) {
+                document.getElementById('login-box').classList.add('hidden');
+                document.getElementById('love-box').classList.remove('hidden');
+            } else {
+                alert("ليس هذا تاريخنا يا حبيبي.. حاول مجدداً 💔");
+            }
+        }
+
+        // للتجربة: إذا ضغطت على Enter في حقل الإدخال
+        document.getElementById('password-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') checkPassword();
+        });
+    </script>
+</body>
+</html>
