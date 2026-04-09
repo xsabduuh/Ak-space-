@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>دردشة • تسجيل الدخول</title>
+  <!-- خطوط وأيقونات -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --teal: #008080;
+      --deep-blue: #0A2540;
+      --off-white: #F7F9FC;
+      --accent-pink: #E1306C;
+      --text-dark: #1E2A3A;
+      --text-secondary: #6B7A8A;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #C8D9E6 0%, #D6E3ED 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px;
+    }
+
+    .login-container {
+      max-width: 400px;
+      width: 100%;
+      background: var(--off-white);
+      border-radius: 40px;
+      box-shadow: 0 30px 50px -15px rgba(0,0,0,0.25);
+      padding: 32px 24px 40px;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+
+    /* الشعار */
+    .logo-section {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .app-logo {
+      font-size: 48px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--teal), var(--deep-blue));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+
+    .welcome-text {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      font-weight: 400;
+    }
+
+    /* حقول الإدخال */
+    .input-group {
+      margin-bottom: 24px;
+    }
+
+    .input-label {
+      display: block;
+      font-weight: 600;
+      color: var(--deep-blue);
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .phone-input-wrapper {
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 60px;
+      padding: 4px 16px 4px 4px;
+      border: 1.5px solid rgba(0,128,128,0.2);
+      box-shadow: 0 6px 12px -6px rgba(0,0,0,0.05);
+      transition: 0.2s;
+    }
+
+    .phone-input-wrapper:focus-within {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(0,128,128,0.1);
+    }
+
+    .country-code {
+      font-weight: 600;
+      color: var(--deep-blue);
+      padding: 12px 8px 12px 12px;
+      border-left: 1px solid #E2E9F0;
+      margin-left: 8px;
+    }
+
+    .phone-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 16px 8px;
+      font-size: 1.1rem;
+      font-family: 'Inter', sans-serif;
+      direction: ltr;
+      text-align: left;
+    }
+
+    /* زر الإرسال */
+    .submit-btn {
+      width: 100%;
+      background: var(--teal);
+      color: white;
+      border: none;
+      padding: 18px;
+      border-radius: 60px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 12px 20px -8px rgba(0,128,128,0.4);
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .submit-btn:hover {
+      background: var(--deep-blue);
+      transform: scale(0.98);
+    }
+
+    .submit-btn i {
+      font-size: 18px;
+    }
+
+    /* شاشة OTP (مخفية افتراضياً) */
+    .otp-section {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .otp-section.active {
+      display: block;
+    }
+
+    .otp-title {
+      text-align: center;
+      color: var(--deep-blue);
+      margin-bottom: 20px;
+    }
+
+    .otp-inputs {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin: 24px 0;
+    }
+
+    .otp-digit {
+      width: 56px;
+      height: 64px;
+      border-radius: 20px;
+      border: 2px solid rgba(0,128,128,0.25);
+      background: white;
+      text-align: center;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--deep-blue);
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: 0.15s;
+    }
+
+    .otp-digit:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(0,128,128,0.1);
+    }
+
+    .resend-link {
+      text-align: center;
+      margin-top: 16px;
+      color: var(--teal);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 24px;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+
+    .back-link i {
+      margin-left: 6px;
+    }
+
+    /* رسائل الخطأ/النجاح */
+    .message {
+      text-align: center;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      min-height: 24px;
+    }
+
+    .error {
+      color: #dc2626;
+    }
+
+    .success {
+      color: #16a34a;
+    }
+
+    /* شروط الخدمة */
+    .terms {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    .terms a {
+      color: var(--teal);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media (max-width: 380px) {
+      .login-container {
+        border-radius: 28px;
+        padding: 24px 18px 32px;
+      }
+      .otp-digit {
+        width: 48px;
+        height: 56px;
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="login-container">
+  <!-- الشعار -->
+  <div class="logo-section">
+    <div class="app-logo">دردشة</div>
+    <p class="welcome-text">تسجيل الدخول للمتابعة</p>
+  </div>
+
+  <!-- نموذج رقم الهاتف -->
+  <div id="phoneSection">
+    <div class="input-group">
+      <label class="input-label">رقم الهاتف</label>
+      <div class="phone-input-wrapper">
+        <span class="country-code">+20</span>
+        <input type="tel" class="phone-input" id="phoneInput" placeholder="123 456 7890" dir="ltr" value="">
+      </div>
+    </div>
+    
+    <button class="submit-btn" id="sendOtpBtn">
+      <i class="fas fa-paper-plane"></i> إرسال رمز التحقق
+    </button>
+    
+    <div class="message" id="phoneMessage"></div>
+  </div>
+
+  <!-- قسم OTP (مخفي بداية) -->
+  <div class="otp-section" id="otpSection">
+    <h3 class="otp-title">أدخل رمز التحقق</h3>
+    <p style="text-align:center; color: var(--text-secondary); font-size:0.9rem;">تم الإرسال إلى <span id="displayPhone">+20 123 456 7890</span></p>
+    
+    <div class="otp-inputs">
+      <input type="text" maxlength="1" class="otp-digit" id="otp1" inputmode="numeric">
+      <input type="text" maxlength="1" class="otp-digit" id="otp2" inputmode="numeric">
+      <input type="text" maxlength="1" class="otp-digit" id="otp3" inputmode="numeric">
+      <input type="text" maxlength="1" class="otp-digit" id="otp4" inputmode="numeric">
+    </div>
+    
+    <button class="submit-btn" id="verifyOtpBtn">
+      <i class="fas fa-check-circle"></i> تأكيد الرمز
+    </button>
+    
+    <div class="message" id="otpMessage"></div>
+    
+    <div class="resend-link" id="resendLink">
+      <i class="far fa-clock"></i> إعادة إرسال الرمز
+    </div>
+    
+    <div class="back-link" id="backToPhoneBtn">
+      <i class="fas fa-chevron-right"></i> تغيير رقم الهاتف
+    </div>
+  </div>
+
+  <!-- شروط الخدمة -->
+  <div class="terms">
+    بالاستمرار، أنت توافق على <a href="#">شروط الخدمة</a> و <a href="#">سياسة الخصوصية</a>
+  </div>
+</div>
+
+<script>
+  (function() {
+    "use strict";
+
+    // العناصر
+    const phoneSection = document.getElementById('phoneSection');
+    const otpSection = document.getElementById('otpSection');
+    const phoneInput = document.getElementById('phoneInput');
+    const sendOtpBtn = document.getElementById('sendOtpBtn');
+    const verifyOtpBtn = document.getElementById('verifyOtpBtn');
+    const backToPhoneBtn = document.getElementById('backToPhoneBtn');
+    const resendLink = document.getElementById('resendLink');
+    const displayPhoneSpan = document.getElementById('displayPhone');
+    const phoneMessage = document.getElementById('phoneMessage');
+    const otpMessage = document.getElementById('otpMessage');
+    
+    const otpInputs = [
+      document.getElementById('otp1'),
+      document.getElementById('otp2'),
+      document.getElementById('otp3'),
+      document.getElementById('otp4')
+    ];
+
+    // رقم تجريبي افتراضي
+    let currentPhone = '+20 123 456 7890';
+    phoneInput.value = '123 456 7890';
+
+    // ---------- التنقل بين حقول OTP ----------
+    otpInputs.forEach((input, index) => {
+      input.addEventListener('input', (e) => {
+        const value = e.target.value;
+        if (value && index < otpInputs.length - 1) {
+          otpInputs[index + 1].focus();
+        }
+        // تفعيل زر التأكيد إذا اكتملت جميع الخانات
+      });
+      
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && !e.target.value && index > 0) {
+          otpInputs[index - 1].focus();
+        }
+      });
+      
+      // منع إدخال غير الأرقام
+      input.addEventListener('beforeinput', (e) => {
+        if (e.data && !/^\d+$/.test(e.data)) {
+          e.preventDefault();
+        }
+      });
+    });
+
+    // ---------- إرسال رمز OTP ----------
+    sendOtpBtn.addEventListener('click', () => {
+      let phone = phoneInput.value.trim();
+      if (!phone) {
+        phoneMessage.innerHTML = '<span class="error"><i class="fas fa-exclamation-circle"></i> الرجاء إدخال رقم الهاتف</span>';
+        return;
+      }
+      
+      // تنظيف الرقم للعرض
+      const formattedPhone = phone.replace(/\s/g, '');
+      if (formattedPhone.length < 7) {
+        phoneMessage.innerHTML = '<span class="error">رقم هاتف غير صحيح</span>';
+        return;
+      }
+      
+      currentPhone = '+20 ' + phone;
+      displayPhoneSpan.textContent = currentPhone;
+      
+      // إخفاء نموذج الهاتف وإظهار OTP
+      phoneSection.style.display = 'none';
+      otpSection.classList.add('active');
+      phoneMessage.innerHTML = '';
+      
+      // محاكاة إرسال رمز (نعرض رسالة نجاح)
+      otpMessage.innerHTML = '<span class="success"><i class="fas fa-check-circle"></i> تم إرسال رمز تحقق تجريبي (1234)</span>';
+      
+      // تركيز على أول خانة
+      otpInputs[0].focus();
+      
+      // تعبئة الرمز التجريبي تلقائياً (للتجربة)
+      // يمكن تعليق هذا السطر في الإصدار النهائي
+      // setTimeout(() => {
+      //   otpInputs[0].value = '1';
+      //   otpInputs[1].value = '2';
+      //   otpInputs[2].value = '3';
+      //   otpInputs[3].value = '4';
+      // }, 100);
+    });
+
+    // ---------- تأكيد رمز OTP ----------
+    verifyOtpBtn.addEventListener('click', () => {
+      const otp = otpInputs.map(input => input.value).join('');
+      
+      if (otp.length !== 4) {
+        otpMessage.innerHTML = '<span class="error">الرجاء إدخال رمز مكون من 4 أرقام</span>';
+        return;
+      }
+      
+      // محاكاة التحقق (الرمز الصحيح هو 1234)
+      if (otp === '1234') {
+        otpMessage.innerHTML = '<span class="success"><i class="fas fa-spinner fa-pulse"></i> جاري التحقق...</span>';
+        
+        setTimeout(() => {
+          // انتقال إلى الصفحة الرئيسية
+          alert('✅ تم تسجيل الدخول بنجاح! سيتم توجيهك إلى المحادثات.');
+          window.location.href = 'index.html'; // الصفحة الرئيسية
+        }, 1000);
+      } else {
+        otpMessage.innerHTML = '<span class="error"><i class="fas fa-times-circle"></i> رمز التحقق غير صحيح (جرب 1234)</span>';
+      }
+    });
+
+    // ---------- العودة إلى إدخال الهاتف ----------
+    backToPhoneBtn.addEventListener('click', () => {
+      phoneSection.style.display = 'block';
+      otpSection.classList.remove('active');
+      otpMessage.innerHTML = '';
+      // مسح خانات OTP
+      otpInputs.forEach(input => input.value = '');
+    });
+
+    // ---------- إعادة إرسال الرمز ----------
+    resendLink.addEventListener('click', () => {
+      otpMessage.innerHTML = '<span class="success"><i class="fas fa-check-circle"></i> تم إعادة إرسال الرمز (1234)</span>';
+      // مسح الخانات السابقة
+      otpInputs.forEach(input => input.value = '');
+      otpInputs[0].focus();
+    });
+
+    // السماح بالضغط على Enter في حقل الهاتف
+    phoneInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        sendOtpBtn.click();
+      }
+    });
+
+    // تحسين أولي
+    phoneInput.focus();
+  })();
+</script>
+</body>
+</html>
