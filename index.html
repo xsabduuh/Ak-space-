@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>مزيج • ماسنجر + واتساب + انستغرام</title>
-  <!-- خطوط عصرية -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+  <title>دردشة • المحادثات</title>
+  <!-- خطوط وأيقونات -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
+    /* ========== متغيرات وأساسيات ========== */
     * {
       margin: 0;
       padding: 0;
@@ -17,11 +18,14 @@
     :root {
       --teal: #008080;
       --deep-blue: #0A2540;
-      --off-white: #F9FBFD;
-      --bubble-her: #FFE4E9;    /* لون وردي ناعم مستوحى من انستغرام */
-      --bubble-me: linear-gradient(145deg, #0A2540, #1D3A5C);
-      --accent-glow: rgba(0,128,128,0.15);
-      --pattern-opacity: 0.03;
+      --off-white: #F7F9FC;
+      --accent-pink: #E1306C;  /* لمسة انستغرام */
+      --bubble-her: #FFE4E9;
+      --text-dark: #1E2A3A;
+      --text-secondary: #6B7A8A;
+      --border-light: rgba(0,0,0,0.05);
+      --shadow-card: 0 8px 20px rgba(0,0,0,0.03);
+      --nav-bg: rgba(255,255,255,0.85);
     }
 
     body {
@@ -31,64 +35,151 @@
       align-items: center;
       justify-content: center;
       min-height: 100vh;
-      padding: 12px;
       margin: 0;
+      padding: 12px;
     }
 
-    /* الشاشة الرئيسية - مزيج من واتساب (خلفية) + ماسنجر (شكل الفقاعات) + انستغرام (دائرية وشفافية) */
-    .chat-app {
+    /* الحاوية الرئيسية (محاكاة شاشة الهاتف) */
+    .app-container {
       max-width: 400px;
       width: 100%;
       height: 780px;
       max-height: 95vh;
       background: var(--off-white);
-      border-radius: 32px;
-      box-shadow: 0 20px 35px -5px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,128,128,0.1);
+      border-radius: 36px;
+      box-shadow: 0 30px 50px -15px rgba(0,0,0,0.25);
       display: flex;
       flex-direction: column;
       overflow: hidden;
       backdrop-filter: blur(2px);
-      /* نمط خلفية دقيق جداً (نقاط وخطوط) مثل واتساب ولكن أنعم */
+      /* نسيج خفيف */
       background-image: 
-        radial-gradient(circle at 30% 40%, rgba(0,128,128,0.02) 0%, transparent 25%),
-        repeating-linear-gradient(45deg, rgba(10,37,64,0.02) 0px, rgba(10,37,64,0.02) 1px, transparent 1px, transparent 12px);
+        radial-gradient(circle at 20% 30%, rgba(0,128,128,0.02) 0%, transparent 30%),
+        repeating-linear-gradient(45deg, rgba(10,37,64,0.01) 0px, rgba(10,37,64,0.01) 1px, transparent 1px, transparent 10px);
     }
 
-    /* ========== الهيدر : مزيج ماسنجر + واتساب ========== */
-    .chat-header {
-      padding: 12px 16px;
+    /* ========== الهيدر ========== */
+    .main-header {
+      padding: 20px 18px 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: linear-gradient(135deg, #ffffff 0%, #F2F7FC 100%);
-      border-bottom: 1px solid rgba(0,128,128,0.12);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+      background: transparent;
     }
 
-    /* صور بروفايل بأسلوب انستغرام (حلقات ملونة) */
-    .profile-wrapper {
+    .main-header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--teal), var(--deep-blue));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .header-icons {
+      display: flex;
+      gap: 18px;
+    }
+
+    .header-icons i {
+      font-size: 22px;
+      color: var(--deep-blue);
+      opacity: 0.8;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+
+    .header-icons i:hover {
+      color: var(--teal);
+      opacity: 1;
+    }
+
+    /* ========== شريط البحث ========== */
+    .search-section {
+      padding: 8px 16px 16px;
+    }
+
+    .search-container {
+      background: white;
+      border-radius: 30px;
+      padding: 8px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+      border: 1px solid rgba(0,128,128,0.1);
+      backdrop-filter: blur(4px);
+    }
+
+    .search-container i {
+      color: var(--teal);
+      font-size: 18px;
+    }
+
+    .search-container input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      padding: 6px 0;
+    }
+
+    .search-container input::placeholder {
+      color: #A0B0C0;
+      font-weight: 400;
+    }
+
+    /* ========== قائمة المحادثات ========== */
+    .chats-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0 10px 10px;
       display: flex;
       flex-direction: column;
+      gap: 6px;
+    }
+
+    .chat-item {
+      display: flex;
       align-items: center;
-      cursor: pointer;
+      padding: 14px 12px;
+      background: white;
+      border-radius: 24px;
+      box-shadow: var(--shadow-card);
       transition: all 0.2s;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.8);
+      backdrop-filter: blur(2px);
+      margin-bottom: 2px;
     }
-    .profile-wrapper.active .avatar-border {
-      border: 3px solid var(--teal);
-      box-shadow: 0 0 0 2px rgba(0,128,128,0.2);
+
+    .chat-item:hover {
+      background: #FFFFFFF0;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 18px -8px rgba(0,128,128,0.08);
     }
-    .avatar-border {
-      width: 50px;
-      height: 50px;
+
+    /* صورة البروفايل بأسلوب انستغرام */
+    .chat-avatar {
+      position: relative;
+      margin-left: 14px;
+    }
+
+    .avatar-ring {
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
-      padding: 2px;
-      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* ألوان انستغرام */
+      padding: 2.5px;
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: 0.2s;
     }
-    .avatar {
+
+    .avatar-inner {
       width: 100%;
       height: 100%;
       border-radius: 50%;
@@ -100,467 +191,416 @@
       color: var(--deep-blue);
       border: 2px solid white;
     }
-    .avatar.her {
-      background: #FCE4EC;
-      color: #C2185B;
-    }
-    .avatar.me {
-      background: #E3F2FD;
-      color: #0A2540;
-    }
-    .profile-name {
-      font-size: 11px;
-      font-weight: 600;
-      margin-top: 4px;
-      color: var(--deep-blue);
-      opacity: 0.9;
-    }
-    .active-dot {
-      font-size: 14px;
-      line-height: 1;
-      margin-top: -2px;
-    }
 
-    .app-logo {
-      font-size: 26px;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--teal), var(--deep-blue));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: -0.5px;
-      text-shadow: 0 2px 5px rgba(0,128,128,0.1);
-      padding: 0 8px;
-    }
-
-    /* ========== منطقة الرسائل (خلفية محببة) ========== */
-    .chat-messages {
+    /* محتوى المحادثة */
+    .chat-content {
       flex: 1;
-      overflow-y: auto;
-      padding: 18px 12px 16px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      background-color: #F5F9FE;
-      /* نمط خفيف يشبه واتساب (نقاط) + تدرج شفاف */
-      background-image: 
-        radial-gradient(circle at 10% 20%, rgba(0,128,128,0.05) 0%, transparent 30%),
-        repeating-linear-gradient(0deg, rgba(10,37,64,0.02) 0px, rgba(10,37,64,0.02) 1px, transparent 1px, transparent 10px),
-        repeating-linear-gradient(90deg, rgba(10,37,64,0.01) 0px, rgba(10,37,64,0.01) 1px, transparent 1px, transparent 15px);
-      scroll-behavior: smooth;
+      gap: 4px;
+      min-width: 0;
     }
 
-    .chat-messages::-webkit-scrollbar {
-      width: 5px;
-    }
-    .chat-messages::-webkit-scrollbar-thumb {
-      background: var(--teal);
-      border-radius: 20px;
-      opacity: 0.3;
-    }
-
-    /* ========== فقاعات الرسائل (مزيج ماسنجر + واتساب) ========== */
-    .message-row {
+    .chat-header-row {
       display: flex;
-      width: 100%;
-    }
-    .message-row.sent {
-      justify-content: flex-end;
-    }
-    .message-row.received {
-      justify-content: flex-start;
+      align-items: baseline;
+      justify-content: space-between;
     }
 
-    .message-bubble {
-      max-width: 82%;
-      padding: 12px 16px 8px;
-      border-radius: 22px;
-      position: relative;
-      word-break: break-word;
-      line-height: 1.5;
-      font-size: 0.95rem;
-      box-shadow: 0 4px 8px -4px rgba(0,0,0,0.05);
-      transition: transform 0.1s;
-    }
-
-    /* فقاعة حبيبتي (يسار) - لون وردي ناعم مستوحى من انستغرام */
-    .received-bubble {
-      background: #FFE4E9;
-      color: #1E2A3A;
-      border-top-left-radius: 6px;
-      border-bottom-right-radius: 24px;
-      border-bottom-left-radius: 24px;
-      border-top-right-radius: 24px;
-      border: 1px solid rgba(255,255,255,0.7);
-      box-shadow: 0 6px 12px -6px rgba(194,24,91,0.08);
-    }
-
-    /* فقاعة أنا (يمين) - تدرج أزرق غامق مثل ماسنجر */
-    .sent-bubble {
-      background: var(--bubble-me);
-      color: white;
-      border-top-right-radius: 6px;
-      border-bottom-left-radius: 24px;
-      border-bottom-right-radius: 24px;
-      border-top-left-radius: 24px;
-      box-shadow: 0 8px 16px -6px #0A2540A0;
-    }
-
-    /* ميتا الرسالة (الوقت + علامة القراءة) */
-    .message-meta {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 6px;
-      margin-top: 6px;
-      font-size: 0.65rem;
-      opacity: 0.85;
-    }
-    .sent-bubble .message-meta {
-      color: rgba(255,255,255,0.9);
-    }
-    .received-bubble .message-meta {
-      color: #6B7A8A;
-    }
-
-    .double-check i {
-      font-size: 12px;
-      margin-left: -2px;
-    }
-    .double-check .fa-check-double {
-      color: #A0D0FF;
-    }
-
-    /* ========== شريط الإدخال (أسلوب ماسنجر مع لمسة واتساب) ========== */
-    .chat-input-area {
-      padding: 12px 14px 16px;
-      background: rgba(255,255,255,0.8);
-      backdrop-filter: blur(15px);
-      border-top: 1px solid rgba(0,128,128,0.15);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .attach-btn {
-      background: transparent;
-      border: none;
-      color: var(--teal);
-      font-size: 26px;
-      width: 44px;
-      height: 44px;
-      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: 0.15s;
-    }
-    .attach-btn:hover {
-      background: rgba(0,128,128,0.08);
+    .chat-name {
+      font-weight: 700;
+      font-size: 1.05rem;
       color: var(--deep-blue);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 160px;
     }
 
-    .input-container {
-      flex: 1;
-      background: white;
-      border-radius: 48px;
-      padding: 4px 16px 4px 4px;
-      border: 1px solid #E2E9F0;
-      box-shadow: inset 0 2px 4px rgba(0,0,0,0.01), 0 2px 4px rgba(0,0,0,0.02);
+    .chat-time {
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .chat-last-message {
       display: flex;
       align-items: center;
+      justify-content: space-between;
     }
 
-    .message-input {
-      width: 100%;
-      border: none;
-      outline: none;
-      background: transparent;
-      padding: 12px 0 12px 8px;
-      font-size: 0.95rem;
-      font-family: 'Inter', sans-serif;
-    }
-    .message-input::placeholder {
-      color: #8F9EB0;
+    .last-message-text {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 180px;
       font-weight: 400;
     }
 
-    .send-btn {
+    .message-status {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .unread-badge {
       background: var(--teal);
-      border: none;
       color: white;
-      width: 50px;
-      height: 50px;
-      border-radius: 40% 60% 30% 70% / 50% 40% 60% 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      cursor: pointer;
-      box-shadow: 0 8px 16px -6px rgba(0,128,128,0.4);
-      transition: all 0.2s;
-      border: 1px solid rgba(255,255,255,0.3);
-    }
-    .send-btn:hover {
-      background: var(--deep-blue);
-      transform: scale(0.94);
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 30px;
+      min-width: 20px;
+      text-align: center;
     }
 
-    /* مؤشر المرسل الحالي */
-    .sender-indicator {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(0,128,128,0.06);
-      padding: 4px 12px;
-      border-radius: 40px;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--deep-blue);
-      margin-left: 2px;
-    }
-    .sender-indicator i {
-      font-size: 14px;
+    .double-check {
       color: var(--teal);
+      font-size: 14px;
+      opacity: 0.7;
     }
 
-    /* تحسينات */
+    /* قصة/حالة (ستوري) */
+    .story-indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #2ecc71;
+      border: 2px solid white;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    /* ========== شريط التنقل السفلي ========== */
+    .bottom-nav {
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      padding: 10px 20px 16px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border-top: 1px solid rgba(0,128,128,0.1);
+      margin-top: 4px;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: var(--text-secondary);
+      transition: 0.15s;
+      font-size: 12px;
+      gap: 4px;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .nav-item i {
+      font-size: 24px;
+    }
+
+    .nav-item.active {
+      color: var(--teal);
+      font-weight: 600;
+    }
+
+    .nav-item span {
+      font-size: 11px;
+    }
+
+    /* حالة فارغة للبحث */
+    .no-results {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-secondary);
+    }
+
+    /* تحسينات للجوال */
     @media (max-width: 380px) {
-      .chat-app { height: 100vh; max-height: 100vh; border-radius: 0; }
+      .app-container {
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+      }
       body { padding: 0; }
     }
   </style>
 </head>
 <body>
-<div class="chat-app">
-  <!-- ========== الهيدر ========== -->
-  <header class="chat-header">
-    <!-- حبيبتي (يسار) -->
-    <div class="profile-wrapper" id="herProfile">
-      <div class="avatar-border">
-        <div class="avatar her">
-          <i class="fas fa-heart"></i>
-        </div>
-      </div>
-      <span class="profile-name">حبيبتي</span>
-      <span class="active-dot" id="herDot">⚬</span>
-    </div>
-
-    <!-- شعار الدردشة (مزيج) -->
-    <div class="app-logo">دردشة</div>
-
-    <!-- أنا (يمين) -->
-    <div class="profile-wrapper active" id="meProfile">
-      <div class="avatar-border">
-        <div class="avatar me">
-          <i class="fas fa-user-astronaut"></i>
-        </div>
-      </div>
-      <span class="profile-name">أنا</span>
-      <span class="active-dot" id="meDot" style="color: var(--teal);">●</span>
+<div class="app-container">
+  <!-- الهيدر الرئيسي -->
+  <header class="main-header">
+    <h1>دردشة</h1>
+    <div class="header-icons">
+      <i class="fas fa-camera" title="القصص"></i>
+      <i class="fas fa-ellipsis-h" title="المزيد"></i>
     </div>
   </header>
 
-  <!-- منطقة الرسائل -->
-  <div class="chat-messages" id="chatMessages"></div>
-
-  <!-- شريط الإدخال -->
-  <div class="chat-input-area">
-    <button class="attach-btn" id="attachBtn" aria-label="إضافة مرفقات">
-      <i class="fas fa-plus-circle"></i>
-    </button>
-    <div class="input-container">
-      <input type="text" class="message-input" id="messageInput" placeholder="رسالة..." autocomplete="off" dir="auto">
+  <!-- شريط البحث -->
+  <div class="search-section">
+    <div class="search-container">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInput" placeholder="بحث في المحادثات..." autocomplete="off">
     </div>
-    <div class="sender-indicator" id="senderBadge">
-      <i class="fas fa-user-astronaut"></i>
-      <span id="senderText">أنا</span>
-    </div>
-    <button class="send-btn" id="sendButton">
-      <i class="fas fa-paper-plane"></i>
-    </button>
   </div>
+
+  <!-- قائمة المحادثات -->
+  <div class="chats-list" id="chatsListContainer">
+    <!-- سيتم إنشاء العناصر ديناميكيًا عبر JavaScript -->
+  </div>
+
+  <!-- شريط التنقل السفلي (Navigation) -->
+  <nav class="bottom-nav">
+    <a class="nav-item active" data-page="chats">
+      <i class="fas fa-comment-dots"></i>
+      <span>المحادثات</span>
+    </a>
+    <a class="nav-item" data-page="contacts">
+      <i class="fas fa-address-book"></i>
+      <span>جهات الاتصال</span>
+    </a>
+    <a class="nav-item" data-page="settings">
+      <i class="fas fa-cog"></i>
+      <span>الإعدادات</span>
+    </a>
+  </nav>
 </div>
 
 <script>
-  (() => {
+  (function(){
     "use strict";
 
-    // DOM elements
-    const chatMessages = document.getElementById('chatMessages');
-    const messageInput = document.getElementById('messageInput');
-    const sendButton = document.getElementById('sendButton');
-    const attachBtn = document.getElementById('attachBtn');
-    
-    const herProfile = document.getElementById('herProfile');
-    const meProfile = document.getElementById('meProfile');
-    const herDot = document.getElementById('herDot');
-    const meDot = document.getElementById('meDot');
-    const senderBadge = document.getElementById('senderBadge');
-    const senderText = document.getElementById('senderText');
-
-    // الحالة: true = أنا (يمين)، false = حبيبتي (يسار)
-    let iAmSender = true;
-
-    // ---------- تحديث واجهة المرسل النشط ----------
-    function updateSenderUI() {
-      if (iAmSender) {
-        meProfile.classList.add('active');
-        herProfile.classList.remove('active');
-        meDot.innerHTML = '●';
-        meDot.style.color = 'var(--teal)';
-        herDot.innerHTML = '⚬';
-        herDot.style.color = '';
-        senderText.textContent = 'أنا';
-        senderBadge.innerHTML = '<i class="fas fa-user-astronaut"></i><span>أنا</span>';
-        messageInput.placeholder = 'اكتب رسالتك...';
-      } else {
-        herProfile.classList.add('active');
-        meProfile.classList.remove('active');
-        herDot.innerHTML = '●';
-        herDot.style.color = 'var(--teal)';
-        meDot.innerHTML = '⚬';
-        meDot.style.color = '';
-        senderText.textContent = 'حبيبتي';
-        senderBadge.innerHTML = '<i class="fas fa-heart"></i><span>حبيبتي</span>';
-        messageInput.placeholder = 'اكتبي رسالتك...';
+    // ---------- البيانات التجريبية للمحادثات ----------
+    const chatsData = [
+      {
+        id: 1,
+        name: 'حبيبتي ❤️',
+        avatar: 'fa-heart',
+        avatarColor: '#FFE4E9',
+        lastMessage: 'خلاص متفقين، هبعتلك اللوكيشن',
+        time: '10:10 ص',
+        unread: 2,
+        isOnline: true,
+        isRead: false,
+        hasStory: true,
+        link: 'chat.html'  // رابط صفحة المحادثة الداخلية
+      },
+      {
+        id: 2,
+        name: 'أحمد (العمل)',
+        avatar: 'fa-user-tie',
+        avatarColor: '#E3F2FD',
+        lastMessage: 'تم إرسال التقرير الأسبوعي ✅',
+        time: 'أمس',
+        unread: 0,
+        isOnline: false,
+        isRead: true,
+        hasStory: false,
+        link: 'chat.html'
+      },
+      {
+        id: 3,
+        name: 'مجموعة المصممين',
+        avatar: 'fa-users',
+        avatarColor: '#E8F5E9',
+        lastMessage: 'سارة: التصميم النهائي جاهز 🎨',
+        time: 'أمس',
+        unread: 5,
+        isOnline: false,
+        isRead: false,
+        hasStory: false,
+        link: 'chat.html'
+      },
+      {
+        id: 4,
+        name: 'محمد علي',
+        avatar: 'fa-user-graduate',
+        avatarColor: '#FFF3E0',
+        lastMessage: 'شكراً على المساعدة!',
+        time: 'الثلاثاء',
+        unread: 0,
+        isOnline: false,
+        isRead: true,
+        hasStory: true,
+        link: 'chat.html'
+      },
+      {
+        id: 5,
+        name: 'ليلى',
+        avatar: 'fa-user-circle',
+        avatarColor: '#FCE4EC',
+        lastMessage: 'مكالمة فائتة (2)',
+        time: 'الثلاثاء',
+        unread: 1,
+        isOnline: true,
+        isRead: false,
+        hasStory: false,
+        link: 'chat.html'
       }
-    }
-
-    // تبديل المرسل
-    herProfile.addEventListener('click', () => {
-      if (iAmSender) {
-        iAmSender = false;
-        updateSenderUI();
-        messageInput.focus();
-      }
-    });
-    meProfile.addEventListener('click', () => {
-      if (!iAmSender) {
-        iAmSender = true;
-        updateSenderUI();
-        messageInput.focus();
-      }
-    });
-
-    // ---------- رسائل أولية (محادثة حب) ----------
-    const initialMessages = [
-      { text: 'صباح الخير يا روح القلب 💕', sent: false, time: '10:02 ص', read: true },
-      { text: 'صباح النور والجمال، وحشتيني 💙', sent: true, time: '10:04 ص', read: true },
-      { text: 'فكرت فين النهاردة؟ نفسي أقابلك', sent: false, time: '10:05 ص', read: true },
-      { text: 'أي حتة معاكي تبقى أحلى، يلا نروح المكان اللي بتحبيه', sent: true, time: '10:08 ص', read: true },
-      { text: 'خلاص متفقين، هبعتلك اللوكيشن ❤️', sent: false, time: '10:10 ص', read: false }
     ];
 
-    // وقت حالي منسق
-    function getCurrentTime() {
-      const d = new Date();
-      let h = d.getHours();
-      let m = d.getMinutes();
-      const ampm = h >= 12 ? 'م' : 'ص';
-      h = h % 12 || 12;
-      m = m < 10 ? '0' + m : m;
-      return `${h}:${m} ${ampm}`;
-    }
+    const container = document.getElementById('chatsListContainer');
+    const searchInput = document.getElementById('searchInput');
 
-    // إنشاء عنصر رسالة
-    function createMessageBubble(text, sentByMe, timeStr = null, read = false) {
-      const row = document.createElement('div');
-      row.className = `message-row ${sentByMe ? 'sent' : 'received'}`;
+    // ---------- دالة إنشاء عنصر محادثة ----------
+    function createChatItem(chat) {
+      const item = document.createElement('div');
+      item.className = 'chat-item';
+      item.setAttribute('data-id', chat.id);
+      item.setAttribute('data-name', chat.name);
+      
+      // صورة الأفتار
+      const avatarDiv = document.createElement('div');
+      avatarDiv.className = 'chat-avatar';
+      const ring = document.createElement('div');
+      ring.className = 'avatar-ring';
+      if (!chat.hasStory) {
+        ring.style.background = 'transparent'; // بدون حلقة ملونة للستوري
+      }
+      const inner = document.createElement('div');
+      inner.className = 'avatar-inner';
+      inner.style.background = chat.avatarColor;
+      const icon = document.createElement('i');
+      icon.className = `fas ${chat.avatar}`;
+      inner.appendChild(icon);
+      ring.appendChild(inner);
+      avatarDiv.appendChild(ring);
+      
+      // مؤشر الحالة (أونلاين/ستوري)
+      if (chat.isOnline) {
+        const onlineDot = document.createElement('span');
+        onlineDot.className = 'story-indicator';
+        onlineDot.style.background = '#2ecc71';
+        onlineDot.style.bottom = '2px';
+        onlineDot.style.left = '2px';
+        avatarDiv.appendChild(onlineDot);
+      } else if (chat.hasStory) {
+        const storyDot = document.createElement('span');
+        storyDot.className = 'story-indicator';
+        storyDot.style.background = 'linear-gradient(45deg, #f09433, #dc2743)';
+        avatarDiv.appendChild(storyDot);
+      }
 
-      const bubble = document.createElement('div');
-      bubble.className = `message-bubble ${sentByMe ? 'sent-bubble' : 'received-bubble'}`;
-      bubble.textContent = text;
-
-      const meta = document.createElement('div');
-      meta.className = 'message-meta';
-
+      // محتوى النص
+      const contentDiv = document.createElement('div');
+      contentDiv.className = 'chat-content';
+      
+      const headerRow = document.createElement('div');
+      headerRow.className = 'chat-header-row';
+      const nameSpan = document.createElement('span');
+      nameSpan.className = 'chat-name';
+      nameSpan.textContent = chat.name;
       const timeSpan = document.createElement('span');
-      timeSpan.className = 'message-time';
-      timeSpan.textContent = timeStr || getCurrentTime();
-      meta.appendChild(timeSpan);
-
-      if (sentByMe) {
-        const checkSpan = document.createElement('span');
-        checkSpan.className = 'double-check';
-        checkSpan.innerHTML = read 
-          ? '<i class="fas fa-check-double" style="color: #7FC9FF;"></i>' 
-          : '<i class="fas fa-check-double" style="opacity: 0.7;"></i>';
-        meta.appendChild(checkSpan);
+      timeSpan.className = 'chat-time';
+      timeSpan.textContent = chat.time;
+      headerRow.appendChild(nameSpan);
+      headerRow.appendChild(timeSpan);
+      
+      const lastRow = document.createElement('div');
+      lastRow.className = 'chat-last-message';
+      const msgSpan = document.createElement('span');
+      msgSpan.className = 'last-message-text';
+      msgSpan.textContent = chat.lastMessage;
+      
+      const statusDiv = document.createElement('div');
+      statusDiv.className = 'message-status';
+      
+      // علامات القراءة / عدد غير مقروء
+      if (chat.unread > 0) {
+        const badge = document.createElement('span');
+        badge.className = 'unread-badge';
+        badge.textContent = chat.unread;
+        statusDiv.appendChild(badge);
+      } else if (chat.isRead) {
+        const checkIcon = document.createElement('i');
+        checkIcon.className = 'fas fa-check-double double-check';
+        statusDiv.appendChild(checkIcon);
       }
-
-      bubble.appendChild(meta);
-      row.appendChild(bubble);
-      return row;
-    }
-
-    // تحميل الرسائل الأولية
-    function loadInitialMessages() {
-      chatMessages.innerHTML = '';
-      initialMessages.forEach(m => {
-        chatMessages.appendChild(createMessageBubble(m.text, m.sent, m.time, m.read));
+      
+      lastRow.appendChild(msgSpan);
+      lastRow.appendChild(statusDiv);
+      
+      contentDiv.appendChild(headerRow);
+      contentDiv.appendChild(lastRow);
+      
+      item.appendChild(avatarDiv);
+      item.appendChild(contentDiv);
+      
+      // حدث النقر للانتقال إلى صفحة المحادثة
+      item.addEventListener('click', (e) => {
+        // يمكن فتح chat.html مع تمرير معرف المحادثة (محاكاة)
+        window.location.href = chat.link + '?id=' + chat.id;
       });
-      scrollToBottom();
+      
+      return item;
     }
 
-    function scrollToBottom() {
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-
-    // إضافة رسالة جديدة
-    function sendMessage() {
-      const text = messageInput.value.trim();
-      if (!text) return;
-
-      const time = getCurrentTime();
-      const msgElement = createMessageBubble(text, iAmSender, time, false);
-      chatMessages.appendChild(msgElement);
-      messageInput.value = '';
-      scrollToBottom();
-
-      // محاكاة قراءة بعد 1.5 ثانية (للرسائل المرسلة فقط)
-      if (iAmSender) {
-        setTimeout(() => {
-          const lastSentCheck = chatMessages.querySelector('.message-row.sent:last-child .double-check i');
-          if (lastSentCheck) lastSentCheck.style.color = '#7FC9FF';
-        }, 1500);
+    // عرض جميع المحادثات
+    function renderChats(chatsArray) {
+      container.innerHTML = '';
+      if (chatsArray.length === 0) {
+        container.innerHTML = '<div class="no-results"><i class="fas fa-search" style="font-size: 32px; opacity:0.5; margin-bottom:12px;"></i><br/>لا توجد محادثات مطابقة</div>';
+        return;
       }
-      messageInput.focus();
+      chatsArray.forEach(chat => {
+        container.appendChild(createChatItem(chat));
+      });
     }
 
-    // أحداث الإرسال
-    sendButton.addEventListener('click', sendMessage);
-    messageInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter' && !e.shiftKey) {
+    // فلترة البحث
+    function filterChats(searchTerm) {
+      const term = searchTerm.trim().toLowerCase();
+      if (!term) return chatsData;
+      return chatsData.filter(chat => 
+        chat.name.toLowerCase().includes(term) || 
+        chat.lastMessage.toLowerCase().includes(term)
+      );
+    }
+
+    // تحديث القائمة بناءً على البحث
+    function handleSearch() {
+      const filtered = filterChats(searchInput.value);
+      renderChats(filtered);
+    }
+
+    // ---------- أحداث البحث ----------
+    searchInput.addEventListener('input', handleSearch);
+
+    // ---------- التنقل بين الصفحات (محاكاة) ----------
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+      item.addEventListener('click', function(e) {
         e.preventDefault();
-        sendMessage();
-      }
+        const page = this.getAttribute('data-page');
+        
+        // إزالة النشط من الكل
+        navItems.forEach(n => n.classList.remove('active'));
+        this.classList.add('active');
+        
+        // محاكاة التنقل (تنبيه فقط - لاحقًا سنطور صفحات منفصلة)
+        if (page === 'contacts') {
+          alert('📇 سيتم الانتقال إلى صفحة جهات الاتصال (قيد التطوير)');
+          // يمكن إضافة: window.location.href = 'contacts.html';
+        } else if (page === 'settings') {
+          alert('⚙️ سيتم الانتقال إلى صفحة الإعدادات (قيد التطوير)');
+        }
+        // بالنسبة لـ chats نحن هنا بالفعل
+      });
     });
 
-    // زر المرفقات (تفاعل تجميلي)
-    attachBtn.addEventListener('click', () => {
-      alert('📎 معرض المرفقات (محاكاة ماسنجر / واتساب)');
-    });
+    // ---------- بدء العرض ----------
+    renderChats(chatsData);
 
-    // تحسين اللمس
-    if ('ontouchstart' in window) {
-      sendButton.addEventListener('touchstart', function(e) { this.style.transform = 'scale(0.92)'; }, { passive: true });
-      sendButton.addEventListener('touchend', function() { this.style.transform = ''; });
-    }
-
-    // بدء التشغيل
-    updateSenderUI();
-    loadInitialMessages();
-
-    // التمرير عند تغير الحجم
-    window.addEventListener('resize', () => {
-      if (chatMessages.scrollHeight - chatMessages.scrollTop - chatMessages.clientHeight < 50) {
-        scrollToBottom();
-      }
-    });
-
+    // إضافة تأثير التمرير السلس
+    window.addEventListener('resize', () => { /* لا شيء */ });
   })();
 </script>
+<!-- ملاحظة: الصفحة الرئيسية جاهزة، اضغط على أي محادثة للانتقال إلى chat.html -->
 </body>
 </html>
