@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Frost | Artisanal Ice Cream — Premium Redefinition</title>
-  <!-- Google Fonts: Space Grotesk + Inter -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 (latest) -->
+  <title>فروست | آيس كريم فاخر</title>
+  <!-- Google Fonts: Tajawal + Almarai (عربية حديثة) -->
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- AOS Library -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -34,7 +34,7 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Tajawal', 'Almarai', sans-serif;
       background: var(--bg-dark);
       color: var(--text-primary);
       line-height: 1.5;
@@ -42,7 +42,7 @@
     }
 
     h1, h2, h3, .logo, .btn {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Almarai', 'Tajawal', sans-serif;
     }
 
     .container {
@@ -51,12 +51,12 @@
       padding: 0 2rem;
     }
 
-    /* Typography — premium, emotional */
+    /* Typography — عربية فاخرة */
     h1 {
-      font-size: 4rem;
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
       background: linear-gradient(135deg, #ffffff, var(--accent));
       -webkit-background-clip: text;
       background-clip: text;
@@ -64,9 +64,8 @@
       margin-bottom: 1.2rem;
     }
     h2 {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       font-weight: 700;
-      letter-spacing: -0.01em;
       margin-bottom: 0.75rem;
     }
     .section-subhead {
@@ -84,10 +83,11 @@
       gap: 0.6rem;
       padding: 0.85rem 2rem;
       border-radius: 3rem;
-      font-weight: 600;
+      font-weight: 700;
       transition: var(--transition);
       cursor: pointer;
       border: none;
+      font-family: 'Almarai', sans-serif;
     }
     .btn-primary {
       background: var(--gradient-1);
@@ -108,7 +108,7 @@
       background: rgba(249,115,78,0.1);
     }
 
-    /* Header — sticky with smooth behavior */
+    /* Header */
     .header {
       position: sticky;
       top: 0;
@@ -116,7 +116,6 @@
       background: rgba(11, 15, 23, 0.85);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255,255,255,0.05);
-      transition: background 0.2s;
     }
     .navbar {
       display: flex;
@@ -196,7 +195,7 @@
       border-radius: 2rem;
       box-shadow: var(--shadow-xl);
       transition: transform 0.4s;
-      transform: rotateY(5deg) rotateX(3deg);
+      transform: rotateY(-5deg) rotateX(3deg);
     }
     .hero-image img:hover {
       transform: rotateY(0deg) rotateX(0deg) scale(1.02);
@@ -251,11 +250,11 @@
       padding: 1.5rem;
     }
     .product-title {
-      font-weight: 700;
+      font-weight: 800;
       font-size: 1.3rem;
     }
     .product-desc {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: var(--text-secondary);
       margin: 0.4rem 0;
     }
@@ -271,7 +270,7 @@
       width: 100%;
       padding: 0.75rem;
       border-radius: 2rem;
-      font-weight: 600;
+      font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -279,6 +278,7 @@
       cursor: pointer;
       transition: var(--transition);
       color: var(--accent);
+      font-family: 'Tajawal', sans-serif;
     }
     .add-to-cart:hover {
       background: var(--accent);
@@ -289,7 +289,7 @@
     .badge {
       position: absolute;
       top: 16px;
-      left: 16px;
+      right: 16px;
       background: var(--accent);
       color: white;
       font-size: 0.7rem;
@@ -321,15 +321,20 @@
       color: #fbbf24;
       margin-bottom: 1rem;
       letter-spacing: 2px;
+      display: flex;
+      justify-content: center;
+      gap: 0.2rem;
     }
     .testimonial-text {
-      font-size: 0.95rem;
+      font-size: 1rem;
       margin-bottom: 1.2rem;
-      line-height: 1.5;
+      line-height: 1.6;
+      text-align: center;
     }
     .author {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 0.8rem;
     }
     .author-avatar {
@@ -356,7 +361,7 @@
       gap: 2rem;
     }
     .footer-col h4 {
-      font-weight: 600;
+      font-weight: 800;
       margin-bottom: 1rem;
     }
     .footer-col a {
@@ -378,14 +383,13 @@
     .copyright {
       text-align: center;
       padding-top: 2rem;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       color: var(--text-secondary);
     }
 
-    /* Responsive */
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; text-align: center; }
-      h1 { font-size: 2.8rem; }
+      h1 { font-size: 2.5rem; }
       .navbar { flex-direction: column; }
       .nav-links { justify-content: center; flex-wrap: wrap; gap: 1.2rem; }
     }
@@ -395,7 +399,6 @@
       .section { padding: 3rem 0; }
     }
 
-    /* Toast */
     .toast {
       position: fixed;
       bottom: 25px;
@@ -411,7 +414,7 @@
       transition: opacity 0.2s;
       pointer-events: none;
       backdrop-filter: blur(8px);
-      font-size: 0.9rem;
+      font-family: 'Tajawal', sans-serif;
     }
   </style>
 </head>
@@ -420,16 +423,16 @@
 <div class="header">
   <div class="container">
     <div class="navbar">
-      <div class="logo"><i class="fas fa-ice-cream"></i> Frost</div>
+      <div class="logo"><i class="fas fa-ice-cream"></i> فروست</div>
       <div class="nav-links">
-        <a href="#">Flavors</a>
-        <a href="#">Offers</a>
-        <a href="#">Journal</a>
+        <a href="#">النكهات</a>
+        <a href="#">عروض</a>
+        <a href="#">المدونة</a>
         <div class="cart-icon" id="cartIcon">
           <i class="fas fa-bag-shopping"></i>
           <span class="cart-count" id="cartCount">0</span>
         </div>
-        <button class="btn btn-primary" id="orderNavBtn" style="padding: 0.6rem 1.4rem;">Order <i class="fas fa-arrow-right"></i></button>
+        <button class="btn btn-primary" id="orderNavBtn" style="padding: 0.6rem 1.4rem;">اطلب الآن <i class="fas fa-arrow-left"></i></button>
       </div>
     </div>
   </div>
@@ -439,13 +442,13 @@
   <div class="container">
     <div class="hero" data-aos="fade-up">
       <div class="hero-content">
-        <div class="hero-badge"><i class="fas fa-award"></i> Artisanal craftsmanship</div>
-        <h1>Velvety euphoria<br>in every scoop</h1>
-        <p style="color: var(--text-secondary); margin: 1rem 0 1.8rem;">Hand-crafted with organic cream and ethereal infusions. Each bite is a sensory journey — smooth, bold, unforgettable.</p>
-        <button class="btn btn-primary" id="heroOrderBtn"><i class="fas fa-cart-shopping"></i> Discover flavors</button>
+        <div class="hero-badge"><i class="fas fa-award"></i> حرفية طبيعية</div>
+        <h1>لذة تذوب.. في كل لحظة</h1>
+        <p style="color: var(--text-secondary); margin: 1rem 0 1.8rem;">نقدم لك آيس كريم طبيعي بنسبة 100%، صُنع ببطء لضمان قوام غني وطعم ساحر يأخذك إلى عالم آخر.</p>
+        <button class="btn btn-primary" id="heroOrderBtn"><i class="fas fa-cart-shopping"></i> تصفح النكهات</button>
       </div>
       <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=600&h=600&fit=crop" alt="Gourmet ice cream cone" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=600&h=600&fit=crop" alt="آيس كريم فاخر" loading="lazy">
       </div>
     </div>
   </div>
@@ -454,8 +457,8 @@
   <section class="section" id="products">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
-        <h2>Signature collection</h2>
-        <p class="section-subhead">Artisanal flavors, meticulously balanced</p>
+        <h2>مجموعتنا المميزة</h2>
+        <p class="section-subhead">نكهات حرفية بتوازن مثالي</p>
       </div>
       <div class="products-grid" id="productsGrid"></div>
     </div>
@@ -465,8 +468,8 @@
   <section class="section" style="background: rgba(249,115,78,0.03); margin: 0; border-radius: 2rem;">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
-        <h2>Weekly specials</h2>
-        <p class="section-subhead">Limited-time nectar drops</p>
+        <h2>نكهات الأسبوع الخاصة</h2>
+        <p class="section-subhead">لفترة محدودة .. رحيق استثنائي</p>
       </div>
       <div class="products-grid" id="offersGrid"></div>
     </div>
@@ -476,19 +479,19 @@
   <section class="section">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
-        <h2>Fan favorites</h2>
-        <p class="section-subhead">Beloved by our community</p>
+        <h2>الأكثر مبيعاً</h2>
+        <p class="section-subhead">المفضلة لدى مجتمعنا</p>
       </div>
       <div class="products-grid" id="bestsellersGrid"></div>
     </div>
   </section>
 
-  <!-- Sweet Stories -->
+  <!-- Testimonials -->
   <section class="section">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
-        <h2>Sweet stories</h2>
-        <p class="section-subhead">Whispers from our patrons</p>
+        <h2>قالوا عن فروست</h2>
+        <p class="section-subhead">آراء عشاق الآيس كريم</p>
       </div>
       <div class="testimonials-grid" id="testimonialsGrid"></div>
     </div>
@@ -498,12 +501,34 @@
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-col"><h4>Frost</h4><p style="color:#94a3b8;">Scooping joy since 2024</p></div>
-      <div class="footer-col"><h4>Explore</h4><a href="#">Our story</a><a href="#">Flavors</a><a href="#">Locations</a></div>
-      <div class="footer-col"><h4>Support</h4><a href="#">FAQ</a><a href="#">Contact</a><a href="#">Shipping</a></div>
-      <div class="footer-col"><h4>Connect</h4><div class="social-icons"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-tiktok"></i></a></div></div>
+      <div class="footer-col">
+        <h4>فروست</h4>
+        <p style="color:#94a3b8;">آيس كريم فاخر بروح عصرية</p>
+      </div>
+      <div class="footer-col">
+        <h4>اكتشف</h4>
+        <a href="#">قصتنا</a>
+        <a href="#">النكهات</a>
+        <a href="#">الفروع</a>
+      </div>
+      <div class="footer-col">
+        <h4>الدعم</h4>
+        <a href="#">الأسئلة الشائعة</a>
+        <a href="#">اتصل بنا</a>
+        <a href="#">الشحن</a>
+      </div>
+      <div class="footer-col">
+        <h4>تواصل</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
     </div>
-    <div class="copyright"><i class="far fa-copyright"></i> 2026 Frost — Premium ice cream studio</div>
+    <div class="copyright">
+      <i class="far fa-copyright"></i> 2026 — استوديو فروست للمثلجات. جميع الحقوق محفوظة
+    </div>
   </div>
 </footer>
 <div id="toastMessage" class="toast"></div>
@@ -512,16 +537,16 @@
 <script>
   AOS.init({ duration: 800, once: true, offset: 50 });
 
-  // ---------- PRODUCT DATA (premium copywriting) ----------
+  // بيانات المنتجات (بالعربية، أوصاف شهية)
   const allProducts = [
-    { id: 1, name: "Burnt Caramel Ember", desc: "Deep caramelized sugar, sea salt, velvety finish", price: 6.49, image: "https://images.unsplash.com/photo-1551103782-3ab3a4c7da8d?w=300&h=300&fit=crop", bestseller: true, offer: false },
-    { id: 2, name: "Madagascar Vanilla Orchid", desc: "Pure vanilla bean infusion, ethereal smoothness", price: 5.99, image: "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=300&h=300&fit=crop", bestseller: true, offer: false },
-    { id: 3, name: "Salted Pistachio Silk", desc: "Roasted pistachio with flaky salt, creamy texture", price: 6.99, image: "https://images.unsplash.com/photo-1622630998478-21f0e1b1b35b?w=300&h=300&fit=crop", bestseller: false, offer: true, offerPrice: 5.49 },
-    { id: 4, name: "Double Chocolate Eclipse", desc: "Dark chocolate & fudge swirl, intense cacao", price: 6.29, image: "https://images.unsplash.com/photo-1578908878513-2b6f3f3b2e6d?w=300&h=300&fit=crop", bestseller: true, offer: false },
-    { id: 5, name: "Mango Passion Nectar", desc: "Tropical mango & passionfruit, sun-kissed bliss", price: 5.79, image: "https://images.unsplash.com/photo-1587313427101-2a8a6c0cf9b9?w=300&h=300&fit=crop", bestseller: false, offer: true, offerPrice: 4.49 },
-    { id: 6, name: "Strawberry Velvet Dream", desc: "Fresh strawberry & cream, silky and lush", price: 5.99, image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=300&fit=crop", bestseller: false, offer: false },
-    { id: 7, name: "Lavender Honey Mist", desc: "Calming lavender & wild honey, floral serenity", price: 7.29, image: "https://images.unsplash.com/photo-1584278860047-22db0e3c4e4e?w=300&h=300&fit=crop", bestseller: true, offer: false },
-    { id: 8, name: "Espresso Buzz Potion", desc: "Coffee kick with dark chocolate chips, bold aroma", price: 6.79, image: "https://images.unsplash.com/photo-1559583985-c80d8ad9b29f?w=300&h=300&fit=crop", bestseller: false, offer: true, offerPrice: 5.29 }
+    { id: 1, name: "كراميل مملح", desc: "مزيج مذهل بين حلاوة الكراميل ولمسة الملح الخفيفة.", price: 6.49, image: "https://images.unsplash.com/photo-1551103782-3ab3a4c7da8d?w=300&h=300&fit=crop", bestseller: true, offer: false },
+    { id: 2, name: "فانيليا مدغشقر", desc: "طعم الفانيليا الأصلي والفاخر بقوام كريمي لا يقاوم.", price: 5.99, image: "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=300&h=300&fit=crop", bestseller: true, offer: false },
+    { id: 3, name: "فستق محمص", desc: "نكهة الفستق الغنية مع قطع مقرمشة في كل قضمة.", price: 6.99, image: "https://images.unsplash.com/photo-1622630998478-21f0e1b1b35b?w=300&h=300&fit=crop", bestseller: false, offer: true, offerPrice: 5.49 },
+    { id: 4, name: "شوكولاتة داكنة", desc: "تجربة مكثفة لعشاق الشوكولاتة الحقيقية والقوية.", price: 6.29, image: "https://images.unsplash.com/photo-1578908878513-2b6f3f3b2e6d?w=300&h=300&fit=crop", bestseller: true, offer: false },
+    { id: 5, name: "مانجو طبيعي", desc: "انتعاش الفاكهة الطازجة في ملعقة واحدة.", price: 5.79, image: "https://images.unsplash.com/photo-1587313427101-2a8a6c0cf9b9?w=300&h=300&fit=crop", bestseller: false, offer: true, offerPrice: 4.49 },
+    { id: 6, name: "فراولة مخملية", desc: "فراولة طازجة مع كريمة ناعمة، سحر في كل قضمة.", price: 5.99, image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=300&fit=crop", bestseller: false, offer: false },
+    { id: 7, name: "لافندر بعسل", desc: "نسمة لافندر هادئة مع عسل بري، صفاء زهري.", price: 7.29, image: "https://images.unsplash.com/photo-1584278860047-22db0e3c4e4e?w=300&h=300&fit=crop", bestseller: true, offer: false },
+    { id: 8, name: "إسبرسو فيوجن", desc: "دفعة قهوة مع رقائق شوكولاتة داكنة، عبق جريء.", price: 6.79, image: "https://images.unsplash.com/photo-1559583985-c80d8ad9b29f?w=300&h=300&fit=crop", bestseller: false, offer: true, offerPrice: 5.29 }
   ];
 
   const offers = allProducts.filter(p => p.offer === true);
@@ -548,23 +573,18 @@
     if (existing) existing.quantity++;
     else cart.push({ ...product, quantity: 1 });
     updateCartUI();
-    showToast(`🍨 ${product.name} added to your basket`);
+    showToast(`🍨 تم إضافة ${product.name} إلى سلة التسوق`);
   }
 
-  // Helper to render stars with correct FontAwesome classes (solid/regular)
   function renderStars(rating) {
     let starsHtml = '';
     for (let i = 0; i < 5; i++) {
-      if (i < rating) {
-        starsHtml += '<i class="fas fa-star"></i>';
-      } else {
-        starsHtml += '<i class="far fa-star"></i>';
-      }
+      if (i < rating) starsHtml += '<i class="fas fa-star"></i>';
+      else starsHtml += '<i class="far fa-star"></i>';
     }
     return starsHtml;
   }
 
-  // Event delegation for add-to-cart buttons
   function setupEventDelegation(containerId) {
     const container = document.getElementById(containerId);
     if (!container) return;
@@ -589,9 +609,9 @@
       let badgeHtml = '';
       if (showOfferBadge && prod.offer) {
         const discount = Math.round((1 - prod.offerPrice/prod.price)*100);
-        badgeHtml = `<div class="badge">🔥 ${discount}% OFF</div>`;
+        badgeHtml = `<div class="badge">🔥 خصم ${discount}%</div>`;
       } else if (prod.bestseller && !showOfferBadge) {
-        badgeHtml = `<div class="badge">⭐ bestseller</div>`;
+        badgeHtml = `<div class="badge">⭐ الأكثر مبيعاً</div>`;
       }
       const card = document.createElement('div');
       card.className = 'product-card';
@@ -602,9 +622,9 @@
         <div class="product-info">
           <div class="product-title">${prod.name}</div>
           <div class="product-desc">${prod.desc}</div>
-          <div class="product-price">$${finalPrice.toFixed(2)}</div>
+          <div class="product-price">${finalPrice.toFixed(2)} ريال</div>
           <button class="add-to-cart" data-id="${prod.id}" data-name="${prod.name}" data-price="${finalPrice}" data-img="${prod.image}">
-            <i class="fas fa-plus-circle"></i> Add to cart
+            <i class="fas fa-plus-circle"></i> أضف للسلة
           </button>
         </div>
       `;
@@ -615,10 +635,10 @@
   }
 
   const testimonials = [
-    { name: "Olivia Chen", text: "The texture is unbelievably creamy. Best ice cream I've ever had.", rating: 5, icon: "fa-user" },
-    { name: "Marcus Sterling", text: "Burnt caramel is a masterpiece. Premium packaging and fast delivery.", rating: 5, icon: "fa-user-astronaut" },
-    { name: "Sophia Laurent", text: "Real ingredients, not too sweet. The mango passion special is divine.", rating: 4, icon: "fa-user" },
-    { name: "James Kim", text: "Vegan options are incredible. The lavender honey is out of this world.", rating: 5, icon: "fa-user" }
+    { name: "نورة الأحمد", text: "القوام ناعم جداً والنكهة واضحة.. فعلاً شغل محترفين!", rating: 5, icon: "fa-user" },
+    { name: "عمر الحارثي", text: "أفضل آيس كريم طبيعي جربته في حياتي، يستحق كل ريال.", rating: 5, icon: "fa-user-astronaut" },
+    { name: "ليلى الشمري", text: "المانجو الطبيعي كان استثنائياً .. طعم الفاكهة حقيقي.", rating: 4, icon: "fa-user" },
+    { name: "سعود المالكي", text: "الشوكولاتة الداكنة غنية ولذيذة، كريمي ومثالي.", rating: 5, icon: "fa-user" }
   ];
 
   function renderTestimonials() {
@@ -645,13 +665,12 @@
   renderProducts('bestsellersGrid', bestsellers, false);
   renderTestimonials();
 
-  // Smooth scroll to products
   const productsSection = document.getElementById('products');
   document.getElementById('orderNavBtn').addEventListener('click', () => productsSection.scrollIntoView({ behavior: 'smooth' }));
   document.getElementById('heroOrderBtn').addEventListener('click', () => productsSection.scrollIntoView({ behavior: 'smooth' }));
   document.getElementById('cartIcon').addEventListener('click', () => {
-    if (cart.length === 0) showToast("Your cart is empty — add some delicious scoops");
-    else showToast(`Cart: ${cart.reduce((s,i)=>s+i.quantity,0)} item(s). Ready to checkout.`);
+    if (cart.length === 0) showToast("سلة التسوق فارغة — أضف بعض النكهات اللذيذة");
+    else showToast(`السلة تحتوي على ${cart.reduce((s,i)=>s+i.quantity,0)} منتج(ات). جاهز للإتمام.`);
   });
 </script>
 </body>
