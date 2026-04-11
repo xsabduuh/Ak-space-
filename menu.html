@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="rtl">
 
 <head>
   <!-- Basic -->
@@ -13,7 +13,7 @@
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
 
-  <title> Feane </title>
+  <title> فيان | القائمة </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -30,13 +30,42 @@
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
 
+  <style>
+    /* تعديلات بسيطة لدعم الاتجاه RTL */
+    body {
+      text-align: right;
+    }
+    .navbar-nav {
+      padding-right: 0;
+    }
+    .navbar-nav .nav-link {
+      text-align: right;
+    }
+    .footer_social a {
+      margin-left: 5px;
+      margin-right: 0;
+    }
+    .contact_link_box a i {
+      margin-left: 5px;
+      margin-right: 0;
+    }
+    .filters_menu {
+      padding-right: 0;
+    }
+    .filters_menu li {
+      cursor: pointer;
+    }
+    .options a svg {
+      margin-right: 5px;
+    }
+  </style>
 </head>
 
 <body class="sub_page">
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/hero-bg.jpg" alt="">
+      <img src="images/hero-bg.jpg" alt="خلفية">
     </div>
     <!-- header section strats -->
     <header class="header_section">
@@ -44,27 +73,27 @@
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.html">
             <span>
-              Feane
+              فيان
             </span>
           </a>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="تبديل القائمة">
             <span class=""> </span>
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item">
-                <a class="nav-link" href="index.html">Home </a>
+                <a class="nav-link" href="index.html">الرئيسية </a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="menu.html">Menu <span class="sr-only">(current)</span> </a>
+                <a class="nav-link" href="menu.html">القائمة <span class="sr-only">(الحالية)</span> </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="about.html">من نحن</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="book.html">Book Table</a>
+                <a class="nav-link" href="book.html">احجز طاولة</a>
               </li>
             </ul>
             <div class="user_option">
@@ -131,7 +160,7 @@
                 </button>
               </form>
               <a href="" class="order_online">
-                Order Online
+                اطلب أونلاين
               </a>
             </div>
           </div>
@@ -147,16 +176,16 @@
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          Our Menu
+          قائمتنا
         </h2>
       </div>
 
       <ul class="filters_menu">
-        <li class="active" data-filter="*">All</li>
-        <li data-filter=".burger">Burger</li>
-        <li data-filter=".pizza">Pizza</li>
-        <li data-filter=".pasta">Pasta</li>
-        <li data-filter=".fries">Fries</li>
+        <li class="active" data-filter="*">الكل</li>
+        <li data-filter=".burger">برجر</li>
+        <li data-filter=".pizza">بيتزا</li>
+        <li data-filter=".pasta">باستا</li>
+        <li data-filter=".fries">بطاطس مقلية</li>
       </ul>
 
       <div class="filters-content">
@@ -165,20 +194,20 @@
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/f1.png" alt="">
+                  <img src="images/f1.png" alt="بيتزا لذيذة">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Pizza
+                    بيتزا لذيذة
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    فينيام ديبيتيس كواتيرات أوفيسيس كوازي كوبيديتيت كوو، كويسكوام فيليت، ماجنام فولوبتاتيم ريبيليندوس سيد إياكيو
                   </p>
                   <div class="options">
                     <h6>
                       $20
                     </h6>
-                    <a href="">
+                    <a href="#">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -241,20 +270,20 @@
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/f2.png" alt="">
+                  <img src="images/f2.png" alt="برجر لذيذ">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Burger
+                    برجر لذيذ
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    فينيام ديبيتيس كواتيرات أوفيسيس كوازي كوبيديتيت كوو، كويسكوام فيليت، ماجنام فولوبتاتيم ريبيليندوس سيد إياكيو
                   </p>
                   <div class="options">
                     <h6>
                       $15
                     </h6>
-                    <a href="">
+                    <a href="#">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -317,20 +346,20 @@
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/f3.png" alt="">
+                  <img src="images/f3.png" alt="بيتزا لذيذة">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Pizza
+                    بيتزا لذيذة
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    فينيام ديبيتيس كواتيرات أوفيسيس كوازي كوبيديتيت كوو، كويسكوام فيليت، ماجنام فولوبتاتيم ريبيليندوس سيد إياكيو
                   </p>
                   <div class="options">
                     <h6>
                       $17
                     </h6>
-                    <a href="">
+                    <a href="#">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -393,20 +422,20 @@
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/f4.png" alt="">
+                  <img src="images/f4.png" alt="باستا لذيذة">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Pasta
+                    باستا لذيذة
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    فينيام ديبيتيس كواتيرات أوفيسيس كوازي كوبيديتيت كوو، كويسكوام فيليت، ماجنام فولوبتاتيم ريبيليندوس سيد إياكيو
                   </p>
                   <div class="options">
                     <h6>
                       $18
                     </h6>
-                    <a href="">
+                    <a href="#">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -469,20 +498,20 @@
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/f5.png" alt="">
+                  <img src="images/f5.png" alt="بطاطس مقلية">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    French Fries
+                    بطاطس مقلية
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    فينيام ديبيتيس كواتيرات أوفيسيس كوازي كوبيديتيت كوو، كويسكوام فيليت، ماجنام فولوبتاتيم ريبيليندوس سيد إياكيو
                   </p>
                   <div class="options">
                     <h6>
                       $10
                     </h6>
-                    <a href="">
+                    <a href="#">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -545,20 +574,20 @@
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/f6.png" alt="">
+                  <img src="images/f6.png" alt="بيتزا لذيذة">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Pizza
+                    بيتزا لذيذة
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    فينيام ديبيتيس كواتيرات أوفيسيس كوازي كوبيديتيت كوو، كويسكوام فيليت، ماجنام فولوبتاتيم ريبيليندوس سيد إياكيو
                   </p>
                   <div class="options">
                     <h6>
                       $15
                     </h6>
-                    <a href="">
+                    <a href="#">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -621,20 +650,20 @@
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/f7.png" alt="">
+                  <img src="images/f7.png" alt="برجر شهي">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Tasty Burger
+                    برجر شهي
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    فينيام ديبيتيس كواتيرات أوفيسيس كوازي كوبيديتيت كوو، كويسكوام فيليت، ماجنام فولوبتاتيم ريبيليندوس سيد إياكيو
                   </p>
                   <div class="options">
                     <h6>
                       $12
                     </h6>
-                    <a href="">
+                    <a href="#">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -697,20 +726,20 @@
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/f8.png" alt="">
+                  <img src="images/f8.png" alt="برجر شهي">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Tasty Burger
+                    برجر شهي
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    فينيام ديبيتيس كواتيرات أوفيسيس كوازي كوبيديتيت كوو، كويسكوام فيليت، ماجنام فولوبتاتيم ريبيليندوس سيد إياكيو
                   </p>
                   <div class="options">
                     <h6>
                       $14
                     </h6>
-                    <a href="">
+                    <a href="#">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -773,20 +802,20 @@
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/f9.png" alt="">
+                  <img src="images/f9.png" alt="باستا لذيذة">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Pasta
+                    باستا لذيذة
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    فينيام ديبيتيس كواتيرات أوفيسيس كوازي كوبيديتيت كوو، كويسكوام فيليت، ماجنام فولوبتاتيم ريبيليندوس سيد إياكيو
                   </p>
                   <div class="options">
                     <h6>
                       $10
                     </h6>
-                    <a href="">
+                    <a href="#">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -848,8 +877,8 @@
         </div>
       </div>
       <div class="btn-box">
-        <a href="">
-          View More
+        <a href="#">
+          عرض المزيد
         </a>
       </div>
     </div>
@@ -864,22 +893,22 @@
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
             <h4>
-              Contact Us
+              اتصل بنا
             </h4>
             <div class="contact_link_box">
-              <a href="">
+              <a href="#">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
-                  Location
+                  الموقع
                 </span>
               </a>
-              <a href="">
+              <a href="#">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+                  اتصل +01 1234567890
                 </span>
               </a>
-              <a href="">
+              <a href="#">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
                   demo@gmail.com
@@ -890,26 +919,26 @@
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="" class="footer-logo">
-              Feane
+            <a href="#" class="footer-logo">
+              فيان
             </a>
             <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+              ضروري، مما يجعله أول مولد حقيقي على الإنترنت. يستخدم قاموساً يضم أكثر من 200 كلمة لاتينية، بالإضافة إلى
             </p>
             <div class="footer_social">
-              <a href="">
+              <a href="#">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
               </a>
-              <a href="">
+              <a href="#">
                 <i class="fa fa-twitter" aria-hidden="true"></i>
               </a>
-              <a href="">
+              <a href="#">
                 <i class="fa fa-linkedin" aria-hidden="true"></i>
               </a>
-              <a href="">
+              <a href="#">
                 <i class="fa fa-instagram" aria-hidden="true"></i>
               </a>
-              <a href="">
+              <a href="#">
                 <i class="fa fa-pinterest" aria-hidden="true"></i>
               </a>
             </div>
@@ -917,21 +946,21 @@
         </div>
         <div class="col-md-4 footer-col">
           <h4>
-            Opening Hours
+            ساعات العمل
           </h4>
           <p>
-            Everyday
+            يومياً
           </p>
           <p>
-            10.00 Am -10.00 Pm
+            10:00 ص - 10:00 م
           </p>
         </div>
       </div>
       <div class="footer-info">
         <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Free Html Templates</a><br><br>
-          &copy; <span id="displayYear"></span> Distributed By
+          &copy; <span id="displayYear"></span> جميع الحقوق محفوظة لـ
+          <a href="https://html.design/">قوالب HTML المجانية</a><br><br>
+          &copy; <span id="displayYear"></span> توزيع بواسطة
           <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
         </p>
       </div>
