@@ -1,54 +1,33 @@
 <!DOCTYPE html>
+
 <html lang="ar" dir="rtl">
 <head>
-  <!-- Basic -->
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <link rel="shortcut icon" href="images/favicon.png" type="" />
+  <!-- FIX: type صحيح للفافيكون -->
+  <link rel="shortcut icon" href="images/favicon.png" type="image/png" />
 
-  <title> فيان | مطعم </title>
+  <title>فيان | من نحن</title>
 
-  <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-
-  <!--owl slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-  <!-- nice select  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
-  <!-- font awesome style -->
   <link href="css/font-awesome.min.css" rel="stylesheet" />
-
-  <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
-  
+
   <style>
-    /* تعديلات بسيطة لدعم الاتجاه RTL */
-    body {
-      text-align: right;
-    }
-    .navbar-nav {
-      padding-right: 0;
-    }
-    .navbar-nav .nav-link {
-      text-align: right;
-    }
-    .footer_social a {
-      margin-left: 5px;
-      margin-right: 0;
-    }
-    .contact_link_box a i {
-      margin-left: 5px;
-      margin-right: 0;
-    }
+    body { text-align: right; }
+    .navbar-nav { padding-right: 0; }
+    .navbar-nav .nav-link { text-align: right; }
+    .footer_social a { margin-left: 5px; margin-right: 0; }
+    .contact_link_box a i { margin-left: 5px; margin-right: 0; }
   </style>
+
 </head>
 
 <body class="sub_page">
@@ -57,115 +36,74 @@
     <div class="bg-box">
       <img src="images/hero-bg.jpg" alt="خلفية">
     </div>
-    <!-- header section strats -->
-    <header class="header_section">
-      <div class="container">
-        <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
-            <span>
-              فيان
-            </span>
+
+```
+<!-- قسم الرأس -->
+<header class="header_section">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg custom_nav-container">
+      <a class="navbar-brand" href="index.html">
+        <span>فيان</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="تبديل القائمة">
+        <span></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">الرئيسية</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="menu.html">القائمة</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="about.html">من نحن <span class="sr-only">(الحالية)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="book.html">احجز طاولة</a>
+          </li>
+        </ul>
+        <div class="user_option">
+          <a href="#" class="user_link">
+            <i class="fa fa-user" aria-hidden="true"></i>
           </a>
-
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="تبديل القائمة">
-            <span class=""> </span>
+          <a class="cart_link" href="#">
+            <!-- FIX: إزالة id مكرر من SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029" xml:space="preserve">
+              <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/>
+              <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                C457.728,97.71,450.56,86.958,439.296,84.91z"/>
+              <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"/>
+            </svg>
+          </a>
+          <!-- FIX: استبدال form بـ button لتجنب reload الصفحة -->
+          <button class="btn my-2 my-sm-0 nav_search-btn" type="button">
+            <i class="fa fa-search" aria-hidden="true"></i>
           </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav  mx-auto ">
-              <li class="nav-item ">
-                <a class="nav-link" href="index.html">الرئيسية </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="menu.html">القائمة</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="about.html">من نحن <span class="sr-only">(الحالية)</span> </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="book.html">احجز طاولة</a>
-              </li>
-            </ul>
-            <div class="user_option">
-              <a href="" class="user_link">
-                <i class="fa fa-user" aria-hidden="true"></i>
-              </a>
-              <a class="cart_link" href="#">
-                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                  <g>
-                    <g>
-                      <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                   c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                    </g>
-                  </g>
-                  <g>
-                    <g>
-                      <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                   C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                   c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                   C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                    </g>
-                  </g>
-                  <g>
-                    <g>
-                      <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                   c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                    </g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                </svg>
-              </a>
-              <form class="form-inline">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-              </form>
-              <a href="" class="order_online">
-                اطلب أونلاين
-              </a>
-            </div>
-          </div>
-        </nav>
+          <a href="#" class="order_online">اطلب أونلاين</a>
+        </div>
       </div>
-    </header>
-    <!-- end header section -->
+    </nav>
+  </div>
+</header>
+<!-- نهاية الرأس -->
+```
+
   </div>
 
-  <!-- about section -->
-  <section class="about_section layout_padding">
-    <div class="container  ">
+  <!-- قسم من نحن -->
 
+  <section class="about_section layout_padding">
+    <div class="container">
       <div class="row">
-        <div class="col-md-6 ">
+        <div class="col-md-6">
           <div class="img-box">
             <img src="images/about-img.png" alt="عن فيان">
           </div>
@@ -173,126 +111,100 @@
         <div class="col-md-6">
           <div class="detail-box">
             <div class="heading_container">
-              <h2>
-                نحن فيان
-              </h2>
+              <h2>نحن فيان</h2>
             </div>
             <p>
-              هناك العديد من الاختلافات لنصوص لوريم إيبسوم المتاحة، لكن الغالبية تعرضت للتعديل بشكل ما، إما عن طريق الفكاهة أو الكلمات العشوائية التي لا تبدو معقولة بشكل طفيف. إذا كنت ستستخدم مقطعاً من لوريم إيبسوم، يجب أن تتأكد من عدم وجود أي شيء محرج مخفي في وسط النص. كل
+              نحن مطعم "فيان" نقدم لكم أشهى الوجبات السريعة بمكونات طازجة وجودة عالية. هدفنا أن نجعل كل زيارة تجربة ممتعة لا تُنسى، مع خدمة سريعة ومكان مريح يجمع العائلة والأصدقاء. نؤمن بأن الطعام الجيد يصنع اللحظات الجميلة.
             </p>
-            <a href="">
-              اقرأ المزيد
-            </a>
+            <a href="#">اقرأ المزيد</a>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- end about section -->
+  <!-- نهاية من نحن -->
 
-  <!-- footer section -->
+  <!-- الفوتر -->
+
   <footer class="footer_section">
     <div class="container">
       <div class="row">
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
-            <h4>
-              اتصل بنا
-            </h4>
+            <h4>اتصل بنا</h4>
             <div class="contact_link_box">
-              <a href="">
+              <a href="#">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <span>
-                  الموقع
-                </span>
+                <span>الموقع</span>
               </a>
-              <a href="">
+              <!-- FIX: إضافة tel: للرابط -->
+              <a href="tel:+011234567890">
                 <i class="fa fa-phone" aria-hidden="true"></i>
-                <span>
-                  اتصل +01 1234567890
-                </span>
+                <span>اتصل: +01 1234567890</span>
               </a>
-              <a href="">
+              <!-- FIX: إضافة mailto: للرابط -->
+              <a href="mailto:demo@gmail.com">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span>
-                  demo@gmail.com
-                </span>
+                <span>demo@gmail.com</span>
               </a>
             </div>
           </div>
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="" class="footer-logo">
-              فيان
-            </a>
+            <a href="#" class="footer-logo">فيان</a>
             <p>
-              ضروري، مما يجعله أول مولد حقيقي على الإنترنت. يستخدم قاموساً يضم أكثر من 200 كلمة لاتينية، بالإضافة إلى
+              مطعم فيان يقدم أشهى الوجبات السريعة بمكونات طازجة ومختارة بعناية، في أجواء مريحة وخدمة لا مثيل لها.
             </p>
             <div class="footer_social">
-              <a href="">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-linkedin" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-pinterest" aria-hidden="true"></i>
-              </a>
+              <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
             </div>
           </div>
         </div>
         <div class="col-md-4 footer-col">
-          <h4>
-            ساعات العمل
-          </h4>
-          <p>
-            يومياً
-          </p>
-          <p>
-            10:00 ص - 10:00 م
-          </p>
+          <h4>ساعات العمل</h4>
+          <p>يومياً</p>
+          <p>10:00 ص - 10:00 م</p>
         </div>
       </div>
       <div class="footer-info">
+        <!-- FIX: إزالة id مكرر واستخدام class بدلاً منه -->
         <p>
-          &copy; <span id="displayYear"></span> جميع الحقوق محفوظة لـ
-          <a href="https://html.design/">قوالب HTML المجانية</a><br><br>
-          &copy; <span id="displayYear"></span> توزيع بواسطة
-          <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+          &copy; <span class="displayYear"></span> جميع الحقوق محفوظة
         </p>
       </div>
     </div>
   </footer>
-  <!-- footer section -->
+  <!-- نهاية الفوتر -->
 
-  <!-- jQery -->
   <script src="js/jquery-3.4.1.min.js"></script>
-  <!-- popper js -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
-  <!-- bootstrap js -->
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
   <script src="js/bootstrap.js"></script>
-  <!-- owl slider -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-  </script>
-  <!-- isotope js -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
   <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
-  <!-- nice select -->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
-  <!-- custom js -->
+
   <script src="js/custom.js"></script>
-  <!-- Google Map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+
+  <script>
+    // FIX: تعبئة السنة بشكل صحيح بدون id مكرر
+    var year = new Date().getFullYear();
+    document.querySelectorAll('.displayYear').forEach(function(el) {
+      el.textContent = year;
+    });
   </script>
-  <!-- End Google Map -->
 
 </body>
-
 </html>
