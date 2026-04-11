@@ -4,8 +4,7 @@ $primary1: #ffbe33;
 $primary2: #222831;
 $textCol: #1f1f1f;
 
-// import fonts -  font-family: 'Open Sans', sans-serif and  font-family: 'Dancing Script', cursive;
-
+// استيراد الخطوط
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap');
 
 @mixin main-font {
@@ -74,6 +73,7 @@ h2 {
 .heading_container {
   display: flex;
   flex-direction: column;
+  // FIX RTL: flex-start يعمل صح مع dir="rtl" تلقائياً
   align-items: flex-start;
 
   h2 {
@@ -115,7 +115,7 @@ a:focus {
   box-shadow: none;
 }
 
-/*header section*/
+/* قسم الهيدر */
 .hero_area {
   position: relative;
   min-height: 100vh;
@@ -156,7 +156,6 @@ a:focus {
       }
     }
   }
-
 }
 
 .header_section {
@@ -182,7 +181,9 @@ a:focus {
   padding: 0;
 
   .navbar-nav {
-    padding-left: 18%;
+    // FIX RTL: padding-left → padding-right
+    padding-right: 18%;
+    padding-left: 0;
 
     .nav-item {
       .nav-link {
@@ -228,10 +229,8 @@ a:focus {
   .user_link {
     color: $white;
 
-
     &:hover {
       color: $primary1;
-
     }
   }
 
@@ -248,7 +247,6 @@ a:focus {
     }
 
     &:hover {
-
       svg {
         fill: $primary1;
       }
@@ -279,7 +277,6 @@ a:focus {
     transition: all 0.3s;
     position: relative;
     border-radius: 5px;
-    transition: all 0.3s;
 
     &::before,
     &::after {
@@ -311,13 +308,12 @@ a:focus {
         top: 0;
       }
     }
-
   }
 }
 
-/*end header section*/
+/* نهاية قسم الهيدر */
 
-/* slider section */
+/* قسم السلايدر */
 .slider_section {
   flex: 1;
   display: flex;
@@ -352,16 +348,13 @@ a:focus {
       @include hero_btn($primary1, $white, 10px, 45px, 45px);
       margin-top: 10px;
     }
-
   }
 
   .img-box {
     img {
       width: 100%;
     }
-
   }
-
 
   .carousel-indicators {
     position: unset;
@@ -385,10 +378,9 @@ a:focus {
   }
 }
 
-// end slider section
+/* نهاية السلايدر */
 
-// offer section
-
+/* قسم العروض */
 .offer_section {
   position: relative;
   padding-top: 45px;
@@ -406,21 +398,23 @@ a:focus {
       width: 175px;
       min-width: 175px;
       height: 175px;
-      margin-right: 15px;
+      // FIX RTL: margin-right → margin-left
+      margin-left: 15px;
+      margin-right: 0;
       position: relative;
-      transition: all .1.5s;
+      // FIX: قيمة transition خاطئة `.1.5s` → `0.15s`
+      transition: all 0.15s;
       border-radius: 100%;
       border: 5px solid $primary1;
       overflow: hidden;
 
       img {
         width: 100%;
-        transition: all .2s;
+        transition: all 0.2s;
       }
     }
 
     .detail-box {
-
       h5 {
         @include second-font();
         font-size: 24px;
@@ -433,11 +427,9 @@ a:focus {
 
         span {
           font-size: 2.5rem;
-          font-weight: bold
+          font-weight: bold;
         }
       }
-
-      p {}
 
       a {
         @include hero_btn($primary1, $white, 10px, 30px, 45px);
@@ -445,7 +437,9 @@ a:focus {
         svg {
           width: 20px;
           height: auto;
-          margin-left: 5px;
+          // FIX RTL: margin-left → margin-right
+          margin-right: 5px;
+          margin-left: 0;
           fill: $white;
         }
       }
@@ -453,21 +447,17 @@ a:focus {
 
     &:hover {
       .img-box {
-
         img {
           transform: scale(1.1);
         }
       }
     }
   }
-
 }
 
-// end offer section
+/* نهاية العروض */
 
-
-// food section
-
+/* قسم الطعام */
 .food_section {
 
   .filters_menu {
@@ -494,10 +484,9 @@ a:focus {
     position: relative;
     margin-top: 25px;
     background-color: $white;
-    border-radius: 10px;
-    color: $white;
     border-radius: 15px;
     overflow: hidden;
+    color: $white;
     background: linear-gradient(to bottom, #f1f2f3 25px, $primary2 25px);
 
     .img-box {
@@ -506,14 +495,15 @@ a:focus {
       justify-content: center;
       align-items: center;
       height: 215px;
-      border-radius: 0 0 0 45px;
+      // FIX RTL: تغيير اتجاه border-radius للتوافق مع RTL
+      border-radius: 0 0 45px 0;
       margin: -1px;
       padding: 25px;
 
       img {
         max-width: 100%;
         max-height: 145px;
-        transition: all .2s;
+        transition: all 0.2s;
       }
     }
 
@@ -574,9 +564,9 @@ a:focus {
   }
 }
 
-// end food section
+/* نهاية الطعام */
 
-// about section
+/* قسم من نحن */
 .about_section {
   background: $primary2;
   color: $white;
@@ -596,7 +586,6 @@ a:focus {
       position: relative;
       z-index: 2;
     }
-
   }
 
   .detail-box {
@@ -611,16 +600,15 @@ a:focus {
   }
 }
 
-// end about section
+/* نهاية من نحن */
 
-// book section
+/* قسم الحجز */
 .book_section {
   position: relative;
 
   .heading_container {
     margin-bottom: 25px;
   }
-
 
   .form_container {
 
@@ -629,19 +617,18 @@ a:focus {
       border: none;
       height: 50px;
       margin-bottom: 25px;
-      padding-left: 25px;
+      // FIX RTL: padding-left → padding-right
+      padding-right: 25px;
+      padding-left: 0;
       border: 1px solid #999;
       outline: none;
       color: $black;
       border-radius: 5px;
-      outline: none;
       box-shadow: none;
 
       &::placeholder {
         color: #222222;
       }
-
-
     }
 
     .nice-select .current {
@@ -668,14 +655,11 @@ a:focus {
       width: 100%;
     }
   }
-
 }
 
-// end book section
+/* نهاية الحجز */
 
-
-/* client section start */
-
+/* قسم آراء العملاء */
 .client_section {
   .heading_container {
     margin-bottom: 30px;
@@ -692,7 +676,6 @@ a:focus {
       justify-content: center;
       align-items: center;
       width: 115px;
-      position: relative;
       margin-top: 30px;
 
       img {
@@ -726,9 +709,8 @@ a:focus {
       }
 
       p {
-        margin-bottom: 0;
-        font-size: 15px;
         margin-bottom: 10px;
+        font-size: 15px;
       }
     }
   }
@@ -756,14 +738,13 @@ a:focus {
   }
 }
 
-/* client section end */
+/* نهاية آراء العملاء */
 
-// contact section
+/* قسم التواصل */
 .contact_section {
   .heading_container {
     margin-bottom: 45px;
   }
-
 
   .form_container {
     .form-group {
@@ -774,7 +755,9 @@ a:focus {
       width: 100%;
       border: none;
       height: 50px;
-      padding-left: 25px;
+      // FIX RTL: padding-left → padding-right
+      padding-right: 25px;
+      padding-left: 0;
       background-color: transparent;
       border: 1px solid #ccc;
       outline: none;
@@ -803,14 +786,11 @@ a:focus {
       @include hero_btn($primary1, $white, 10px, 55px, 0px);
     }
   }
-
-
 }
 
-// end contact section
+/* نهاية التواصل */
 
-/* footer section*/
-
+/* قسم الفوتر */
 .footer_section {
   background-color: $primary2;
   color: $white;
@@ -837,7 +817,6 @@ a:focus {
   }
 
   .footer_contact {
-
     .contact_link_box {
       display: flex;
       flex-direction: column;
@@ -847,7 +826,9 @@ a:focus {
         color: $white;
 
         i {
-          margin-right: 5px;
+          // FIX RTL: margin-right → margin-left
+          margin-left: 5px;
+          margin-right: 0;
         }
 
         &:hover {
@@ -880,7 +861,6 @@ a:focus {
       height: 30px;
       border-radius: 100%;
       background-color: $white;
-      border-radius: 100%;
       margin: 0 2.5px;
       font-size: 18px;
 
@@ -889,8 +869,6 @@ a:focus {
       }
     }
   }
-
-
 
   .footer-info {
     text-align: center;
@@ -907,4 +885,4 @@ a:focus {
   }
 }
 
-// end footer section
+/* نهاية الفوتر */
