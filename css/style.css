@@ -1319,7 +1319,6 @@ img {
     right: 50%;
     transform: translateX(50%);
   }
-}
 
 @media (max-width: 767px) {
   .hero-content h1  { font-size: 2rem; }
@@ -1345,7 +1344,6 @@ img {
   .footer-contact-item {
     justify-content: center;
   }
-}
 
 /* ===== REVEAL ANIMATION (إصلاح عبد الصمد) ===== */
 .reveal {
@@ -1368,4 +1366,19 @@ img {
     transform: none;
     visibility: visible;
   }
+
+.hero_area {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* لمنع أي عنصر داخلي من عمل سكرول زائد */
 }
+
+.bg-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block; /* يمنع الفراغ الصغير تحت الصور */
+}
+
