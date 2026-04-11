@@ -1346,3 +1346,26 @@ img {
     justify-content: center;
   }
 }
+
+/* ===== REVEAL ANIMATION (إصلاح عبد الصمد) ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  visibility: hidden; /* يمنع التفاعل مع العناصر وهي مخفية */
+}
+
+.reveal.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  visibility: visible !important;
+}
+
+/* حل احتياطي: إذا لم يعمل الجافاسكريبت، الأقسام ستظهر عند التمرير بشكل طبيعي */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+  }
+}
