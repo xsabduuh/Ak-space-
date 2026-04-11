@@ -326,9 +326,9 @@ h2 { font-size: clamp(1.6rem,3vw,2.2rem); font-weight: 700; margin-bottom: .75re
 
 /* ─── Responsive ─── */
 @media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; text-align: center; padding: 3rem 0 4rem; }
+  .hero { grid-template-columns: 1fr; text-align: center; padding: 2.5rem 0 3.5rem; }
   .hero-image { display: flex; justify-content: center; order: -1; }
-  .hero-image img { max-width: 340px; transform: none; }
+  .hero-image img { max-width: 260px; transform: none; border-radius: 1.5rem; }
   .hero-actions { justify-content: center; }
   .hamburger { display: flex; }
   .nav-links {
@@ -338,16 +338,60 @@ h2 { font-size: clamp(1.6rem,3vw,2.2rem); font-weight: 700; margin-bottom: .75re
   .nav-links.open { display: flex; }
   .navbar { flex-wrap: wrap; }
   .navbar-top { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+  .stats-strip { gap: .6rem; padding: 1.2rem 0; }
+  .stat-item { padding: .9rem 1.2rem; min-width: 0; flex: 1; }
+  .stat-number { font-size: 1.4rem; }
 }
+
+/* ── Mobile: بطاقات أفقية ── */
 @media (max-width: 640px) {
-  .container { padding: 0 1.2rem; }
-  .section { padding: 3.5rem 0; }
-  .products-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .product-img img { max-width: 140px; height: 140px; }
-  .whatsapp-fab { width: 50px; height: 50px; font-size: 1.4rem; bottom: 20px; left: 20px; }
-}
-@media (max-width: 400px) {
-  .products-grid { grid-template-columns: 1fr; }
+  .container { padding: 0 1rem; }
+  .section { padding: 2.8rem 0; }
+  h2 { font-size: 1.45rem; }
+
+  /* Grid → عمود واحد */
+  .products-grid { grid-template-columns: 1fr; gap: .85rem; }
+
+  /* البطاقة أفقية */
+  .product-card {
+    display: flex; flex-direction: row;
+    border-radius: 1.4rem; align-items: stretch;
+  }
+  .product-card:hover { transform: translateY(-4px) scale(1); }
+
+  /* صورة على اليمين — ثابتة العرض */
+  .product-img {
+    width: 110px; min-width: 110px;
+    padding: .8rem;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 1.4rem 0 0 1.4rem;
+    background: radial-gradient(circle at 40% 20%, #232a36, #0f131c);
+  }
+  .product-img img {
+    width: 86px; height: 86px; max-width: unset;
+    border-radius: .9rem; object-fit: cover;
+  }
+
+  /* badge يتأقلم */
+  .badge { top: 8px; right: 8px; font-size: .6rem; padding: .2rem .7rem; }
+
+  /* معلومات على اليسار */
+  .product-info {
+    padding: .9rem 1rem;
+    flex: 1;
+    display: flex; flex-direction: column; justify-content: center;
+    gap: .25rem;
+  }
+  .product-title { font-size: 1rem; }
+  .product-desc { font-size: .78rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .product-price { font-size: 1.1rem; margin: .2rem 0; }
+  .add-to-cart { padding: .55rem .8rem; font-size: .82rem; border-radius: 1.5rem; }
+
+  /* Testimonials عمود واحد */
+  .testimonials-grid { grid-template-columns: 1fr; }
+
+  .whatsapp-fab { width: 50px; height: 50px; font-size: 1.4rem; bottom: 18px; left: 18px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 ```
 
