@@ -1,7 +1,18 @@
-@media (max-width: 1300px) {}
+/* ============================================================
+   responsive.css — فين | Media Queries
+   ============================================================ */
 
-@media (max-width: 1120px) {}
+/* ===== 1300px and below (Large screens) ===== */
+@media (max-width: 1300px) {
+  /* Reserved for large screen adjustments */
+}
 
+/* ===== 1120px and below ===== */
+@media (max-width: 1120px) {
+  /* Reserved for medium-large screens */
+}
+
+/* ===== 992px and below (Tablets) ===== */
 @media (max-width: 992px) {
   .hero_area {
     min-height: auto;
@@ -9,14 +20,15 @@
 
   .custom_nav-container .navbar-nav {
     padding-top: 15px;
-padding-left: 0;
+    padding-left: 0;
     align-items: center;
   }
 
-  .user_option{
+  .user_option {
     justify-content: center;
     margin-top: 15px;
   }
+
   .custom_nav-container .navbar-nav .nav-item .nav-link {
     padding: 5px 25px;
     margin: 5px 0;
@@ -38,8 +50,8 @@ padding-left: 0;
   }
 }
 
+/* ===== 767px and below (Mobile) ===== */
 @media (max-width: 767px) {
-
   .about_section .detail-box,
   .book_section .form_container {
     margin-bottom: 45px;
@@ -60,10 +72,17 @@ padding-left: 0;
   }
 }
 
-@media (max-width: 576px) {}
+/* ===== 576px and below (Small mobile) ===== */
+@media (max-width: 576px) {
+  /* Reserved for small mobile devices */
+}
 
-@media (max-width: 480px) {}
+/* ===== 480px and below ===== */
+@media (max-width: 480px) {
+  /* Reserved for extra small devices */
+}
 
+/* ===== 430px and below (Extra small mobile) ===== */
 @media (max-width: 430px) {
   .offer_section .box {
     flex-direction: column;
@@ -76,20 +95,22 @@ padding-left: 0;
   }
 }
 
+/* ===== 376px and below (Very small screens) ===== */
 @media (max-width: 376px) {
   .slider_section .detail-box h1 {
     font-size: 3rem;
   }
 }
 
+/* ===== 1200px and above (Large desktops) ===== */
 @media (min-width: 1200px) {
   .container {
     max-width: 1170px;
   }
 }
 
-
-@media (min-width:576px) and (max-width:991px) {
+/* ===== Range: 576px to 991px (Tablets landscape) ===== */
+@media (min-width: 576px) and (max-width: 991px) {
   .rent_solution_container .col-md-4.col-sm-6 {
     float: left;
     width: 50%;
