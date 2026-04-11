@@ -1,6 +1,5 @@
-<! html>
-<html>
-
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
   <!-- Basic -->
   <meta charset="utf-8" />
@@ -11,9 +10,9 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <link rel="shortcut icon" href="images/favicon.png" type="">
+  <link rel="shortcut icon" href="images/favicon.png" type="" />
 
-  <title> Feane </title>
+  <title> فيان | مطعم </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -29,14 +28,34 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
-
+  
+  <style>
+    /* تعديلات بسيطة لدعم الاتجاه RTL */
+    body {
+      text-align: right;
+    }
+    .navbar-nav {
+      padding-right: 0;
+    }
+    .navbar-nav .nav-link {
+      text-align: right;
+    }
+    .footer_social a {
+      margin-left: 5px;
+      margin-right: 0;
+    }
+    .contact_link_box a i {
+      margin-left: 5px;
+      margin-right: 0;
+    }
+  </style>
 </head>
 
 <body class="sub_page">
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/hero-bg.jpg" alt="">
+      <img src="images/hero-bg.jpg" alt="خلفية">
     </div>
     <!-- header section strats -->
     <header class="header_section">
@@ -44,27 +63,27 @@
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.html">
             <span>
-              Feane
+              فيان
             </span>
           </a>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="تبديل القائمة">
             <span class=""> </span>
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item ">
-                <a class="nav-link" href="index.html">Home </a>
+                <a class="nav-link" href="index.html">الرئيسية </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="menu.html">Menu</a>
+                <a class="nav-link" href="menu.html">القائمة</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="about.html">About <span class="sr-only">(current)</span> </a>
+                <a class="nav-link" href="about.html">من نحن <span class="sr-only">(الحالية)</span> </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="book.html">Book Table</a>
+                <a class="nav-link" href="book.html">احجز طاولة</a>
               </li>
             </ul>
             <div class="user_option">
@@ -131,7 +150,7 @@
                 </button>
               </form>
               <a href="" class="order_online">
-                Order Online
+                اطلب أونلاين
               </a>
             </div>
           </div>
@@ -142,38 +161,33 @@
   </div>
 
   <!-- about section -->
-
   <section class="about_section layout_padding">
     <div class="container  ">
 
       <div class="row">
         <div class="col-md-6 ">
           <div class="img-box">
-            <img src="images/about-img.png" alt="">
+            <img src="images/about-img.png" alt="عن فيان">
           </div>
         </div>
         <div class="col-md-6">
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                We Are Feane
+                نحن فيان
               </h2>
             </div>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-              the middle of text. All
+              هناك العديد من الاختلافات لنصوص لوريم إيبسوم المتاحة، لكن الغالبية تعرضت للتعديل بشكل ما، إما عن طريق الفكاهة أو الكلمات العشوائية التي لا تبدو معقولة بشكل طفيف. إذا كنت ستستخدم مقطعاً من لوريم إيبسوم، يجب أن تتأكد من عدم وجود أي شيء محرج مخفي في وسط النص. كل
             </p>
             <a href="">
-              Read More
+              اقرأ المزيد
             </a>
           </div>
         </div>
       </div>
     </div>
   </section>
-
   <!-- end about section -->
 
   <!-- footer section -->
@@ -183,19 +197,19 @@
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
             <h4>
-              Contact Us
+              اتصل بنا
             </h4>
             <div class="contact_link_box">
               <a href="">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
-                  Location
+                  الموقع
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+                  اتصل +01 1234567890
                 </span>
               </a>
               <a href="">
@@ -210,10 +224,10 @@
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
             <a href="" class="footer-logo">
-              Feane
+              فيان
             </a>
             <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+              ضروري، مما يجعله أول مولد حقيقي على الإنترنت. يستخدم قاموساً يضم أكثر من 200 كلمة لاتينية، بالإضافة إلى
             </p>
             <div class="footer_social">
               <a href="">
@@ -236,21 +250,21 @@
         </div>
         <div class="col-md-4 footer-col">
           <h4>
-            Opening Hours
+            ساعات العمل
           </h4>
           <p>
-            Everyday
+            يومياً
           </p>
           <p>
-            10.00 Am -10.00 Pm
+            10:00 ص - 10:00 م
           </p>
         </div>
       </div>
       <div class="footer-info">
         <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Free Html Templates</a><br><br>
-          &copy; <span id="displayYear"></span> Distributed By
+          &copy; <span id="displayYear"></span> جميع الحقوق محفوظة لـ
+          <a href="https://html.design/">قوالب HTML المجانية</a><br><br>
+          &copy; <span id="displayYear"></span> توزيع بواسطة
           <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
         </p>
       </div>
