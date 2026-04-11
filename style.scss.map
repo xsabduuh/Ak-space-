@@ -4,7 +4,6 @@ $primary1: #ffbe33;
 $primary2: #222831;
 $textCol: #1f1f1f;
 
-// استيراد الخطوط
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap');
 
 @mixin main-font {
@@ -73,7 +72,6 @@ h2 {
 .heading_container {
   display: flex;
   flex-direction: column;
-  // FIX RTL: flex-start يعمل صح مع dir="rtl" تلقائياً
   align-items: flex-start;
 
   h2 {
@@ -181,7 +179,6 @@ a:focus {
   padding: 0;
 
   .navbar-nav {
-    // FIX RTL: padding-left → padding-right
     padding-right: 18%;
     padding-left: 0;
 
@@ -398,11 +395,9 @@ a:focus {
       width: 175px;
       min-width: 175px;
       height: 175px;
-      // FIX RTL: margin-right → margin-left
       margin-left: 15px;
       margin-right: 0;
       position: relative;
-      // FIX: قيمة transition خاطئة `.1.5s` → `0.15s`
       transition: all 0.15s;
       border-radius: 100%;
       border: 5px solid $primary1;
@@ -437,7 +432,6 @@ a:focus {
         svg {
           width: 20px;
           height: auto;
-          // FIX RTL: margin-left → margin-right
           margin-right: 5px;
           margin-left: 0;
           fill: $white;
@@ -495,7 +489,6 @@ a:focus {
       justify-content: center;
       align-items: center;
       height: 215px;
-      // FIX RTL: تغيير اتجاه border-radius للتوافق مع RTL
       border-radius: 0 0 45px 0;
       margin: -1px;
       padding: 25px;
@@ -617,7 +610,6 @@ a:focus {
       border: none;
       height: 50px;
       margin-bottom: 25px;
-      // FIX RTL: padding-left → padding-right
       padding-right: 25px;
       padding-left: 0;
       border: 1px solid #999;
@@ -755,7 +747,6 @@ a:focus {
       width: 100%;
       border: none;
       height: 50px;
-      // FIX RTL: padding-left → padding-right
       padding-right: 25px;
       padding-left: 0;
       background-color: transparent;
@@ -826,7 +817,6 @@ a:focus {
         color: $white;
 
         i {
-          // FIX RTL: margin-right → margin-left
           margin-left: 5px;
           margin-right: 0;
         }
