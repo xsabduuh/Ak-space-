@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Frost | Artisanal Ice Cream</title>
-  <!-- Google Fonts: Poppins + Inter (modern pairing) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 (SVG-based icons, clean) -->
+  <title>Frost | Artisanal Ice Cream — High Fidelity</title>
+  <!-- Google Fonts: Poppins + Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (SVG icons, no emojis) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -15,30 +15,26 @@
       box-sizing: border-box;
     }
 
-    /* ---------- DESIGN SYSTEM ---------- */
+    /* ---------- DESIGN SYSTEM (Premium) ---------- */
     :root {
-      /* Primary brand colors */
-      --bg-primary: #ffffff;
-      --bg-secondary: #fef8f5;
+      --bg-white: #ffffff;
+      --bg-soft: #fef8f5;
       --text-dark: #1f2a3e;
       --text-soft: #4a5568;
-      --accent: #f9734e;        /* vibrant peach CTA */
+      --accent: #f9734e;
       --accent-dark: #e25c2c;
       --accent-light: #fff0e8;
-      --card-shadow: 0 20px 35px -12px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.02);
-      --card-hover-shadow: 0 30px 40px -18px rgba(0,0,0,0.15);
-      --transition-default: all 0.3s cubic-bezier(0.2, 0.95, 0.4, 1);
-      --border-radius-card: 2rem;
-      --border-radius-btn: 3rem;
-      --container-padding: 2rem;
+      --card-shadow: 0 20px 30px -12px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.02);
+      --card-hover-shadow: 0 28px 38px -16px rgba(0,0,0,0.12);
+      --transition: all 0.25s cubic-bezier(0.2, 0.95, 0.4, 1);
+      --border-radius-card: 1.75rem;
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--bg-primary);
+      background: var(--bg-white);
       color: var(--text-dark);
       line-height: 1.5;
-      overflow-x: hidden;
     }
 
     h1, h2, h3, .logo, .btn {
@@ -48,87 +44,71 @@
     .container {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 0 var(--container-padding);
+      padding: 0 2rem;
     }
 
     /* Typography hierarchy */
     h1 {
-      font-size: 3.8rem;
+      font-size: 3.6rem;
       font-weight: 800;
       line-height: 1.2;
       letter-spacing: -0.02em;
       margin-bottom: 1.25rem;
     }
-
     h2 {
       font-size: 2.2rem;
       font-weight: 700;
       letter-spacing: -0.01em;
       margin-bottom: 0.75rem;
     }
-
-    h3 {
-      font-size: 1.35rem;
-      font-weight: 600;
-    }
-
     .section-subhead {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: var(--text-soft);
-      max-width: 600px;
-      margin-bottom: 2.5rem;
+      max-width: 550px;
+      margin: 0 auto;
     }
 
-    /* Buttons system (unified) */
+    /* Buttons unified */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 0.6rem;
-      padding: 0.85rem 2rem;
-      border-radius: var(--border-radius-btn);
+      padding: 0.8rem 2rem;
+      border-radius: 3rem;
       font-weight: 600;
-      font-size: 0.95rem;
-      transition: var(--transition-default);
+      transition: var(--transition);
       cursor: pointer;
       border: none;
-      text-decoration: none;
     }
-
     .btn-primary {
       background: var(--accent);
       color: white;
       box-shadow: 0 6px 14px rgba(249,115,78,0.25);
     }
-
     .btn-primary:hover {
       background: var(--accent-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 22px rgba(249,115,78,0.35);
+      transform: translateY(-2px);
     }
-
     .btn-outline {
       background: transparent;
       border: 1.5px solid var(--text-soft);
       color: var(--text-dark);
     }
-
     .btn-outline:hover {
       border-color: var(--accent);
       background: var(--accent-light);
-      transform: translateY(-2px);
     }
 
-    /* Header / Navbar */
+    /* Header */
     .header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255,255,255,0.92);
+      background: rgba(255,255,255,0.94);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(0,0,0,0.04);
     }
-
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -137,42 +117,34 @@
       flex-wrap: wrap;
       gap: 1rem;
     }
-
     .logo {
       font-size: 1.8rem;
       font-weight: 800;
-      letter-spacing: -0.02em;
       background: linear-gradient(135deg, #1f2a3e, var(--accent));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
-
     .nav-links {
       display: flex;
       align-items: center;
       gap: 2rem;
     }
-
     .nav-links a {
       text-decoration: none;
       font-weight: 500;
       color: var(--text-soft);
-      transition: var(--transition-default);
-      font-size: 0.95rem;
+      transition: var(--transition);
     }
-
     .nav-links a:hover {
       color: var(--accent);
     }
-
     .cart-icon {
       position: relative;
       cursor: pointer;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       color: var(--text-dark);
     }
-
     .cart-count {
       position: absolute;
       top: -8px;
@@ -189,116 +161,92 @@
       justify-content: center;
     }
 
-    /* Hero Section (powerful visual) */
+    /* Hero Section */
     .hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
       align-items: center;
-      padding: 3rem 0 4rem;
+      padding: 3rem 0 3rem;
     }
-
-    .hero-content .hero-badge {
+    .hero-badge {
       display: inline-block;
       background: var(--accent-light);
       color: var(--accent);
       font-size: 0.75rem;
       font-weight: 700;
-      padding: 0.35rem 1rem;
+      padding: 0.3rem 1rem;
       border-radius: 40px;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
-
-    .hero-content p {
-      font-size: 1.1rem;
-      color: var(--text-soft);
-      margin: 1.5rem 0 2rem;
-      max-width: 90%;
-    }
-
     .hero-image img {
       width: 100%;
-      max-width: 520px;
+      max-width: 500px;
       border-radius: 2rem;
       box-shadow: var(--card-shadow);
-      transition: transform 0.4s ease;
     }
 
-    .hero-image img:hover {
-      transform: scale(1.02);
-    }
-
-    /* Section styling */
+    /* Sections – unified spacing (no gaps) */
     .section {
-      padding: 5rem 0;
+      padding: 3.5rem 0;
     }
-
     .section-header {
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
     }
 
-    /* Grid System for products */
+    /* Grid System */
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
       gap: 2rem;
     }
 
-    /* Cards premium design */
+    /* Premium Cards */
     .product-card {
-      background: var(--bg-primary);
+      background: var(--bg-white);
       border-radius: var(--border-radius-card);
       overflow: hidden;
-      transition: var(--transition-default);
+      transition: var(--transition);
       box-shadow: var(--card-shadow);
-      cursor: pointer;
       position: relative;
     }
-
     .product-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-6px);
       box-shadow: var(--card-hover-shadow);
     }
-
     .product-img {
       background: #fdf1ea;
-      padding: 2rem 1rem;
       text-align: center;
+      padding: 1.8rem;
     }
-
     .product-img img {
       width: 100%;
-      max-width: 200px;
-      border-radius: 1.5rem;
+      max-width: 180px;
+      border-radius: 1.2rem;
       transition: transform 0.3s;
     }
-
     .product-card:hover .product-img img {
-      transform: scale(1.03);
+      transform: scale(1.02);
     }
-
     .product-info {
-      padding: 1.5rem;
+      padding: 1.2rem 1.2rem 1.5rem;
     }
-
     .product-title {
       font-weight: 700;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
     }
-
     .product-price {
       font-weight: 800;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       color: var(--accent);
-      margin: 0.5rem 0;
+      margin: 0.4rem 0;
     }
-
     .add-to-cart {
       background: var(--accent-light);
       border: none;
       width: 100%;
-      padding: 0.75rem;
+      padding: 0.7rem;
       border-radius: 2rem;
       font-weight: 600;
       display: flex;
@@ -306,74 +254,60 @@
       justify-content: center;
       gap: 0.5rem;
       cursor: pointer;
-      transition: var(--transition-default);
+      transition: var(--transition);
       color: var(--accent-dark);
     }
-
     .add-to-cart:hover {
       background: var(--accent);
       color: white;
-      transform: scale(0.98);
     }
-
-    /* Badge for offers / bestseller */
     .badge {
       position: absolute;
-      top: 16px;
-      left: 16px;
+      top: 12px;
+      left: 12px;
       background: var(--accent);
       color: white;
       font-size: 0.7rem;
       font-weight: 700;
-      padding: 0.3rem 1rem;
+      padding: 0.25rem 0.9rem;
       border-radius: 40px;
       z-index: 2;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
 
     /* Testimonials */
     .testimonials-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       margin-top: 1rem;
     }
-
     .testimonial-card {
-      background: var(--bg-secondary);
-      padding: 1.8rem;
-      border-radius: 1.8rem;
-      transition: var(--transition-default);
+      background: var(--bg-soft);
+      padding: 1.6rem;
+      border-radius: 1.5rem;
+      transition: var(--transition);
+    }
+    .testimonial-card:hover {
+      transform: translateY(-4px);
       box-shadow: var(--card-shadow);
     }
-
-    .testimonial-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--card-hover-shadow);
-    }
-
     .stars {
       color: #fbbf24;
-      margin-bottom: 1rem;
-      letter-spacing: 2px;
+      margin-bottom: 0.8rem;
     }
-
     .testimonial-text {
       font-size: 0.95rem;
+      margin-bottom: 1rem;
       color: var(--text-dark);
-      margin-bottom: 1.2rem;
-      line-height: 1.5;
     }
-
     .author {
       display: flex;
       align-items: center;
-      gap: 0.8rem;
+      gap: 0.7rem;
     }
-
     .author-avatar {
-      width: 44px;
-      height: 44px;
+      width: 40px;
+      height: 40px;
       background: #ffddd1;
       border-radius: 50%;
       display: flex;
@@ -386,108 +320,75 @@
     .footer {
       background: #1f2a3e;
       color: #e2e8f0;
-      padding: 3rem 0 2rem;
+      padding: 2.5rem 0 1.5rem;
       margin-top: 2rem;
     }
-
     .footer-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 2rem;
     }
-
     .footer-col h4 {
       font-weight: 600;
       margin-bottom: 1rem;
       color: white;
     }
-
     .footer-col a {
       display: block;
       color: #cbd5e1;
       text-decoration: none;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.85rem;
       transition: 0.2s;
-      font-size: 0.9rem;
     }
-
     .footer-col a:hover {
       color: var(--accent);
     }
-
     .social-icons {
       display: flex;
       gap: 1rem;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
     }
-
     .copyright {
       text-align: center;
-      padding-top: 2rem;
-      font-size: 0.8rem;
+      padding-top: 1.8rem;
+      font-size: 0.75rem;
       color: #94a3b8;
     }
 
-    /* Responsive (mobile-first enhancements) */
+    /* Responsive */
     @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .hero-content p {
-        max-width: 100%;
-      }
-      h1 {
-        font-size: 2.6rem;
-      }
-      .navbar {
-        flex-direction: column;
-      }
-      .nav-links {
-        justify-content: center;
-      }
-      .section {
-        padding: 3rem 0;
-      }
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      h1 { font-size: 2.6rem; }
+      .navbar { flex-direction: column; }
+      .nav-links { justify-content: center; }
+      .section { padding: 2.5rem 0; }
     }
-
     @media (max-width: 640px) {
-      .container {
-        padding: 0 1.25rem;
-      }
-      h1 {
-        font-size: 2.2rem;
-      }
-      h2 {
-        font-size: 1.8rem;
-      }
-      .products-grid {
-        gap: 1.2rem;
-      }
+      .container { padding: 0 1.2rem; }
+      .products-grid { gap: 1rem; }
     }
 
-    /* Micro-interactions: scroll reveal */
+    /* scroll reveal */
     .reveal {
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
     }
-
-    /* toast message */
     .toast {
       position: fixed;
-      bottom: 30px;
+      bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
       background: #1f2a3e;
       color: white;
-      padding: 0.8rem 1.8rem;
+      padding: 0.7rem 1.5rem;
       border-radius: 60px;
-      font-weight: 500;
+      font-size: 0.85rem;
       z-index: 1000;
       opacity: 0;
       transition: opacity 0.2s;
@@ -509,7 +410,7 @@
           <i class="fas fa-bag-shopping"></i>
           <span class="cart-count" id="cartCount">0</span>
         </div>
-        <button class="btn btn-primary" id="orderNavBtn" style="padding: 0.6rem 1.4rem;">Order <i class="fas fa-arrow-right"></i></button>
+        <button class="btn btn-primary" id="orderNavBtn" style="padding: 0.5rem 1.3rem;">Order <i class="fas fa-arrow-right"></i></button>
       </div>
     </div>
   </div>
@@ -521,17 +422,17 @@
     <div class="hero reveal">
       <div class="hero-content">
         <div class="hero-badge"><i class="fas fa-star"></i> Artisan crafted</div>
-        <h1>Scoops of<br>pure euphoria</h1>
-        <p>Small-batch ice cream made with organic dairy & real fruit. Premium texture, unforgettable taste.</p>
+        <h1>Scoops of pure euphoria</h1>
+        <p style="color: var(--text-soft); margin: 1rem 0 1.5rem;">Small-batch ice cream made with organic dairy & real fruit. Premium texture, unforgettable taste.</p>
         <button class="btn btn-primary" id="heroOrderBtn"><i class="fas fa-cart-shopping"></i> Discover flavors</button>
       </div>
       <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=600&h=600&fit=crop" alt="Gourmet ice cream cone">
+        <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=600&h=600&fit=crop" alt="Gourmet ice cream">
       </div>
     </div>
   </div>
 
-  <!-- Products Section (Signature) -->
+  <!-- Signature collection -->
   <section class="section" id="products">
     <div class="container">
       <div class="section-header reveal">
@@ -542,8 +443,8 @@
     </div>
   </section>
 
-  <!-- Special Offers Section -->
-  <section class="section" style="background: var(--bg-secondary); border-radius: 2rem; margin: 0 1rem 2rem 1rem;">
+  <!-- Weekly specials (no vertical gap) -->
+  <section class="section" style="background: var(--bg-soft); margin: 0; border-radius: 2rem 2rem 0 0;">
     <div class="container">
       <div class="section-header reveal">
         <h2>Weekly specials</h2>
@@ -553,7 +454,7 @@
     </div>
   </section>
 
-  <!-- Best Sellers -->
+  <!-- Fan favorites -->
   <section class="section">
     <div class="container">
       <div class="section-header reveal">
@@ -564,7 +465,7 @@
     </div>
   </section>
 
-  <!-- Testimonials -->
+  <!-- Sweet stories (testimonials) -->
   <section class="section">
     <div class="container">
       <div class="section-header reveal">
@@ -579,53 +480,30 @@
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-col">
-        <h4>Frost</h4>
-        <p style="color:#cbd5e1; margin-bottom: 0.5rem;">Scooping joy since 2024</p>
-      </div>
-      <div class="footer-col">
-        <h4>Explore</h4>
-        <a href="#">Our story</a>
-        <a href="#">Flavors</a>
-        <a href="#">Locations</a>
-      </div>
-      <div class="footer-col">
-        <h4>Support</h4>
-        <a href="#">FAQ</a>
-        <a href="#">Contact</a>
-        <a href="#">Shipping</a>
-      </div>
-      <div class="footer-col">
-        <h4>Connect</h4>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-tiktok"></i></a>
-        </div>
-      </div>
+      <div class="footer-col"><h4>Frost</h4><p style="color:#cbd5e1;">Scooping joy since 2024</p></div>
+      <div class="footer-col"><h4>Explore</h4><a href="#">Our story</a><a href="#">Flavors</a><a href="#">Locations</a></div>
+      <div class="footer-col"><h4>Support</h4><a href="#">FAQ</a><a href="#">Contact</a><a href="#">Shipping</a></div>
+      <div class="footer-col"><h4>Connect</h4><div class="social-icons"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-tiktok"></i></a></div></div>
     </div>
-    <div class="copyright">
-      <i class="far fa-copyright"></i> 2026 Frost — Premium ice cream studio
-    </div>
+    <div class="copyright"><i class="far fa-copyright"></i> 2026 Frost — Premium ice cream studio</div>
   </div>
 </footer>
-
 <div id="toastMessage" class="toast"></div>
 
 <script>
-  // ---------- PRODUCT DATA (high-quality imagery) ----------
+  // ---------- PRODUCT DATA (complete, high-quality) ----------
   const allProducts = [
-    { id: 1, name: "Burnt Caramel", price: 6.49, image: "https://images.unsplash.com/photo-1551103782-3ab3a4c7da8d?w=300&h=300&fit=crop", category: "standard", bestseller: true, offer: false },
-    { id: 2, name: "Madagascar Vanilla", price: 5.99, image: "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=300&h=300&fit=crop", category: "standard", bestseller: true, offer: false },
-    { id: 3, name: "Salted Pistachio", price: 6.99, image: "https://images.unsplash.com/photo-1622630998478-21f0e1b1b35b?w=300&h=300&fit=crop", category: "standard", bestseller: false, offer: true, offerPrice: 5.49 },
-    { id: 4, name: "Double Chocolate", price: 6.29, image: "https://images.unsplash.com/photo-1578908878513-2b6f3f3b2e6d?w=300&h=300&fit=crop", category: "standard", bestseller: true, offer: false },
-    { id: 5, name: "Mango Passion", price: 5.79, image: "https://images.unsplash.com/photo-1587313427101-2a8a6c0cf9b9?w=300&h=300&fit=crop", category: "standard", bestseller: false, offer: true, offerPrice: 4.49 },
-    { id: 6, name: "Strawberry Dream", price: 5.99, image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=300&fit=crop", category: "standard", bestseller: false, offer: false }
+    { id: 1, name: "Burnt Caramel", price: 6.49, image: "https://images.unsplash.com/photo-1551103782-3ab3a4c7da8d?w=300&h=300&fit=crop", bestseller: true, offer: false },
+    { id: 2, name: "Madagascar Vanilla", price: 5.99, image: "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=300&h=300&fit=crop", bestseller: true, offer: false },
+    { id: 3, name: "Salted Pistachio", price: 6.99, image: "https://images.unsplash.com/photo-1622630998478-21f0e1b1b35b?w=300&h=300&fit=crop", bestseller: false, offer: true, offerPrice: 5.49 },
+    { id: 4, name: "Double Chocolate", price: 6.29, image: "https://images.unsplash.com/photo-1578908878513-2b6f3f3b2e6d?w=300&h=300&fit=crop", bestseller: true, offer: false },
+    { id: 5, name: "Mango Passion", price: 5.79, image: "https://images.unsplash.com/photo-1587313427101-2a8a6c0cf9b9?w=300&h=300&fit=crop", bestseller: false, offer: true, offerPrice: 4.49 },
+    { id: 6, name: "Strawberry Dream", price: 5.99, image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=300&fit=crop", bestseller: false, offer: false }
   ];
 
   const offers = allProducts.filter(p => p.offer === true);
   const bestsellers = allProducts.filter(p => p.bestseller === true);
-  const standardProducts = allProducts.filter(p => !p.offer && !p.bestseller).concat(allProducts.filter(p => p.bestseller && !p.offer).slice(0,2));
+  const standard = allProducts.filter(p => !p.offer && !p.bestseller).concat(allProducts.filter(p => p.bestseller && !p.offer).slice(0,2));
 
   let cart = [];
   const cartCountSpan = document.getElementById('cartCount');
@@ -636,12 +514,10 @@
     toastEl.style.opacity = '1';
     setTimeout(() => { toastEl.style.opacity = '0'; }, 2000);
   }
-
   function updateCartUI() {
-    const total = cart.reduce((sum, i) => sum + i.quantity, 0);
+    const total = cart.reduce((s,i) => s + i.quantity, 0);
     cartCountSpan.textContent = total;
   }
-
   function addToCart(product) {
     const existing = cart.find(i => i.id === product.id);
     if (existing) existing.quantity++;
@@ -650,8 +526,7 @@
     showToast(`🍨 ${product.name} added to cart`);
   }
 
-  // Render function for product cards (unified design)
-  function renderProductCards(containerId, productsArray, showOfferBadge = false) {
+  function renderProducts(containerId, productsArray, showOfferBadge = false) {
     const container = document.getElementById(containerId);
     if (!container) return;
     container.innerHTML = '';
@@ -662,15 +537,13 @@
         const discount = Math.round((1 - prod.offerPrice/prod.price)*100);
         badgeHtml = `<div class="badge">🔥 ${discount}% OFF</div>`;
       } else if (prod.bestseller && !showOfferBadge) {
-        badgeHtml = `<div class="badge" style="background:#f9734e;">⭐ bestseller</div>`;
+        badgeHtml = `<div class="badge">⭐ bestseller</div>`;
       }
       const card = document.createElement('div');
       card.className = 'product-card reveal';
       card.innerHTML = `
         ${badgeHtml}
-        <div class="product-img">
-          <img src="${prod.image}" alt="${prod.name}" loading="lazy">
-        </div>
+        <div class="product-img"><img src="${prod.image}" alt="${prod.name}" loading="lazy"></div>
         <div class="product-info">
           <div class="product-title">${prod.name}</div>
           <div class="product-price">$${finalPrice.toFixed(2)}</div>
@@ -681,7 +554,6 @@
       `;
       container.appendChild(card);
     });
-    // attach events
     document.querySelectorAll(`#${containerId} .add-to-cart`).forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -694,68 +566,50 @@
     });
   }
 
-  // Testimonials data (professional look)
+  // Testimonials (full)
   const testimonials = [
     { name: "Olivia Chen", text: "The texture is unbelievably creamy. Best ice cream I've ever had.", rating: 5, icon: "fa-user" },
     { name: "Marcus Sterling", text: "Burnt caramel is a masterpiece. Premium packaging and fast delivery.", rating: 5, icon: "fa-user-astronaut" },
     { name: "Sophia Laurent", text: "Real ingredients, not too sweet. The mango passion special is divine.", rating: 4, icon: "fa-user" }
   ];
-
   function renderTestimonials() {
     const container = document.getElementById('testimonialsGrid');
     if (!container) return;
     container.innerHTML = '';
     testimonials.forEach(t => {
       let starsHtml = '';
-      for (let i=0; i<5; i++) {
-        starsHtml += `<i class="fas fa-star${i < t.rating ? '' : '-o'}"></i>`;
-      }
+      for (let i=0;i<5;i++) starsHtml += `<i class="fas fa-star${i < t.rating ? '' : '-o'}"></i>`;
       const card = document.createElement('div');
       card.className = 'testimonial-card reveal';
       card.innerHTML = `
         <div class="stars">${starsHtml}</div>
         <p class="testimonial-text">“${t.text}”</p>
-        <div class="author">
-          <div class="author-avatar"><i class="fas ${t.icon}"></i></div>
-          <div><strong>${t.name}</strong></div>
-        </div>
+        <div class="author"><div class="author-avatar"><i class="fas ${t.icon}"></i></div><div><strong>${t.name}</strong></div></div>
       `;
       container.appendChild(card);
     });
   }
 
-  // Scroll reveal using Intersection Observer
+  // Scroll reveal
   const revealElements = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
+    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
   }, { threshold: 0.1 });
   revealElements.forEach(el => observer.observe(el));
 
-  // Initialize all sections
-  renderProductCards('productsGrid', standardProducts, false);
-  renderProductCards('offersGrid', offers, true);
-  renderProductCards('bestsellersGrid', bestsellers, false);
+  // Render all sections
+  renderProducts('productsGrid', standard, false);
+  renderProducts('offersGrid', offers, true);
+  renderProducts('bestsellersGrid', bestsellers, false);
   renderTestimonials();
 
-  // Buttons scroll to products
-  const orderNavBtn = document.getElementById('orderNavBtn');
-  const heroOrderBtn = document.getElementById('heroOrderBtn');
+  // Scroll to products from buttons
   const productsSection = document.getElementById('products');
-  function scrollToProducts() {
-    productsSection.scrollIntoView({ behavior: 'smooth' });
-  }
-  orderNavBtn.addEventListener('click', scrollToProducts);
-  heroOrderBtn.addEventListener('click', scrollToProducts);
-
-  // Cart icon demo (show cart summary)
+  document.getElementById('orderNavBtn').addEventListener('click', () => productsSection.scrollIntoView({ behavior: 'smooth' }));
+  document.getElementById('heroOrderBtn').addEventListener('click', () => productsSection.scrollIntoView({ behavior: 'smooth' }));
   document.getElementById('cartIcon').addEventListener('click', () => {
     if (cart.length === 0) showToast("Your cart is empty — add some delicious scoops 🍦");
-    else showToast(`Cart total: ${cart.reduce((s,i)=>s+i.quantity,0)} item(s). Proceed to checkout.`);
+    else showToast(`Cart: ${cart.reduce((s,i)=>s+i.quantity,0)} item(s). Ready to checkout.`);
   });
 </script>
 </body>
