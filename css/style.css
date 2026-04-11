@@ -1362,4 +1362,33 @@ img {
     transform: none;
     visibility: visible;
   }
+
+/* إزالة أي هوامش تلقائية من المتصفح */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+}
+
+/* إجبار قسم الهيرو على أخذ الطول المناسب فقط */
+.hero_area {
+  height: auto !important;
+  min-height: 100vh !important;
+  margin-bottom: 0 !important;
+}
+
+/* إزالة الفراغ بين الأقسام */
+section {
+  margin: 0 !important;
+  padding-top: 60px !important; 
+  padding-bottom: 60px !important;
+}
+
+/* إجبار الأقسام المخفية على الظهور فوراً */
+.reveal, .food-card, .food-item {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+ }
 }
