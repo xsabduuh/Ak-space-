@@ -1,519 +1,511 @@
 <!DOCTYPE html>
 
 <html lang="ar" dir="rtl">
-
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-  <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <title>فين | مطعم الوجبات السريعة</title>
 
-  <title>فين</title>
+  <!-- Google Fonts -->
 
-  <!-- bootstrap core css -->
-
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-  <!-- owl carousel -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-  <!-- nice select -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
-  <!-- font awesome -->
-  <link href="css/font-awesome.min.css" rel="stylesheet" />
-  <!-- custom styles -->
-  <link href="css/style.css" rel="stylesheet" />
-  <!-- responsive -->
-  <link href="css/responsive.css" rel="stylesheet" />
-
-  <style>
-    /* RTL overrides */
-    body { font-family: 'Segoe UI', Tahoma, Arial, sans-serif; }
-    .navbar-nav { flex-direction: row-reverse; }
-    .user_option { margin-right: auto; margin-left: 0; }
-    .detail-box, .footer_contact, .footer_detail { text-align: right; }
-    .contact_link_box a i { margin-left: 8px; margin-right: 0; }
-    .form_container input, .form_container select { text-align: right; }
-  </style>
-
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet"/>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"/>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <!-- Owl Carousel -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+  <!-- Custom Style -->
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
-
 <body>
+
+  <!-- ===== SCROLL TO TOP ===== -->
+
+  <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- ===== TOAST ===== -->
+
+  <div id="toast"><i class="fas fa-check-circle"></i><span id="toast-msg">تمت الإضافة إلى السلة</span></div>
+
+  <!-- ===== CART OVERLAY ===== -->
+
+  <div id="cart-overlay" onclick="closeCart()"></div>
+
+  <!-- ===== CART SIDEBAR ===== -->
+
+  <div id="cart-sidebar">
+    <div class="cart-header">
+      <h5><i class="fas fa-shopping-cart"></i> سلة التسوق</h5>
+      <button class="cart-close" onclick="closeCart()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <div class="cart-empty" id="cart-empty">
+        <i class="fas fa-shopping-basket"></i>
+        <span>السلة فارغة حالياً</span>
+      </div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>المجموع</span>
+        <span id="cart-total">0 د.م</span>
+      </div>
+      <button class="btn-checkout" onclick="checkout()">
+        <i class="fas fa-credit-card"></i> إتمام الطلب
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== HERO AREA ===== -->
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/hero-bg.jpg" alt="خلفية المطعم">
+      <img src="images/hero-bg.jpg" alt="خلفية المطعم"/>
     </div>
 
-<!-- قسم الرأس -->
+```
+<!-- HEADER -->
 <header class="header_section">
-  <div class="container">
-    <nav class="navbar navbar-expand-lg custom_nav-container">
-      <a class="navbar-brand" href="index.html">
-        <span>فين</span>
-      </a>
+  <div class="container-fluid px-4">
+    <nav class="navbar navbar-expand-lg">
+      <a class="navbar-brand" href="index.html">فين</a>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="تبديل التنقل">
-        <span></span>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="القائمة">
+        <span class="toggler-icon"></span>
+        <span class="toggler-icon"></span>
+        <span class="toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav mx-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">الرئيسية <span class="sr-only">(الحالية)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="menu.html">القائمة</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">من نحن</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="book.html">حجز طاولة</a>
-          </li>
+          <li class="nav-item active"><a class="nav-link" href="index.html">الرئيسية</a></li>
+          <li class="nav-item"><a class="nav-link" href="menu.html">القائمة</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">من نحن</a></li>
+          <li class="nav-item"><a class="nav-link" href="book.html">حجز طاولة</a></li>
         </ul>
-        <div class="user_option">
-          <a href="#" class="user_link">
-            <i class="fa fa-user" aria-hidden="true"></i>
+        <div class="nav-icons">
+          <button class="btn-order" onclick="scrollToFood()">اطلب الآن</button>
+          <a href="#" class="nav-icon-btn" title="الملف الشخصي">
+            <i class="fas fa-user"></i>
           </a>
-          <a class="cart_link" href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-              <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/>
-              <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                C457.728,97.71,450.56,86.958,439.296,84.91z"/>
-              <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"/>
-            </svg>
-          </a>
-          <!-- FIX: استبدال form بـ button عادي لتجنب إرسال الصفحة -->
-          <button class="btn my-2 my-sm-0 nav_search-btn" type="button">
-            <i class="fa fa-search" aria-hidden="true"></i>
+          <button class="nav-icon-btn cart-icon-btn" onclick="openCart()" title="السلة">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-badge" id="cart-badge">0</span>
           </button>
-          <a href="#" class="order_online">
-            اطلب الآن
-          </a>
+          <button class="nav-icon-btn" onclick="toggleSearch()" title="بحث">
+            <i class="fas fa-search"></i>
+          </button>
         </div>
       </div>
     </nav>
   </div>
 </header>
-<!-- نهاية الرأس -->
 
-<!-- قسم السلايدر -->
+<!-- SLIDER -->
 <section class="slider_section">
-  <div id="customCarousel1" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-7 col-lg-6">
-              <div class="detail-box">
-                <h1>مطعم الوجبات السريعة</h1>
-                <p>
-                  استمتع بأشهى الوجبات المحضّرة من أجود المكونات الطازجة، بأسعار مناسبة وخدمة سريعة لا مثيل لها. نحن هنا لنجعل كل وجبة تجربة لا تُنسى.
-                </p>
-                <div class="btn-box">
-                  <a href="#" class="btn1">اطلب الآن</a>
-                </div>
-              </div>
+  <div class="container">
+    <div id="heroCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <div class="hero-content">
+            <span class="tag">🔥 عروض اليوم</span>
+            <h1>مطعم الوجبات<br>السريعة اللذيذة</h1>
+            <p>استمتع بأشهى الوجبات المحضّرة من أجود المكونات الطازجة، بأسعار مناسبة وخدمة سريعة لا مثيل لها.</p>
+            <div class="hero-btns">
+              <a href="#food" class="btn-primary-custom">استكشف القائمة</a>
+              <a href="#book" class="btn-hero-outline">احجز طاولة</a>
             </div>
           </div>
         </div>
-      </div>
-      <div class="carousel-item">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-7 col-lg-6">
-              <div class="detail-box">
-                <h1>مطعم الوجبات السريعة</h1>
-                <p>
-                  استمتع بأشهى الوجبات المحضّرة من أجود المكونات الطازجة، بأسعار مناسبة وخدمة سريعة لا مثيل لها. نحن هنا لنجعل كل وجبة تجربة لا تُنسى.
-                </p>
-                <div class="btn-box">
-                  <a href="#" class="btn1">اطلب الآن</a>
-                </div>
-              </div>
+
+        <div class="carousel-item">
+          <div class="hero-content">
+            <span class="tag">🍕 الأكثر طلباً</span>
+            <h1>نكهات تبقى<br>في الذاكرة دائماً</h1>
+            <p>كل وجبة عندنا قصة من الطعم والحرفية، نقدمها لك بأسرع وقت وأجمل تجربة.</p>
+            <div class="hero-btns">
+              <a href="#food" class="btn-primary-custom">اطلب الآن</a>
+              <a href="#about" class="btn-hero-outline">تعرّف علينا</a>
             </div>
           </div>
         </div>
-      </div>
-      <div class="carousel-item">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-7 col-lg-6">
-              <div class="detail-box">
-                <h1>مطعم الوجبات السريعة</h1>
-                <p>
-                  استمتع بأشهى الوجبات المحضّرة من أجود المكونات الطازجة، بأسعار مناسبة وخدمة سريعة لا مثيل لها. نحن هنا لنجعل كل وجبة تجربة لا تُنسى.
-                </p>
-                <div class="btn-box">
-                  <a href="#" class="btn1">اطلب الآن</a>
-                </div>
-              </div>
+
+        <div class="carousel-item">
+          <div class="hero-content">
+            <span class="tag">🎉 عرض خاص</span>
+            <h1>خصومات رائعة<br>على أفضل الوجبات</h1>
+            <p>لا تفوّت عروضنا الحصرية اليومية. وجبات طازجة، أسعار مذهلة، وتوصيل سريع.</p>
+            <div class="hero-btns">
+              <a href="#offers" class="btn-primary-custom">العروض الحالية</a>
+              <a href="#book" class="btn-hero-outline">احجز الآن</a>
             </div>
           </div>
         </div>
+
       </div>
-    </div>
-    <div class="container">
       <ol class="carousel-indicators">
-        <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
-        <li data-target="#customCarousel1" data-slide-to="1"></li>
-        <li data-target="#customCarousel1" data-slide-to="2"></li>
+        <li data-target="#heroCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#heroCarousel" data-slide-to="1"></li>
+        <li data-target="#heroCarousel" data-slide-to="2"></li>
       </ol>
     </div>
   </div>
 </section>
-<!-- نهاية السلايدر -->
+```
 
   </div>
+  <!-- END HERO -->
 
-  <!-- قسم العروض -->
+  <!-- ===== OFFERS SECTION ===== -->
 
-  <section class="offer_section layout_padding-bottom">
-    <div class="offer_container">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="box">
-              <div class="img-box">
-                <img src="images/o1.jpg" alt="عرض الخميس">
-              </div>
-              <div class="detail-box">
-                <h5>خميس لذيذ</h5>
-                <h6><span>20%</span> خصم</h6>
-                <a href="#">
-                  اطلب الآن
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029" xml:space="preserve">
-                    <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/>
-                    <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/>
-                    <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"/>
-                  </svg>
-                </a>
-              </div>
+  <section class="offer_section" id="offers">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>عروض اليوم</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6 reveal">
+          <div class="offer-card">
+            <div class="offer-img">
+              <img src="images/o1.jpg" alt="عرض الخميس"/>
+            </div>
+            <div class="offer-info">
+              <h5>خميس لذيذ 🍔</h5>
+              <div class="offer-badge">خصم 20%</div>
+              <p class="offer-desc">صالح كل خميس على جميع البرجر</p>
+              <button class="btn-primary-custom" onclick="scrollToFood()">
+                <i class="fas fa-cart-plus"></i> اطلب الآن
+              </button>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="box">
-              <div class="img-box">
-                <img src="images/o2.jpg" alt="عرض البيتزا">
-              </div>
-              <div class="detail-box">
-                <h5>أيام البيتزا</h5>
-                <h6><span>15%</span> خصم</h6>
-                <a href="#">
-                  اطلب الآن
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029" xml:space="preserve">
-                    <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/>
-                    <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/>
-                    <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"/>
-                  </svg>
-                </a>
-              </div>
+        </div>
+        <div class="col-md-6 reveal">
+          <div class="offer-card">
+            <div class="offer-img">
+              <img src="images/o2.jpg" alt="عرض البيتزا"/>
+            </div>
+            <div class="offer-info">
+              <h5>أيام البيتزا 🍕</h5>
+              <div class="offer-badge">خصم 15%</div>
+              <p class="offer-desc">صالح طوال الأسبوع على البيتزا</p>
+              <button class="btn-primary-custom" onclick="scrollToFood()">
+                <i class="fas fa-cart-plus"></i> اطلب الآن
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- نهاية العروض -->
 
-  <!-- قسم الطعام -->
+  <!-- ===== FOOD SECTION ===== -->
 
-  <section class="food_section layout_padding-bottom">
+  <section class="food_section section-pad" id="food">
     <div class="container">
-      <div class="heading_container heading_center">
-        <h2>قائمتنا</h2>
+      <div class="section-title reveal">
+        <h2>قائمتنا الشهية</h2>
       </div>
 
-  <ul class="filters_menu">
-    <li class="active" data-filter="*">الكل</li>
-    <li data-filter=".burger">برجر</li>
-    <li data-filter=".pizza">بيتزا</li>
-    <li data-filter=".pasta">باستا</li>
-    <li data-filter=".fries">بطاطس مقلية</li>
+```
+  <ul class="filters_menu reveal">
+    <li class="active" data-filter="all">الكل</li>
+    <li data-filter="burger">🍔 برجر</li>
+    <li data-filter="pizza">🍕 بيتزا</li>
+    <li data-filter="pasta">🍝 باستا</li>
+    <li data-filter="fries">🍟 بطاطس</li>
   </ul>
 
-  <div class="filters-content">
-    <div class="row grid">
+  <div class="row" id="food-grid">
 
-      <!-- بيتزا 1 -->
-      <div class="col-sm-6 col-lg-4 all pizza">
-        <div class="box">
-          <div>
-            <div class="img-box"><img src="images/f1.png" alt="بيتزا لذيذة"></div>
-            <div class="detail-box">
-              <h5>بيتزا شهية</h5>
-              <p>بيتزا طازجة بمكونات مختارة بعناية، تُقدَّم ساخنة مباشرة من الفرن لتمنحك تجربة لا تُنسى.</p>
-              <div class="options">
-                <h6>20 د.م</h6>
-                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029" xml:space="preserve"><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/><path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"/></svg></a>
-              </div>
-            </div>
+    <div class="col-sm-6 col-lg-4 food-item pizza">
+      <div class="food-card show">
+        <div class="food-img"><img src="images/f1.png" alt="بيتزا شهية"/></div>
+        <div class="food-body">
+          <h5>بيتزا شهية</h5>
+          <p>بيتزا طازجة بمكونات مختارة بعناية، تُقدَّم ساخنة مباشرة من الفرن.</p>
+          <div class="food-footer">
+            <span class="food-price">20 د.م</span>
+            <button class="add-to-cart-btn" onclick="addToCart(this,'بيتزا شهية',20)"><i class="fas fa-plus"></i></button>
           </div>
         </div>
       </div>
-
-      <!-- برجر 1 -->
-      <div class="col-sm-6 col-lg-4 all burger">
-        <div class="box">
-          <div>
-            <div class="img-box"><img src="images/f2.png" alt="برجر شهي"></div>
-            <div class="detail-box">
-              <h5>برجر شهي</h5>
-              <p>برجر عصير بلحم طازج وصوص خاص، يُقدَّم مع الخضروات الطازجة في خبز طري ومحمص.</p>
-              <div class="options">
-                <h6>15 د.م</h6>
-                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029" xml:space="preserve"><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/><path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"/></svg></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- بيتزا 2 -->
-      <div class="col-sm-6 col-lg-4 all pizza">
-        <div class="box">
-          <div>
-            <div class="img-box"><img src="images/f3.png" alt="بيتزا شهية"></div>
-            <div class="detail-box">
-              <h5>بيتزا شهية</h5>
-              <p>بيتزا طازجة بمكونات مختارة بعناية، تُقدَّم ساخنة مباشرة من الفرن لتمنحك تجربة لا تُنسى.</p>
-              <div class="options">
-                <h6>17 د.م</h6>
-                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029" xml:space="preserve"><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/><path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"/></svg></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- باستا 1 -->
-      <div class="col-sm-6 col-lg-4 all pasta">
-        <div class="box">
-          <div>
-            <div class="img-box"><img src="images/f4.png" alt="باستا شهية"></div>
-            <div class="detail-box">
-              <h5>باستا شهية</h5>
-              <p>باستا إيطالية أصيلة مع صوص كريمي غني وتوابل عطرية تجعل كل لقمة متعة حقيقية.</p>
-              <div class="options">
-                <h6>18 د.م</h6>
-                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029" xml:space="preserve"><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/><path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"/></svg></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- بطاطس -->
-      <div class="col-sm-6 col-lg-4 all fries">
-        <div class="box">
-          <div>
-            <div class="img-box"><img src="images/f5.png" alt="بطاطس مقلية"></div>
-            <div class="detail-box">
-              <h5>بطاطس مقلية</h5>
-              <p>بطاطس مقلية ذهبية هشّة من الخارج وطرية من الداخل، تُقدَّم ساخنة مع صوص المنزل.</p>
-              <div class="options">
-                <h6>10 د.م</h6>
-                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029" xml:space="preserve"><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/><path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"/></svg></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- بيتزا 3 -->
-      <div class="col-sm-6 col-lg-4 all pizza">
-        <div class="box">
-          <div>
-            <div class="img-box"><img src="images/f6.png" alt="بيتزا شهية"></div>
-            <div class="detail-box">
-              <h5>بيتزا شهية</h5>
-              <p>بيتزا طازجة بمكونات مختارة بعناية، تُقدَّم ساخنة مباشرة من الفرن لتمنحك تجربة لا تُنسى.</p>
-              <div class="options">
-                <h6>15 د.م</h6>
-                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029" xml:space="preserve"><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/><path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"/></svg></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- برجر 2 -->
-      <div class="col-sm-6 col-lg-4 all burger">
-        <div class="box">
-          <div>
-            <div class="img-box"><img src="images/f7.png" alt="برجر لذيذ"></div>
-            <div class="detail-box">
-              <h5>برجر لذيذ</h5>
-              <p>برجر عصير بلحم طازج وصوص خاص، يُقدَّم مع الخضروات الطازجة في خبز طري ومحمص.</p>
-              <div class="options">
-                <h6>12 د.م</h6>
-                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029" xml:space="preserve"><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/><path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"/></svg></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- برجر 3 -->
-      <div class="col-sm-6 col-lg-4 all burger">
-        <div class="box">
-          <div>
-            <div class="img-box"><img src="images/f8.png" alt="برجر لذيذ"></div>
-            <div class="detail-box">
-              <h5>برجر لذيذ</h5>
-              <p>برجر عصير بلحم طازج وصوص خاص، يُقدَّم مع الخضروات الطازجة في خبز طري ومحمص.</p>
-              <div class="options">
-                <h6>14 د.م</h6>
-                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029" xml:space="preserve"><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/><path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"/></svg></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- باستا 2 -->
-      <div class="col-sm-6 col-lg-4 all pasta">
-        <div class="box">
-          <div>
-            <div class="img-box"><img src="images/f9.png" alt="باستا شهية"></div>
-            <div class="detail-box">
-              <h5>باستا شهية</h5>
-              <p>باستا إيطالية أصيلة مع صوص كريمي غني وتوابل عطرية تجعل كل لقمة متعة حقيقية.</p>
-              <div class="options">
-                <h6>10 د.م</h6>
-                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029" xml:space="preserve"><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/><path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"/></svg></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
+
+    <div class="col-sm-6 col-lg-4 food-item burger">
+      <div class="food-card show">
+        <div class="food-img"><img src="images/f2.png" alt="برجر شهي"/></div>
+        <div class="food-body">
+          <h5>برجر شهي</h5>
+          <p>برجر عصير بلحم طازج وصوص خاص مع الخضروات في خبز محمص.</p>
+          <div class="food-footer">
+            <span class="food-price">15 د.م</span>
+            <button class="add-to-cart-btn" onclick="addToCart(this,'برجر شهي',15)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4 food-item pizza">
+      <div class="food-card show">
+        <div class="food-img"><img src="images/f3.png" alt="بيتزا بيبروني"/></div>
+        <div class="food-body">
+          <h5>بيتزا بيبروني</h5>
+          <p>بيتزا بيبروني كلاسيكية بجبن موزاريلا ذائب وعجينة هشّة.</p>
+          <div class="food-footer">
+            <span class="food-price">17 د.م</span>
+            <button class="add-to-cart-btn" onclick="addToCart(this,'بيتزا بيبروني',17)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4 food-item pasta">
+      <div class="food-card show">
+        <div class="food-img"><img src="images/f4.png" alt="باستا كريمية"/></div>
+        <div class="food-body">
+          <h5>باستا كريمية</h5>
+          <p>باستا إيطالية أصيلة مع صوص كريمي غني وتوابل عطرية رائعة.</p>
+          <div class="food-footer">
+            <span class="food-price">18 د.م</span>
+            <button class="add-to-cart-btn" onclick="addToCart(this,'باستا كريمية',18)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4 food-item fries">
+      <div class="food-card show">
+        <div class="food-img"><img src="images/f5.png" alt="بطاطس مقلية"/></div>
+        <div class="food-body">
+          <h5>بطاطس مقلية</h5>
+          <p>بطاطس ذهبية هشّة من الخارج وطرية من الداخل مع صوص المنزل.</p>
+          <div class="food-footer">
+            <span class="food-price">10 د.م</span>
+            <button class="add-to-cart-btn" onclick="addToCart(this,'بطاطس مقلية',10)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4 food-item pizza">
+      <div class="food-card show">
+        <div class="food-img"><img src="images/f6.png" alt="بيتزا مارغريتا"/></div>
+        <div class="food-body">
+          <h5>بيتزا مارغريتا</h5>
+          <p>الكلاسيكية الإيطالية بصلصة طماطم طازجة وجبن موزاريلا أصيل.</p>
+          <div class="food-footer">
+            <span class="food-price">15 د.م</span>
+            <button class="add-to-cart-btn" onclick="addToCart(this,'بيتزا مارغريتا',15)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4 food-item burger">
+      <div class="food-card show">
+        <div class="food-img"><img src="images/f7.png" alt="برجر دبل"/></div>
+        <div class="food-body">
+          <h5>برجر دبل</h5>
+          <p>ضعف اللحم، ضعف المتعة — برجر دبل مع جبن وصوص خاص.</p>
+          <div class="food-footer">
+            <span class="food-price">12 د.م</span>
+            <button class="add-to-cart-btn" onclick="addToCart(this,'برجر دبل',12)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4 food-item burger">
+      <div class="food-card show">
+        <div class="food-img"><img src="images/f8.png" alt="برجر دجاج"/></div>
+        <div class="food-body">
+          <h5>برجر دجاج</h5>
+          <p>دجاج مقرمش بصوص البارباكيو مع خس وطماطم وجبن ذائب.</p>
+          <div class="food-footer">
+            <span class="food-price">14 د.م</span>
+            <button class="add-to-cart-btn" onclick="addToCart(this,'برجر دجاج',14)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4 food-item pasta">
+      <div class="food-card show">
+        <div class="food-img"><img src="images/f9.png" alt="باستا بولونيز"/></div>
+        <div class="food-body">
+          <h5>باستا بولونيز</h5>
+          <p>باستا بصوص اللحم التقليدي مع بهارات مثالية تشعل الشهية.</p>
+          <div class="food-footer">
+            <span class="food-price">10 د.م</span>
+            <button class="add-to-cart-btn" onclick="addToCart(this,'باستا بولونيز',10)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
-  <div class="btn-box">
-    <a href="#">عرض المزيد</a>
+
+  <div class="more-btn-wrap reveal">
+    <a href="menu.html" class="btn-primary-custom">عرض القائمة الكاملة <i class="fas fa-arrow-left"></i></a>
   </div>
 </div>
+```
 
   </section>
-  <!-- نهاية الطعام -->
 
-  <!-- قسم من نحن -->
+  <!-- ===== ABOUT SECTION ===== -->
 
-  <section class="about_section layout_padding">
+  <section class="about_section section-pad" id="about">
     <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="img-box">
-            <img src="images/about-img.png" alt="من نحن">
+      <div class="row align-items-center">
+        <div class="col-md-6 mb-4 mb-md-0 reveal">
+          <div class="about-img-wrap">
+            <img src="images/about-img.png" alt="من نحن فين"/>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="detail-box">
-            <div class="heading_container">
-              <h2>نحن فين</h2>
-            </div>
-            <p>
-              نحن مطعم "فين" نقدم لكم أشهى الوجبات السريعة بمكونات طازجة وجودة عالية. هدفنا أن نجعل كل زيارة تجربة ممتعة لا تُنسى، مع خدمة سريعة ومكان مريح يجمع العائلة والأصدقاء.
-            </p>
-            <a href="#">اقرأ المزيد</a>
+        <div class="col-md-6 reveal about-content">
+          <div class="section-title light">
+            <h2>نحن فين</h2>
           </div>
+          <p class="about-text">مطعم "فين" يقدم لكم أشهى الوجبات السريعة بمكونات طازجة وجودة عالية. هدفنا أن نجعل كل زيارة تجربة ممتعة لا تُنسى، مع خدمة سريعة ومكان مريح يجمع العائلة والأصدقاء.</p>
+          <div class="about-stats">
+            <div class="stat-item">
+              <span class="stat-num">+500</span>
+              <span class="stat-label">وجبة يومياً</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">+1K</span>
+              <span class="stat-label">زبون سعيد</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">5⭐</span>
+              <span class="stat-label">تقييم العملاء</span>
+            </div>
+          </div>
+          <a href="about.html" class="btn-primary-custom">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
         </div>
       </div>
     </div>
   </section>
-  <!-- نهاية من نحن -->
 
-  <!-- قسم الحجز -->
+  <!-- ===== BOOKING SECTION ===== -->
 
-  <section class="book_section layout_padding">
+  <section class="book_section section-pad" id="book">
     <div class="container">
-      <div class="heading_container">
+      <div class="section-title reveal">
         <h2>احجز طاولة</h2>
       </div>
       <div class="row">
-        <div class="col-md-6">
-          <div class="form_container">
-            <!-- FIX: إضافة action صريح ومنع الإرسال الافتراضي -->
-            <form action="#" onsubmit="return false;">
-              <div>
-                <input type="text" class="form-control" placeholder="اسمك الكامل" />
+        <div class="col-md-6 mb-4 mb-md-0 reveal">
+          <div class="book-form">
+            <form onsubmit="submitBooking(event)">
+              <div class="form-group-custom">
+                <label>الاسم الكامل</label>
+                <input type="text" class="fc" placeholder="أدخل اسمك الكامل" required/>
               </div>
-              <div>
-                <input type="tel" class="form-control" placeholder="رقم الهاتف" />
+              <div class="form-group-custom">
+                <label>رقم الهاتف</label>
+                <input type="tel" class="fc" placeholder="0612345678" required/>
               </div>
-              <div>
-                <input type="email" class="form-control" placeholder="بريدك الإلكتروني" />
+              <div class="form-group-custom">
+                <label>البريد الإلكتروني</label>
+                <input type="email" class="fc" placeholder="example@email.com"/>
               </div>
-              <div>
-                <select class="form-control nice-select wide">
-                  <option value="" disabled selected>عدد الأشخاص</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group-custom">
+                    <label>عدد الأشخاص</label>
+                    <select class="fc">
+                      <option value="">اختر</option>
+                      <option>1</option><option>2</option><option>3</option>
+                      <option>4</option><option>5</option><option>6+</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group-custom">
+                    <label>التاريخ</label>
+                    <input type="date" class="fc"/>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group-custom">
+                <label>الوقت المفضل</label>
+                <select class="fc">
+                  <option>12:00 ظهراً</option>
+                  <option>14:00 عصراً</option>
+                  <option>18:00 مساءً</option>
+                  <option>20:00 مساءً</option>
                 </select>
               </div>
-              <div>
-                <input type="date" class="form-control">
-              </div>
-              <div class="btn_box">
-                <button type="submit">احجز الآن</button>
-              </div>
+              <button type="submit" class="btn-primary-custom btn-full">
+                <i class="fas fa-calendar-check"></i> احجز الآن
+              </button>
             </form>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 reveal">
           <div class="map_container">
-            <div id="googleMap"></div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.845534017024!2d-7.6194!3d33.5893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDM1JzIxLjUiTiA3wrAzNycxMC4xIlc!5e0!3m2!1sar!2sma!4v1620000000000"
+              allowfullscreen="" loading="lazy">
+            </iframe>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- نهاية الحجز -->
 
-  <!-- قسم آراء العملاء -->
+  <!-- ===== TESTIMONIALS ===== -->
 
-  <section class="client_section layout_padding-bottom">
+  <section class="client_section section-pad-sm">
     <div class="container">
-      <div class="heading_container heading_center psudo_white_primary mb_45">
+      <div class="section-title reveal">
         <h2>ماذا يقول عملاؤنا</h2>
       </div>
-      <div class="carousel-wrap row">
-        <div class="owl-carousel client_owl-carousel">
-          <div class="item">
-            <div class="box">
-              <div class="detail-box">
-                <p>
-                  تجربة رائعة من كل النواحي! الطعام لذيذ جداً والخدمة سريعة ومميزة. سأعود بالتأكيد مع عائلتي.
-                </p>
+      <div class="owl-carousel client_owl-carousel reveal">
+        <div class="item">
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <div class="stars">★★★★★</div>
+            <p>تجربة رائعة من كل النواحي! الطعام لذيذ جداً والخدمة سريعة ومميزة. سأعود بالتأكيد مع عائلتي.</p>
+            <div class="client-info">
+              <img src="images/client1.jpg" alt="منى"/>
+              <div>
                 <h6>منى ميشيل</h6>
-                <p>زبونة وفية</p>
-              </div>
-              <div class="img-box">
-                <img src="images/client1.jpg" alt="منى ميشيل" class="box-img">
+                <small>زبونة وفية</small>
               </div>
             </div>
           </div>
-          <div class="item">
-            <div class="box">
-              <div class="detail-box">
-                <p>
-                  أفضل مطعم وجبات سريعة في المنطقة! الأسعار معقولة جداً والجودة ممتازة. أنصح به بشدة.
-                </p>
+        </div>
+        <div class="item">
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <div class="stars">★★★★★</div>
+            <p>أفضل مطعم وجبات سريعة في المنطقة! الأسعار معقولة جداً والجودة ممتازة. أنصح به بشدة.</p>
+            <div class="client-info">
+              <img src="images/client2.jpg" alt="مايك"/>
+              <div>
                 <h6>مايك هاميل</h6>
-                <p>زبون دائم</p>
+                <small>زبون دائم</small>
               </div>
-              <div class="img-box">
-                <img src="images/client2.jpg" alt="مايك هاميل" class="box-img">
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <div class="stars">★★★★★</div>
+            <p>البيتزا عندهم لا مثيل لها! الخدمة سريعة والمكان نظيف ومريح. أنا زبون دائم بكل تأكيد.</p>
+            <div class="client-info">
+              <img src="images/client1.jpg" alt="سارة"/>
+              <div>
+                <h6>سارة الأمين</h6>
+                <small>زبونة جديدة</small>
               </div>
             </div>
           </div>
@@ -521,103 +513,79 @@
       </div>
     </div>
   </section>
-  <!-- نهاية آراء العملاء -->
 
-  <!-- الفوتر -->
+  <!-- ===== FOOTER ===== -->
 
   <footer class="footer_section">
     <div class="container">
       <div class="row">
-        <div class="col-md-4 footer-col">
-          <div class="footer_contact">
-            <h4>تواصل معنا</h4>
-            <div class="contact_link_box">
-              <a href="#">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <span>الموقع</span>
-              </a>
-              <a href="tel:+011234567890">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <span>اتصل: +01 1234567890</span>
-              </a>
-              <a href="mailto:demo@gmail.com">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span>demo@gmail.com</span>
-              </a>
-            </div>
+        <div class="col-md-4 mb-4">
+          <a href="index.html" class="footer-brand">فين</a>
+          <p class="footer-desc">مطعم فين يقدم أشهى الوجبات السريعة بمكونات طازجة ومختارة بعناية، في أجواء مريحة وخدمة لا مثيل لها.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
-        <div class="col-md-4 footer-col">
-          <div class="footer_detail">
-            <a href="#" class="footer-logo">فين</a>
-            <p>
-              مطعم فين يقدم أشهى الوجبات السريعة بمكونات طازجة ومختارة بعناية، في أجواء مريحة وخدمة لا مثيل لها.
-            </p>
-            <div class="footer_social">
-              <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-              <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-              <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-              <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-            </div>
+        <div class="col-md-2 mb-4">
+          <h6 class="footer-title">روابط سريعة</h6>
+          <ul class="footer-links-list">
+            <li><a href="index.html"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+            <li><a href="menu.html"><i class="fas fa-chevron-left"></i> القائمة</a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-left"></i> من نحن</a></li>
+            <li><a href="book.html"><i class="fas fa-chevron-left"></i> حجز طاولة</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h6 class="footer-title">تواصل معنا</h6>
+          <div class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>الدار البيضاء، المغرب</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+212 6 12 34 56 78</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>contact@fein.ma</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fab fa-whatsapp"></i>
+            <span>تواصل واتساب</span>
           </div>
         </div>
-        <div class="col-md-4 footer-col">
-          <h4>ساعات العمل</h4>
-          <p>كل يوم</p>
-          <p>10:00 صباحاً - 10:00 مساءً</p>
+        <div class="col-md-3 mb-4">
+          <h6 class="footer-title">ساعات العمل</h6>
+          <div class="hours-item">
+            <span>الاثنين - الجمعة</span><span>10ص - 10م</span>
+          </div>
+          <div class="hours-item">
+            <span>السبت</span><span>11ص - 11م</span>
+          </div>
+          <div class="hours-item">
+            <span>الأحد</span><span>12ص - 9م</span>
+          </div>
         </div>
       </div>
-      <div class="footer-info">
-        <!-- FIX: استبدال id مكرر بـ class، وتعبئة السنة عبر JS -->
-        <p>
-          &copy; <span class="displayYear"></span> جميع الحقوق محفوظة
-        </p>
+      <div class="footer-bottom">
+        <p>© <span id="footerYear"></span> فين — جميع الحقوق محفوظة | صُمم بـ ❤️ في المغرب</p>
       </div>
     </div>
   </footer>
-  <!-- نهاية الفوتر -->
 
-  <!-- jQuery -->
+  <!-- ===== SCRIPTS ===== -->
 
   <script src="js/jquery-3.4.1.min.js"></script>
 
-  <!-- Popper -->
-
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-
-  <!-- Bootstrap -->
-
-  <script src="js/bootstrap.js"></script>
-
-  <!-- Owl Carousel -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
-  <!-- Isotope -->
-
-  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
-
-  <!-- Nice Select -->
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
-
-  <!-- Custom JS -->
-
   <script src="js/custom.js"></script>
-
-  <!-- Google Map -->
-
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
-
-  <script>
-    // FIX: تعبئة السنة بشكل صحيح
-    var year = new Date().getFullYear();
-    document.querySelectorAll('.displayYear').forEach(function(el) {
-      el.textContent = year;
-    });
-  </script>
 
 </body>
 </html>
