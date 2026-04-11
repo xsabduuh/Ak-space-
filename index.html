@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+  <!-- Basic -->
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
@@ -12,24 +15,22 @@
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-  <!-- owl slider stylesheet -->
+  <!--owl slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-  <!-- nice select -->
+  <!-- nice select  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" />
   <!-- font awesome style -->
   <link href="css/font-awesome.min.css" rel="stylesheet" />
-  <!-- custom styles -->
+  <!-- Custom styles -->
   <link href="css/style.css" rel="stylesheet" />
   <link href="css/responsive.css" rel="stylesheet" />
 
   <style>
-    /* التحسينات الجديدة مع الحفاظ على الأزرار العلوية */
+    /* التحسينات الجديدة فقط */
     :root {
       --primary: #ffbe33;
       --dark: #1e1e2f;
-      --light: #f8f9fa;
     }
-    /* طبقة مظللة على صورة الخلفية */
     .bg-box::after {
       content: "";
       position: absolute;
@@ -44,10 +45,8 @@
       position: relative;
       z-index: 2;
     }
-    /* تحسين الكروت */
     .food_section .box {
       transition: transform 0.3s, box-shadow 0.3s;
-      background: var(--light);
     }
     .food_section .box:hover {
       transform: translateY(-5px);
@@ -58,12 +57,10 @@
       color: var(--primary);
       font-weight: bold;
     }
-    /* نموذج الحجز */
     .book_section .form-control:focus {
       border-color: var(--primary);
       box-shadow: 0 0 0 0.2rem rgba(255,190,51,0.25);
     }
-    /* الفوتر المحسن */
     .footer_section {
       background-color: var(--dark);
     }
@@ -72,7 +69,7 @@
       padding-right: 0;
     }
     .footer-links li { margin-bottom: 10px; }
-    .footer-links a { color: #dbdbdb; transition: 0.3s; }
+    .footer-links a { color: #dbdbdb; }
     .footer-links a:hover { color: var(--primary); }
     .newsletter {
       display: flex;
@@ -91,62 +88,30 @@
       border-radius: 0 5px 5px 0;
       color: #000;
     }
-    /* إصلاح الأزرار العلوية - نضمن عدم تغييرها */
-    .user_option {
-      display: flex;
-      align-items: center;
-    }
-    .user_option a {
-      margin: 0 10px;
-    }
-    .user_option .user_link {
-      color: white;
-    }
-    .user_option .user_link:hover {
-      color: var(--primary);
-    }
-    .cart_link svg {
-      width: 17px;
-      height: auto;
-      fill: white;
-    }
-    .cart_link:hover svg {
-      fill: var(--primary);
-    }
     .order_online {
-      background-color: var(--primary);
-      color: black;
-      padding: 8px 30px;
-      border-radius: 45px;
       transition: all 0.3s;
     }
     .order_online:hover {
-      background-color: #e0a800;
       transform: scale(1.02);
-      color: black;
-    }
-    .nav_search-btn {
-      background: transparent;
-      border: none;
-      color: white;
-    }
-    .nav_search-btn:hover {
-      color: var(--primary);
+      background-color: #e0a800;
     }
   </style>
 </head>
 
 <body>
+
 <div class="hero_area">
   <div class="bg-box">
-    <img src="images/hero-bg.jpg" alt="خلفية">
+    <img src="images/hero-bg.jpg" alt="">
   </div>
-  <!-- header section -->
+  <!-- header section strats -->
   <header class="header_section">
     <div class="container">
-      <nav class="navbar navbar-expand-lg custom_nav-container">
-        <a class="navbar-brand" href="index.html"><span>فيان</span></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-label="تبديل القائمة">
+      <nav class="navbar navbar-expand-lg custom_nav-container ">
+        <a class="navbar-brand" href="index.html">
+          <span>فيان</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="تبديل القائمة">
           <span class=""> </span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -174,6 +139,7 @@
       </nav>
     </div>
   </header>
+  <!-- end header section -->
 
   <!-- slider section -->
   <section class="slider_section">
@@ -228,6 +194,7 @@
       </div>
     </div>
   </section>
+  <!-- end slider section -->
 </div>
 
 <!-- offer section -->
@@ -260,7 +227,7 @@
   </div>
 </section>
 
-<!-- food section -->
+<!-- food section (9 items كاملة كما في الأصل) -->
 <section class="food_section layout_padding-bottom">
   <div class="container">
     <div class="heading_container heading_center"><h2>قائمتنا</h2></div>
@@ -273,49 +240,31 @@
     </ul>
     <div class="filters-content">
       <div class="row grid">
-        <!-- pizza 1 -->
-        <div class="col-sm-6 col-lg-4 all pizza">
-          <div class="box"><div><div class="img-box"><img src="images/f1.png" alt=""></div><div class="detail-box"><h5>بيتزا لذيذة</h5><p>صوص طماطم، جبن موزاريلا، فلفل، زيتون.</p><div class="options"><h6>$20</h6><a href="#"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029"><g><g><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/></g></g><g><g><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/></g></g></svg></a></div></div></div></div>
-        </div>
-        <!-- burger 1 -->
-        <div class="col-sm-6 col-lg-4 all burger">
-          <div class="box"><div><div class="img-box"><img src="images/f2.png" alt=""></div><div class="detail-box"><h5>برجر شهي</h5><p>لحم أنجوس مشوي، جبن شيدر، خس، طماطم.</p><div class="options"><h6>$15</h6><a href="#"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029"><g><g><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/></g></g><g><g><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/></g></g></svg></a></div></div></div></div>
-        </div>
-        <!-- pizza 2 -->
-        <div class="col-sm-6 col-lg-4 all pizza">
-          <div class="box"><div><div class="img-box"><img src="images/f3.png" alt=""></div><div class="detail-box"><h5>بيتزا إيطالية</h5><p>ريحان، طماطم كرزية، جبن بارميزان.</p><div class="options"><h6>$17</h6><a href="#"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029"><g><g><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/></g></g><g><g><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/></g></g></svg></a></div></div></div></div>
-        </div>
-        <!-- pasta 1 -->
-        <div class="col-sm-6 col-lg-4 all pasta">
-          <div class="box"><div><div class="img-box"><img src="images/f4.png" alt=""></div><div class="detail-box"><h5>باستا كاربونارا</h5><p>صلصة كريمية، بيكون، بارميزان.</p><div class="options"><h6>$18</h6><a href="#"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029"><g><g><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/></g></g><g><g><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/></g></g></svg></a></div></div></div></div>
-        </div>
-        <!-- fries -->
-        <div class="col-sm-6 col-lg-4 all fries">
-          <div class="box"><div><div class="img-box"><img src="images/f5.png" alt=""></div><div class="detail-box"><h5>بطاطس مقلية</h5><p>مقرمشة، مع صلصة خاصة.</p><div class="options"><h6>$10</h6><a href="#"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029"><g><g><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/></g></g><g><g><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/></g></g></svg></a></div></div></div></div>
-        </div>
-        <!-- pizza 3 -->
-        <div class="col-sm-6 col-lg-4 all pizza">
-          <div class="box"><div><div class="img-box"><img src="images/f6.png" alt=""></div><div class="detail-box"><h5>بيتزا الخضار</h5><p>فطر، فليفلة، زيتون، جبن.</p><div class="options"><h6>$15</h6><a href="#"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029"><g><g><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/></g></g><g><g><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/></g></g></svg></a></div></div></div></div>
-        </div>
-        <!-- burger 2 -->
-        <div class="col-sm-6 col-lg-4 all burger">
-          <div class="box"><div><div class="img-box"><img src="images/f7.png" alt=""></div><div class="detail-box"><h5>برجر بالجبن</h5><p>جبنة شيدر مزدوجة، بصل مقرمش.</p><div class="options"><h6>$12</h6><a href="#"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029"><g><g><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/></g></g><g><g><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/></g></g></svg></a></div></div></div></div>
-        </div>
-        <!-- burger 3 -->
-        <div class="col-sm-6 col-lg-4 all burger">
-          <div class="box"><div><div class="img-box"><img src="images/f8.png" alt=""></div><div class="detail-box"><h5>برجر حار</h5><p>صوص حار، جبنة، فلفل حار.</p><div class="options"><h6>$14</h6><a href="#"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029"><g><g><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/></g></g><g><g><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/></g></g></svg></a></div></div></div></div>
-        </div>
-        <!-- pasta 2 -->
-        <div class="col-sm-6 col-lg-4 all pasta">
-          <div class="box"><div><div class="img-box"><img src="images/f9.png" alt=""></div><div class="detail-box"><h5>باستا ألفريدو</h5><p>دجاج، مشروم، صلصة كريمية.</p><div class="options"><h6>$10</h6><a href="#"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029"><g><g><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/></g></g><g><g><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/></g></g></svg></a></div></div></div></div>
-        </div>
+        <!-- Pizza 1 -->
+        <div class="col-sm-6 col-lg-4 all pizza"><div class="box"><div><div class="img-box"><img src="images/f1.png" alt=""></div><div class="detail-box"><h5>بيتزا لذيذة</h5><p>صوص طماطم، جبن موزاريلا، فلفل، زيتون.</p><div class="options"><h6>$20</h6><a href="#"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029"><g><g><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/></g></g><g><g><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/></g></g></svg></a></div></div></div></div></div>
+        <!-- Burger 1 -->
+        <div class="col-sm-6 col-lg-4 all burger"><div class="box"><div><div class="img-box"><img src="images/f2.png" alt=""></div><div class="detail-box"><h5>برجر شهي</h5><p>لحم أنجوس مشوي، جبن شيدر، خس، طماطم.</p><div class="options"><h6>$15</h6><a href="#"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029"><g><g><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/></g></g><g><g><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/></g></g></svg></a></div></div></div></div></div>
+        <!-- Pizza 2 -->
+        <div class="col-sm-6 col-lg-4 all pizza"><div class="box"><div><div class="img-box"><img src="images/f3.png" alt=""></div><div class="detail-box"><h5>بيتزا إيطالية</h5><p>ريحان، طماطم كرزية، جبن بارميزان.</p><div class="options"><h6>$17</h6><a href="#"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029"><g><g><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/></g></g><g><g><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/></g></g></svg></a></div></div></div></div></div>
+        <!-- Pasta 1 -->
+        <div class="col-sm-6 col-lg-4 all pasta"><div class="box"><div><div class="img-box"><img src="images/f4.png" alt=""></div><div class="detail-box"><h5>باستا كاربونارا</h5><p>صلصة كريمية، بيكون، بارميزان.</p><div class="options"><h6>$18</h6><a href="#"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029"><g><g><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/></g></g><g><g><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/></g></g></svg></a></div></div></div></div></div>
+        <!-- Fries -->
+        <div class="col-sm-6 col-lg-4 all fries"><div class="box"><div><div class="img-box"><img src="images/f5.png" alt=""></div><div class="detail-box"><h5>بطاطس مقلية</h5><p>مقرمشة، مع صلصة خاصة.</p><div class="options"><h6>$10</h6><a href="#"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029"><g><g><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/></g></g><g><g><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/></g></g></svg></a></div></div></div></div></div>
+        <!-- Pizza 3 -->
+        <div class="col-sm-6 col-lg-4 all pizza"><div class="box"><div><div class="img-box"><img src="images/f6.png" alt=""></div><div class="detail-box"><h5>بيتزا الخضار</h5><p>فطر، فليفلة، زيتون، جبن.</p><div class="options"><h6>$15</h6><a href="#"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029"><g><g><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/></g></g><g><g><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/></g></g></svg></a></div></div></div></div></div>
+        <!-- Burger 2 -->
+        <div class="col-sm-6 col-lg-4 all burger"><div class="box"><div><div class="img-box"><img src="images/f7.png" alt=""></div><div class="detail-box"><h5>برجر بالجبن</h5><p>جبنة شيدر مزدوجة، بصل مقرمش.</p><div class="options"><h6>$12</h6><a href="#"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029"><g><g><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/></g></g><g><g><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/></g></g></svg></a></div></div></div></div></div>
+        <!-- Burger 3 -->
+        <div class="col-sm-6 col-lg-4 all burger"><div class="box"><div><div class="img-box"><img src="images/f8.png" alt=""></div><div class="detail-box"><h5>برجر حار</h5><p>صوص حار، جبنة، فلفل حار.</p><div class="options"><h6>$14</h6><a href="#"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029"><g><g><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/></g></g><g><g><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/></g></g></svg></a></div></div></div></div></div>
+        <!-- Pasta 2 -->
+        <div class="col-sm-6 col-lg-4 all pasta"><div class="box"><div><div class="img-box"><img src="images/f9.png" alt=""></div><div class="detail-box"><h5>باستا ألفريدو</h5><p>دجاج، مشروم، صلصة كريمية.</p><div class="options"><h6>$10</h6><a href="#"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.029 456.029"><g><g><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"/></g></g><g><g><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z"/></g></g></svg></a></div></div></div></div></div>
       </div>
     </div>
     <div class="btn-box"><a href="#">عرض المزيد</a></div>
   </div>
 </section>
 
-<!-- about section (تم تطويره) -->
+<!-- about section -->
 <section class="about_section layout_padding">
   <div class="container">
     <div class="row">
@@ -396,16 +345,10 @@
       </div>
       <div class="col-md-2 footer-col">
         <h4>روابط سريعة</h4>
-        <ul class="footer-links">
-          <li><a href="#">عن فيان</a></li>
-          <li><a href="#">المدونة</a></li>
-          <li><a href="#">الوظائف</a></li>
-          <li><a href="#">سياسة الخصوصية</a></li>
-        </ul>
+        <ul class="footer-links"><li><a href="#">عن فيان</a></li><li><a href="#">المدونة</a></li><li><a href="#">الوظائف</a></li><li><a href="#">سياسة الخصوصية</a></li></ul>
       </div>
       <div class="col-md-3 footer-col">
-        <h4>ساعات العمل</h4>
-        <p>يومياً</p><p>10:00 ص - 10:00 م</p>
+        <h4>ساعات العمل</h4><p>يومياً</p><p>10:00 ص - 10:00 م</p>
         <h4 class="mt-3">نشرة بريدية</h4>
         <form class="newsletter"><input type="email" placeholder="بريدك الإلكتروني" required><button type="submit"><i class="fa fa-paper-plane"></i></button></form>
       </div>
@@ -425,10 +368,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
 <script>
   $(document).ready(function(){
-    $(".client_owl-carousel").owlCarousel({
-      rtl: true, loop: true, margin: 10, nav: true, dots: false,
-      responsive: { 0: { items: 1 }, 600: { items: 2 }, 1000: { items: 2 } }
-    });
+    $(".client_owl-carousel").owlCarousel({rtl:true, loop:true, margin:10, nav:true, dots:false, responsive:{0:{items:1},600:{items:2},1000:{items:2}}});
     $('select').nice_select();
   });
 </script>
