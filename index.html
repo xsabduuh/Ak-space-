@@ -1,606 +1,673 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>دردشة • المحادثات</title>
-  <!-- خطوط وأيقونات -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    /* ========== متغيرات وأساسيات ========== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Horizon Wear | الساعة الذكية للمستقبل</title>
+    <!-- Font Awesome 6 (Free Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Poppins + Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    :root {
-      --teal: #008080;
-      --deep-blue: #0A2540;
-      --off-white: #F7F9FC;
-      --accent-pink: #E1306C;  /* لمسة انستغرام */
-      --bubble-her: #FFE4E9;
-      --text-dark: #1E2A3A;
-      --text-secondary: #6B7A8A;
-      --border-light: rgba(0,0,0,0.05);
-      --shadow-card: 0 8px 20px rgba(0,0,0,0.03);
-      --nav-bg: rgba(255,255,255,0.85);
-    }
+        body {
+            font-family: 'Cairo', 'Poppins', sans-serif;
+            background-color: #f9fafc;
+            color: #1e1e2f;
+            line-height: 1.4;
+            scroll-behavior: smooth;
+        }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #D6E3ED;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-      padding: 12px;
-    }
+        /* custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 10px;
+        }
 
-    /* الحاوية الرئيسية (محاكاة شاشة الهاتف) */
-    .app-container {
-      max-width: 400px;
-      width: 100%;
-      height: 780px;
-      max-height: 95vh;
-      background: var(--off-white);
-      border-radius: 36px;
-      box-shadow: 0 30px 50px -15px rgba(0,0,0,0.25);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      backdrop-filter: blur(2px);
-      /* نسيج خفيف */
-      background-image: 
-        radial-gradient(circle at 20% 30%, rgba(0,128,128,0.02) 0%, transparent 30%),
-        repeating-linear-gradient(45deg, rgba(10,37,64,0.01) 0px, rgba(10,37,64,0.01) 1px, transparent 1px, transparent 10px);
-    }
+        /* container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-    /* ========== الهيدر ========== */
-    .main-header {
-      padding: 20px 18px 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: transparent;
-    }
+        /* header */
+        .header {
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0f172a, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+        .logo span {
+            font-size: 0.9rem;
+            font-weight: 400;
+            background: none;
+            color: #3b82f6;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #1e293b;
+            transition: 0.2s;
+        }
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.4rem;
+        }
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            background: #ef4444;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: bold;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .main-header h1 {
-      font-size: 32px;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--teal), var(--deep-blue));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: -0.5px;
-    }
+        /* hero section */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 0 40px;
+            gap: 40px;
+        }
+        .hero-content {
+            flex: 1;
+        }
+        .hero-badge {
+            background: #e0f2fe;
+            color: #0284c7;
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .hero-content h1 {
+            font-size: 3.4rem;
+            font-weight: 800;
+            line-height: 1.2;
+            background: linear-gradient(to right, #0f172a, #2563eb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+        .hero-content p {
+            color: #475569;
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+            max-width: 90%;
+        }
+        .price-tag {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 28px;
+        }
+        .price-tag small {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #64748b;
+        }
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: #0f172a;
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 48px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.25s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        .btn-primary:hover {
+            background: #1e293b;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #cbd5e1;
+            padding: 14px 32px;
+            border-radius: 48px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-outline:hover {
+            border-color: #0f172a;
+            background: #f8fafc;
+        }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        .hero-image img {
+            max-width: 100%;
+            filter: drop-shadow(0 25px 25px rgba(0,0,0,0.1));
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
 
-    .header-icons {
-      display: flex;
-      gap: 18px;
-    }
+        /* features */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin: 70px 0;
+        }
+        .feature-card {
+            flex: 1;
+            background: white;
+            padding: 28px 20px;
+            border-radius: 36px;
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.03);
+            transition: 0.2s;
+            border: 1px solid #eef2ff;
+        }
+        .feature-card i {
+            font-size: 2.4rem;
+            color: #3b82f6;
+            margin-bottom: 16px;
+        }
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
 
-    .header-icons i {
-      font-size: 22px;
-      color: var(--deep-blue);
-      opacity: 0.8;
-      cursor: pointer;
-      transition: 0.15s;
-    }
+        /* product grid - بطاقات المنتجات المتعددة */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin: 60px 0 30px;
+            font-weight: 700;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            cursor: pointer;
+            border: 1px solid #edf2f7;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 40px rgba(0,0,0,0.1);
+        }
+        .product-img {
+            background: #f1f5f9;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        .product-img img {
+            max-width: 70%;
+            transition: 0.3s;
+        }
+        .product-card:hover .product-img img {
+            transform: scale(1.02);
+        }
+        .product-info {
+            padding: 20px 20px 25px;
+        }
+        .product-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        .product-desc {
+            color: #5b6e8c;
+            margin: 10px 0;
+            font-size: 0.9rem;
+        }
+        .product-price {
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin: 12px 0;
+        }
+        .add-to-cart {
+            background: #0f172a;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 40px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .add-to-cart:hover {
+            background: #2563eb;
+        }
 
-    .header-icons i:hover {
-      color: var(--teal);
-      opacity: 1;
-    }
-
-    /* ========== شريط البحث ========== */
-    .search-section {
-      padding: 8px 16px 16px;
-    }
-
-    .search-container {
-      background: white;
-      border-radius: 30px;
-      padding: 8px 18px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-      border: 1px solid rgba(0,128,128,0.1);
-      backdrop-filter: blur(4px);
-    }
-
-    .search-container i {
-      color: var(--teal);
-      font-size: 18px;
-    }
-
-    .search-container input {
-      flex: 1;
-      border: none;
-      outline: none;
-      background: transparent;
-      font-size: 1rem;
-      font-family: 'Inter', sans-serif;
-      padding: 6px 0;
-    }
-
-    .search-container input::placeholder {
-      color: #A0B0C0;
-      font-weight: 400;
-    }
-
-    /* ========== قائمة المحادثات ========== */
-    .chats-list {
-      flex: 1;
-      overflow-y: auto;
-      padding: 0 10px 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .chat-item {
-      display: flex;
-      align-items: center;
-      padding: 14px 12px;
-      background: white;
-      border-radius: 24px;
-      box-shadow: var(--shadow-card);
-      transition: all 0.2s;
-      cursor: pointer;
-      border: 1px solid rgba(255,255,255,0.8);
-      backdrop-filter: blur(2px);
-      margin-bottom: 2px;
-    }
-
-    .chat-item:hover {
-      background: #FFFFFFF0;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 18px -8px rgba(0,128,128,0.08);
-    }
-
-    /* صورة البروفايل بأسلوب انستغرام */
-    .chat-avatar {
-      position: relative;
-      margin-left: 14px;
-    }
-
-    .avatar-ring {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      padding: 2.5px;
-      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .avatar-inner {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      color: var(--deep-blue);
-      border: 2px solid white;
-    }
-
-    /* محتوى المحادثة */
-    .chat-content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      min-width: 0;
-    }
-
-    .chat-header-row {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-    }
-
-    .chat-name {
-      font-weight: 700;
-      font-size: 1.05rem;
-      color: var(--deep-blue);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 160px;
-    }
-
-    .chat-time {
-      font-size: 0.7rem;
-      color: var(--text-secondary);
-      font-weight: 500;
-    }
-
-    .chat-last-message {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .last-message-text {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 180px;
-      font-weight: 400;
-    }
-
-    .message-status {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .unread-badge {
-      background: var(--teal);
-      color: white;
-      font-size: 0.65rem;
-      font-weight: 700;
-      padding: 2px 6px;
-      border-radius: 30px;
-      min-width: 20px;
-      text-align: center;
-    }
-
-    .double-check {
-      color: var(--teal);
-      font-size: 14px;
-      opacity: 0.7;
-    }
-
-    /* قصة/حالة (ستوري) */
-    .story-indicator {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #2ecc71;
-      border: 2px solid white;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-    }
-
-    /* ========== شريط التنقل السفلي ========== */
-    .bottom-nav {
-      background: var(--nav-bg);
-      backdrop-filter: blur(12px);
-      padding: 10px 20px 16px;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      border-top: 1px solid rgba(0,128,128,0.1);
-      margin-top: 4px;
-    }
-
-    .nav-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-decoration: none;
-      color: var(--text-secondary);
-      transition: 0.15s;
-      font-size: 12px;
-      gap: 4px;
-      cursor: pointer;
-      border: none;
-      background: none;
-    }
-
-    .nav-item i {
-      font-size: 24px;
-    }
-
-    .nav-item.active {
-      color: var(--teal);
-      font-weight: 600;
-    }
-
-    .nav-item span {
-      font-size: 11px;
-    }
-
-    /* حالة فارغة للبحث */
-    .no-results {
-      text-align: center;
-      padding: 40px 20px;
-      color: var(--text-secondary);
-    }
-
-    /* تحسينات للجوال */
-    @media (max-width: 380px) {
-      .app-container {
-        height: 100vh;
-        max-height: 100vh;
-        border-radius: 0;
-      }
-      body { padding: 0; }
-    }
-  </style>
+        /* cart sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -420px;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 30px rgba(0,0,0,0.15);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+            font-family: inherit;
+        }
+        .cart-sidebar.open {
+            right: 0;
+        }
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 16px;
+        }
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            margin: 20px 0;
+        }
+        .cart-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 12px;
+        }
+        .cart-item img {
+            width: 60px;
+            border-radius: 16px;
+        }
+        .cart-item-details h4 {
+            font-size: 1rem;
+        }
+        .cart-item-price {
+            font-weight: bold;
+        }
+        .remove-item {
+            color: #ef4444;
+            cursor: pointer;
+            margin-left: auto;
+        }
+        .cart-total {
+            font-weight: 800;
+            font-size: 1.4rem;
+            border-top: 2px dashed #cbd5e1;
+            padding-top: 16px;
+            margin: 12px 0;
+        }
+        .checkout-btn {
+            background: #22c55e;
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(3px);
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.2s;
+            z-index: 999;
+        }
+        .overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 40px;
+            color: #5b6e8c;
+        }
+        @media (max-width: 800px) {
+            .hero-content h1 { font-size: 2.4rem; }
+            .cart-sidebar { width: 100%; right: -100%; }
+            .nav-links { gap: 1rem; }
+        }
+        .toast-msg {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0f172a;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 60px;
+            font-weight: 500;
+            z-index: 1100;
+            opacity: 0;
+            transition: 0.2s;
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
-<div class="app-container">
-  <!-- الهيدر الرئيسي -->
-  <header class="main-header">
-    <h1>دردشة</h1>
-    <div class="header-icons">
-      <i class="fas fa-camera" title="القصص"></i>
-      <i class="fas fa-ellipsis-h" title="المزيد"></i>
+
+<div class="header">
+    <div class="container">
+        <div class="nav">
+            <div class="logo">HORIZON WEAR <span>⌚</span></div>
+            <div class="nav-links">
+                <a href="#">الرئيسية</a>
+                <a href="#">المنتجات</a>
+                <a href="#">المميزات</a>
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+        </div>
     </div>
-  </header>
-
-  <!-- شريط البحث -->
-  <div class="search-section">
-    <div class="search-container">
-      <i class="fas fa-search"></i>
-      <input type="text" id="searchInput" placeholder="بحث في المحادثات..." autocomplete="off">
-    </div>
-  </div>
-
-  <!-- قائمة المحادثات -->
-  <div class="chats-list" id="chatsListContainer">
-    <!-- سيتم إنشاء العناصر ديناميكيًا عبر JavaScript -->
-  </div>
-
-  <!-- شريط التنقل السفلي (Navigation) -->
-  <nav class="bottom-nav">
-    <a class="nav-item active" data-page="chats">
-      <i class="fas fa-comment-dots"></i>
-      <span>المحادثات</span>
-    </a>
-    <a class="nav-item" data-page="contacts">
-      <i class="fas fa-address-book"></i>
-      <span>جهات الاتصال</span>
-    </a>
-    <a class="nav-item" data-page="settings">
-      <i class="fas fa-cog"></i>
-      <span>الإعدادات</span>
-    </a>
-  </nav>
 </div>
 
-<script>
-  (function(){
-    "use strict";
+<div class="container">
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🔥 الإصدار الأحدث 2026</div>
+            <h1>ساعة Horizon X9<br>ذكاء بلا حدود</h1>
+            <p>شاشة AMOLED بحجم 1.9 إنش، بطارية لأسبوع كامل، تتبع دقيق لصحتك، ومقاومة للماء 5ATM. صممت لتواكب أسلوب حياتك النشط.</p>
+            <div class="price-tag">$199.99 <small>شامل الضريبة</small></div>
+            <div class="btn-group">
+                <button class="btn-primary" id="buyNowBtn">اطلب الآن <i class="fas fa-arrow-left"></i></button>
+                <button class="btn-outline" id="exploreBtn">استكشف المميزات</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://placehold.co/500x500/e2e8f0/1e293b?text=Smart+Watch+X9" alt="Horizon X9">
+        </div>
+    </div>
 
-    // ---------- البيانات التجريبية للمحادثات ----------
-    const chatsData = [
-      {
-        id: 1,
-        name: 'حبيبتي ❤️',
-        avatar: 'fa-heart',
-        avatarColor: '#FFE4E9',
-        lastMessage: 'خلاص متفقين، هبعتلك اللوكيشن',
-        time: '10:10 ص',
-        unread: 2,
-        isOnline: true,
-        isRead: false,
-        hasStory: true,
-        link: 'chat.html'  // رابط صفحة المحادثة الداخلية
-      },
-      {
-        id: 2,
-        name: 'أحمد (العمل)',
-        avatar: 'fa-user-tie',
-        avatarColor: '#E3F2FD',
-        lastMessage: 'تم إرسال التقرير الأسبوعي ✅',
-        time: 'أمس',
-        unread: 0,
-        isOnline: false,
-        isRead: true,
-        hasStory: false,
-        link: 'chat.html'
-      },
-      {
-        id: 3,
-        name: 'مجموعة المصممين',
-        avatar: 'fa-users',
-        avatarColor: '#E8F5E9',
-        lastMessage: 'سارة: التصميم النهائي جاهز 🎨',
-        time: 'أمس',
-        unread: 5,
-        isOnline: false,
-        isRead: false,
-        hasStory: false,
-        link: 'chat.html'
-      },
-      {
-        id: 4,
-        name: 'محمد علي',
-        avatar: 'fa-user-graduate',
-        avatarColor: '#FFF3E0',
-        lastMessage: 'شكراً على المساعدة!',
-        time: 'الثلاثاء',
-        unread: 0,
-        isOnline: false,
-        isRead: true,
-        hasStory: true,
-        link: 'chat.html'
-      },
-      {
-        id: 5,
-        name: 'ليلى',
-        avatar: 'fa-user-circle',
-        avatarColor: '#FCE4EC',
-        lastMessage: 'مكالمة فائتة (2)',
-        time: 'الثلاثاء',
-        unread: 1,
-        isOnline: true,
-        isRead: false,
-        hasStory: false,
-        link: 'chat.html'
-      }
+    <!-- Features -->
+    <div class="features">
+        <div class="feature-card"><i class="fas fa-heartbeat"></i><h3>قياس دقيق</h3><p>مستشعر بصري 24/7</p></div>
+        <div class="feature-card"><i class="fas fa-charging-station"></i><h3>شحن سريع</h3><p>80% في 30 دقيقة</p></div>
+        <div class="feature-card"><i class="fas fa-water"></i><h3>مقاوم للماء</h3><p>حتى 50 متر</p></div>
+        <div class="feature-card"><i class="fas fa-gps"></i><h3>GPS مدمج</h3><p>تتبع دقيق للأنشطة</p></div>
+    </div>
+
+    <!-- Product Collection -->
+    <div class="section-title">⭐ الأكثر مبيعاً</div>
+    <div class="products-grid" id="productsGrid"></div>
+</div>
+
+<footer>
+    <p>© 2026 Horizon Wear — تقنية تتجاوز التوقعات</p>
+</footer>
+
+<!-- Cart Sidebar -->
+<div class="overlay" id="overlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <h2><i class="fas fa-bag-shopping"></i> سلة التسوق</h2>
+        <i class="fas fa-times" id="closeCart" style="font-size: 1.5rem; cursor: pointer;"></i>
+    </div>
+    <div class="cart-items" id="cartItemsList">
+        <p style="text-align:center; margin-top: 30px;">السلة فارغة</p>
+    </div>
+    <div class="cart-total" id="cartTotalPrice">المجموع: $0.00</div>
+    <button class="checkout-btn" id="checkoutBtn">إتمام الشراء <i class="fas fa-lock"></i></button>
+</div>
+<div id="toastMsg" class="toast-msg"></div>
+
+<script>
+    // ------------------------------
+    // PRODUCT DATA (مطلوب وحديث)
+    // ------------------------------
+    const products = [
+        { id: 1, name: "Horizon X9 Black", desc: "شاشة أموليد، بطارية أسبوع", price: 199.99, img: "https://placehold.co/300x300/1e293b/ffffff?text=X9+Black" },
+        { id: 2, name: "Horizon Sport S7", desc: "هيكل كربوني، مقاوم للصدمات", price: 159.99, img: "https://placehold.co/300x300/334155/f8fafc?text=Sport+S7" },
+        { id: 3, name: "Horizon Luxe Rose", desc: "إطار ذهبي، حزام سيليكون فاخر", price: 249.99, img: "https://placehold.co/300x300/f1f5f9/b91c1c?text=Luxe+Rose" },
+        { id: 4, name: "Horizon Ultra Pro", desc: "شاشة دائرية، مكالمات بلوتوث", price: 299.99, img: "https://placehold.co/300x300/0f172a/3b82f6?text=Ultra+Pro" }
     ];
 
-    const container = document.getElementById('chatsListContainer');
-    const searchInput = document.getElementById('searchInput');
+    let cart = []; // { id, name, price, img, quantity }
 
-    // ---------- دالة إنشاء عنصر محادثة ----------
-    function createChatItem(chat) {
-      const item = document.createElement('div');
-      item.className = 'chat-item';
-      item.setAttribute('data-id', chat.id);
-      item.setAttribute('data-name', chat.name);
-      
-      // صورة الأفتار
-      const avatarDiv = document.createElement('div');
-      avatarDiv.className = 'chat-avatar';
-      const ring = document.createElement('div');
-      ring.className = 'avatar-ring';
-      if (!chat.hasStory) {
-        ring.style.background = 'transparent'; // بدون حلقة ملونة للستوري
-      }
-      const inner = document.createElement('div');
-      inner.className = 'avatar-inner';
-      inner.style.background = chat.avatarColor;
-      const icon = document.createElement('i');
-      icon.className = `fas ${chat.avatar}`;
-      inner.appendChild(icon);
-      ring.appendChild(inner);
-      avatarDiv.appendChild(ring);
-      
-      // مؤشر الحالة (أونلاين/ستوري)
-      if (chat.isOnline) {
-        const onlineDot = document.createElement('span');
-        onlineDot.className = 'story-indicator';
-        onlineDot.style.background = '#2ecc71';
-        onlineDot.style.bottom = '2px';
-        onlineDot.style.left = '2px';
-        avatarDiv.appendChild(onlineDot);
-      } else if (chat.hasStory) {
-        const storyDot = document.createElement('span');
-        storyDot.className = 'story-indicator';
-        storyDot.style.background = 'linear-gradient(45deg, #f09433, #dc2743)';
-        avatarDiv.appendChild(storyDot);
-      }
+    // DOM elements
+    const productsGrid = document.getElementById('productsGrid');
+    const cartSidebar = document.getElementById('cartSidebar');
+    const overlay = document.getElementById('overlay');
+    const cartIcon = document.getElementById('cartIcon');
+    const closeCart = document.getElementById('closeCart');
+    const cartCountSpan = document.getElementById('cartCount');
+    const cartItemsList = document.getElementById('cartItemsList');
+    const cartTotalPriceSpan = document.getElementById('cartTotalPrice');
+    const toastMsgDiv = document.getElementById('toastMsg');
 
-      // محتوى النص
-      const contentDiv = document.createElement('div');
-      contentDiv.className = 'chat-content';
-      
-      const headerRow = document.createElement('div');
-      headerRow.className = 'chat-header-row';
-      const nameSpan = document.createElement('span');
-      nameSpan.className = 'chat-name';
-      nameSpan.textContent = chat.name;
-      const timeSpan = document.createElement('span');
-      timeSpan.className = 'chat-time';
-      timeSpan.textContent = chat.time;
-      headerRow.appendChild(nameSpan);
-      headerRow.appendChild(timeSpan);
-      
-      const lastRow = document.createElement('div');
-      lastRow.className = 'chat-last-message';
-      const msgSpan = document.createElement('span');
-      msgSpan.className = 'last-message-text';
-      msgSpan.textContent = chat.lastMessage;
-      
-      const statusDiv = document.createElement('div');
-      statusDiv.className = 'message-status';
-      
-      // علامات القراءة / عدد غير مقروء
-      if (chat.unread > 0) {
-        const badge = document.createElement('span');
-        badge.className = 'unread-badge';
-        badge.textContent = chat.unread;
-        statusDiv.appendChild(badge);
-      } else if (chat.isRead) {
-        const checkIcon = document.createElement('i');
-        checkIcon.className = 'fas fa-check-double double-check';
-        statusDiv.appendChild(checkIcon);
-      }
-      
-      lastRow.appendChild(msgSpan);
-      lastRow.appendChild(statusDiv);
-      
-      contentDiv.appendChild(headerRow);
-      contentDiv.appendChild(lastRow);
-      
-      item.appendChild(avatarDiv);
-      item.appendChild(contentDiv);
-      
-      // حدث النقر للانتقال إلى صفحة المحادثة
-      item.addEventListener('click', (e) => {
-        // يمكن فتح chat.html مع تمرير معرف المحادثة (محاكاة)
-        window.location.href = chat.link + '?id=' + chat.id;
-      });
-      
-      return item;
+    function showToast(message, isError = false) {
+        toastMsgDiv.innerText = message;
+        toastMsgDiv.style.backgroundColor = isError ? '#dc2626' : '#0f172a';
+        toastMsgDiv.style.opacity = '1';
+        setTimeout(() => {
+            toastMsgDiv.style.opacity = '0';
+        }, 2000);
     }
 
-    // عرض جميع المحادثات
-    function renderChats(chatsArray) {
-      container.innerHTML = '';
-      if (chatsArray.length === 0) {
-        container.innerHTML = '<div class="no-results"><i class="fas fa-search" style="font-size: 32px; opacity:0.5; margin-bottom:12px;"></i><br/>لا توجد محادثات مطابقة</div>';
-        return;
-      }
-      chatsArray.forEach(chat => {
-        container.appendChild(createChatItem(chat));
-      });
-    }
-
-    // فلترة البحث
-    function filterChats(searchTerm) {
-      const term = searchTerm.trim().toLowerCase();
-      if (!term) return chatsData;
-      return chatsData.filter(chat => 
-        chat.name.toLowerCase().includes(term) || 
-        chat.lastMessage.toLowerCase().includes(term)
-      );
-    }
-
-    // تحديث القائمة بناءً على البحث
-    function handleSearch() {
-      const filtered = filterChats(searchInput.value);
-      renderChats(filtered);
-    }
-
-    // ---------- أحداث البحث ----------
-    searchInput.addEventListener('input', handleSearch);
-
-    // ---------- التنقل بين الصفحات (محاكاة) ----------
-    const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach(item => {
-      item.addEventListener('click', function(e) {
-        e.preventDefault();
-        const page = this.getAttribute('data-page');
-        
-        // إزالة النشط من الكل
-        navItems.forEach(n => n.classList.remove('active'));
-        this.classList.add('active');
-        
-        // محاكاة التنقل (تنبيه فقط - لاحقًا سنطور صفحات منفصلة)
-        if (page === 'contacts') {
-          alert('📇 سيتم الانتقال إلى صفحة جهات الاتصال (قيد التطوير)');
-          // يمكن إضافة: window.location.href = 'contacts.html';
-        } else if (page === 'settings') {
-          alert('⚙️ سيتم الانتقال إلى صفحة الإعدادات (قيد التطوير)');
+    // save & update cart UI
+    function updateCartUI() {
+        // update count
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCountSpan.innerText = totalItems;
+        // update cart items list
+        if (cart.length === 0) {
+            cartItemsList.innerHTML = '<p style="text-align:center; margin-top: 30px;">🛒 السلة فارغة</p>';
+            cartTotalPriceSpan.innerText = `المجموع: $0.00`;
+            return;
         }
-        // بالنسبة لـ chats نحن هنا بالفعل
-      });
+        let cartHtml = '';
+        let total = 0;
+        cart.forEach((item, idx) => {
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal;
+            cartHtml += `
+                <div class="cart-item" data-id="${item.id}">
+                    <img src="${item.img}" alt="${item.name}" style="width:55px; height:55px; object-fit:cover; border-radius:16px;">
+                    <div class="cart-item-details">
+                        <h4>${item.name}</h4>
+                        <div>$${item.price.toFixed(2)} x ${item.quantity}</div>
+                        <div class="cart-item-price">$${itemTotal.toFixed(2)}</div>
+                    </div>
+                    <div class="remove-item" data-id="${item.id}"><i class="fas fa-trash-alt"></i></div>
+                </div>
+            `;
+        });
+        cartItemsList.innerHTML = cartHtml;
+        cartTotalPriceSpan.innerText = `المجموع: $${total.toFixed(2)}`;
+
+        // attach remove events
+        document.querySelectorAll('.remove-item').forEach(el => {
+            el.addEventListener('click', (e) => {
+                const id = parseInt(el.getAttribute('data-id'));
+                removeFromCart(id);
+            });
+        });
+    }
+
+    function addToCart(productId) {
+        const product = products.find(p => p.id === productId);
+        if (!product) return;
+        const existing = cart.find(item => item.id === productId);
+        if (existing) {
+            existing.quantity += 1;
+        } else {
+            cart.push({
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                img: product.img,
+                quantity: 1
+            });
+        }
+        updateCartUI();
+        showToast(`✅ تم إضافة ${product.name} إلى السلة`);
+        // optional open sidebar?
+    }
+
+    function removeFromCart(productId) {
+        const itemIndex = cart.findIndex(i => i.id === productId);
+        if (itemIndex !== -1) {
+            const removed = cart[itemIndex];
+            cart.splice(itemIndex, 1);
+            updateCartUI();
+            showToast(`🗑️ تم إزالة ${removed.name}`);
+        }
+    }
+
+    function openCart() {
+        cartSidebar.classList.add('open');
+        overlay.classList.add('active');
+    }
+    function closeCartSidebar() {
+        cartSidebar.classList.remove('open');
+        overlay.classList.remove('active');
+    }
+
+    // Render products
+    function renderProducts() {
+        productsGrid.innerHTML = '';
+        products.forEach(prod => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.innerHTML = `
+                <div class="product-img">
+                    <img src="${prod.img}" alt="${prod.name}">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">${prod.name}</div>
+                    <div class="product-desc">${prod.desc}</div>
+                    <div class="product-price">$${prod.price.toFixed(2)}</div>
+                    <button class="add-to-cart" data-id="${prod.id}">
+                        <i class="fas fa-cart-plus"></i> أضف للسلة
+                    </button>
+                </div>
+            `;
+            productsGrid.appendChild(card);
+        });
+        // attach add to cart events
+        document.querySelectorAll('.add-to-cart').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const id = parseInt(btn.getAttribute('data-id'));
+                addToCart(id);
+            });
+        });
+    }
+
+    // checkout simulation
+    function checkout() {
+        if (cart.length === 0) {
+            showToast("⚠️ سلة التسوق فارغة! أضف منتجات أولاً.", true);
+            return;
+        }
+        const total = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0).toFixed(2);
+        showToast(`🎉 شكراً لتسوقك! تم إرسال طلبك بقيمة $${total}. ستصلك إشعارات التوصيل.`);
+        cart = [];
+        updateCartUI();
+        closeCartSidebar();
+    }
+
+    // Event listeners
+    cartIcon.addEventListener('click', openCart);
+    closeCart.addEventListener('click', closeCartSidebar);
+    overlay.addEventListener('click', closeCartSidebar);
+    document.getElementById('checkoutBtn').addEventListener('click', checkout);
+    document.getElementById('buyNowBtn').addEventListener('click', () => {
+        addToCart(1); // X9 black
+        openCart();
+    });
+    document.getElementById('exploreBtn').addEventListener('click', () => {
+        document.querySelector('.features').scrollIntoView({ behavior: 'smooth' });
+        showToast("✨ اكتشف الميزات الفائقة!");
     });
 
-    // ---------- بدء العرض ----------
-    renderChats(chatsData);
-
-    // إضافة تأثير التمرير السلس
-    window.addEventListener('resize', () => { /* لا شيء */ });
-  })();
+    // init
+    renderProducts();
+    updateCartUI();
 </script>
-<!-- ملاحظة: الصفحة الرئيسية جاهزة، اضغط على أي محادثة للانتقال إلى chat.html -->
 </body>
 </html>
