@@ -45,7 +45,10 @@
   <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiZnJvc3QiLCJzaG9ydF9uYW1lIjoiZnJvc3QiLCJzdGFydF91cmwiOiIuIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiIzBiMGYxNyIsInRoZW1lX2NvbG9yIjoiI2Y5NzM0ZSIsImljb25zIjpbeyJzcmMiOiJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LDxzdmcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB2aWV3Qm94PScwIDAgMTAwIDEwMCc+PHRleHQgeT0nLjllbScgZm9udC1zaXplPSc5MCc+8J+OujwvdGV4dD48L3N2Zz4iLCJzaXplcyI6IjE5MngxOTIiLCJ0eXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9XX0=">
 
   <style>
-    /* CSS Reset & Variables */
+    /* ===== PERFORMANCE OPTIMIZATIONS ===== */
+    /* تمت إزالة backdrop-filter الثقيل واستبداله بخلفية شفافة محسّنة */
+    /* إضافة will-change و transform: translateZ(0) لعزل الطبقات */
+    
     :root {
       --bg-dark: #0b0f17;
       --bg-card: #11161f;
@@ -105,6 +108,13 @@
       line-height: 1.6;
       overflow-x: hidden;
       min-height: 100vh;
+    }
+
+    /* تحسين الأداء للعناصر الثابتة */
+    .header, .mobile-nav, .cart-modal, .whatsapp-fab {
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
     }
 
     /* Typography */
@@ -251,7 +261,8 @@
       100% { background-position: -200% 0; }
     }
 
-    /* Header & Navigation */
+    /* ===== HEADER OPTIMIZED ===== */
+    /* تم استبدال backdrop-filter بخلفية عادية شفافة لتخفيف الحمل على GPU */
     .header {
       position: fixed;
       top: 0;
@@ -259,13 +270,15 @@
       left: 0;
       z-index: 1000;
       background: rgba(11, 15, 23, 0.85);
-      backdrop-filter: blur(20px) saturate(180%);
+      /* backdrop-filter: blur(20px) saturate(180%);  ← تمت الإزالة */
       border-bottom: 1px solid rgba(255,255,255,0.05);
-      transition: all var(--transition-base);
+      transition: background var(--transition-base), box-shadow var(--transition-base);
+      will-change: transform, background;
+      transform: translateZ(0);
     }
 
     .header.scrolled {
-      background: rgba(11, 15, 23, 0.95);
+      background: rgba(11, 15, 23, 0.98);
       box-shadow: var(--shadow-md);
     }
 
@@ -420,7 +433,7 @@
       right: 0;
       left: 0;
       background: rgba(17, 22, 31, 0.98);
-      backdrop-filter: blur(20px);
+      /* backdrop-filter: blur(20px); ← تمت الإزالة */
       padding: 2rem;
       transform: translateY(-100%);
       opacity: 0;
@@ -428,6 +441,7 @@
       transition: all var(--transition-base);
       border-bottom: 1px solid rgba(255,255,255,0.1);
       z-index: 999;
+      will-change: transform, opacity;
     }
 
     .mobile-nav.active {
@@ -575,12 +589,13 @@
       border-radius: var(--radius-xl);
       object-fit: cover;
       box-shadow: var(--shadow-xl);
-      transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+      /* تم تبسيط التحويل لتقليل الحمل */
       transition: transform var(--transition-slow);
+      will-change: transform;
     }
 
     .hero-image:hover {
-      transform: perspective(1000px) rotateY(0) rotateX(0) scale(1.02);
+      transform: scale(1.02);
     }
 
     .floating-elements {
@@ -598,6 +613,7 @@
       font-size: 0.875rem;
       box-shadow: var(--shadow-md);
       animation: float 3s ease-in-out infinite;
+      will-change: transform;
     }
 
     .float-item:nth-child(1) {
@@ -635,6 +651,7 @@
       transition: all var(--transition-base);
       position: relative;
       overflow: hidden;
+      will-change: transform;
     }
 
     .stat-card::before {
@@ -676,6 +693,12 @@
     .section {
       padding: 5rem 0;
       position: relative;
+    }
+
+    /* تحسين الأداء للأقسام البعيدة */
+    .section:not(:first-of-type) {
+      content-visibility: auto;
+      contain-intrinsic-size: 500px;
     }
 
     .section-header {
@@ -725,10 +748,11 @@
       border-radius: var(--radius-xl);
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.05);
-      transition: all var(--transition-slow);
+      transition: transform var(--transition-slow), box-shadow var(--transition-slow);
       position: relative;
       display: flex;
       flex-direction: column;
+      will-change: transform;
     }
 
     .product-card:hover {
@@ -767,6 +791,7 @@
       height: 100%;
       object-fit: cover;
       transition: transform var(--transition-slow);
+      will-change: transform;
     }
 
     .product-card:hover .product-image {
@@ -803,6 +828,7 @@
       justify-content: center;
       transform: translateY(20px);
       transition: all var(--transition-base);
+      will-change: transform;
     }
 
     .action-btn:hover {
@@ -923,6 +949,7 @@
       border: 1px solid rgba(255,255,255,0.05);
       transition: all var(--transition-base);
       position: relative;
+      will-change: transform;
     }
 
     .testimonial-card:hover {
@@ -1020,6 +1047,7 @@
       display: flex;
       flex-direction: column;
       box-shadow: -10px 0 40px rgba(0,0,0,0.5);
+      will-change: transform;
     }
 
     .modal-overlay.active ~ .cart-modal {
@@ -1214,6 +1242,7 @@
       transition: all var(--transition-base);
       text-decoration: none;
       animation: pulse-whatsapp 2s infinite;
+      will-change: transform;
     }
 
     .whatsapp-fab:hover {
@@ -1888,13 +1917,39 @@
     const mobileNav = document.getElementById('mobileNav');
     const header = document.getElementById('header');
 
+    // تحسين الأداء: استخدام requestAnimationFrame لحدث التمرير
+    let ticking = false;
+    let lastScrollY = window.scrollY;
+
+    function updateHeaderOnScroll() {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      ticking = false;
+    }
+
+    function onScroll() {
+      lastScrollY = window.scrollY;
+      if (!ticking) {
+        window.requestAnimationFrame(updateHeaderOnScroll);
+        ticking = true;
+      }
+    }
+
     // Initialization
     document.addEventListener('DOMContentLoaded', () => {
       renderProducts();
       renderTestimonials();
       updateCartUI();
       setupEventListeners();
-      setupScrollEffects();
+      
+      // استبدال حدث التمرير القديم بالمحسّن
+      window.addEventListener('scroll', onScroll, { passive: true });
+      
+      // مراقب التقاطع لتحميل العناصر بتكاسل (Lazy Loading)
+      setupIntersectionObserver();
     });
 
     // Render Products
@@ -2112,7 +2167,7 @@
       cart.forEach(item => {
         message += `• ${item.name} (${item.quantity}x) - ${item.price * item.quantity} ر.س%0A`;
       });
-      message += `%0المجموع الفرعي: ${subtotal.toFixed(2)} ر.س%0A`;
+      message += `%0Aالمجموع الفرعي: ${subtotal.toFixed(2)} ر.س%0A`;
       message += `الضريبة (15%): ${tax.toFixed(2)} ر.س%0A`;
       message += `*الإجمالي: ${total.toFixed(2)} ر.س*%0A%0A`;
       message += 'الرجاء تأكيد الطلب';
@@ -2141,7 +2196,7 @@
       document.body.style.overflow = '';
     }
 
-    // Quick View (simplified as alert for now, can be expanded to modal)
+    // Quick View (simplified as alert for now)
     function quickView(productId) {
       const product = products.find(p => p.id === productId);
       showToast(`${product.name}: ${product.desc.substring(0, 50)}...`, 'warning');
@@ -2167,7 +2222,6 @@
       
       container.appendChild(toast);
       
-      // Trigger animation
       requestAnimationFrame(() => {
         toast.classList.add('show');
       });
@@ -2207,39 +2261,29 @@
       });
     }
 
-    // Scroll Effects
-    function setupScrollEffects() {
-      // Header scroll effect
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
-        }
-        
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.style.opacity = '1';
-              entry.target.style.transform = 'translateY(0)';
-              observer.unobserve(entry.target);
-            }
-          });
-        }, observerOptions);
-        
-        // Observe elements
-        document.querySelectorAll('.product-card, .testimonial-card, .stat-card').forEach(el => {
-          el.style.opacity = '0';
-          el.style.transform = 'translateY(20px)';
-          el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-          observer.observe(el);
+    // Intersection Observer للتحميل الكسول للعناصر (يحسن أداء التمرير)
+    function setupIntersectionObserver() {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
+          }
         });
+      }, observerOptions);
+      
+      // إعداد العناصر للمراقبة
+      document.querySelectorAll('.product-card, .testimonial-card, .stat-card').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
       });
     }
 
@@ -2258,7 +2302,7 @@
       }
     }
 
-    // Service Worker Registration for PWA
+    // Service Worker Registration (PWA) - simplified
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('data:text/javascript;base64,' + btoa(`
         self.addEventListener('install', e => e.waitUntil(self.skipWaiting()));
