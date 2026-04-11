@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Frost | Artisanal Ice Cream — High Fidelity</title>
+  <title>Frost | Artisanal Ice Cream</title>
   <!-- Google Fonts: Poppins + Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 (SVG icons, no emojis) -->
+  <!-- Font Awesome 6 (clean SVG icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -15,7 +15,6 @@
       box-sizing: border-box;
     }
 
-    /* ---------- DESIGN SYSTEM (Premium) ---------- */
     :root {
       --bg-white: #ffffff;
       --bg-soft: #fef8f5;
@@ -53,7 +52,7 @@
       font-weight: 800;
       line-height: 1.2;
       letter-spacing: -0.02em;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
     }
     h2 {
       font-size: 2.2rem;
@@ -68,7 +67,7 @@
       margin: 0 auto;
     }
 
-    /* Buttons unified */
+    /* Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -89,15 +88,6 @@
     .btn-primary:hover {
       background: var(--accent-dark);
       transform: translateY(-2px);
-    }
-    .btn-outline {
-      background: transparent;
-      border: 1.5px solid var(--text-soft);
-      color: var(--text-dark);
-    }
-    .btn-outline:hover {
-      border-color: var(--accent);
-      background: var(--accent-light);
     }
 
     /* Header */
@@ -161,7 +151,7 @@
       justify-content: center;
     }
 
-    /* Hero Section */
+    /* Hero Section – exact content from image */
     .hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -186,7 +176,7 @@
       box-shadow: var(--card-shadow);
     }
 
-    /* Sections – unified spacing (no gaps) */
+    /* Sections – unified spacing, no gaps */
     .section {
       padding: 3.5rem 0;
     }
@@ -202,7 +192,7 @@
       gap: 2rem;
     }
 
-    /* Premium Cards */
+    /* Product Cards */
     .product-card {
       background: var(--bg-white);
       border-radius: var(--border-radius-card);
@@ -316,12 +306,12 @@
       color: var(--accent);
     }
 
-    /* Footer */
+    /* Footer – exact match with image content */
     .footer {
       background: #1f2a3e;
       color: #e2e8f0;
       padding: 2.5rem 0 1.5rem;
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
     .footer-grid {
       display: grid;
@@ -333,12 +323,12 @@
       margin-bottom: 1rem;
       color: white;
     }
-    .footer-col a {
-      display: block;
+    .footer-col p, .footer-col a {
       color: #cbd5e1;
       text-decoration: none;
       margin-bottom: 0.4rem;
       font-size: 0.85rem;
+      display: block;
       transition: 0.2s;
     }
     .footer-col a:hover {
@@ -348,6 +338,9 @@
       display: flex;
       gap: 1rem;
       font-size: 1.2rem;
+    }
+    .social-icons a {
+      display: inline-block;
     }
     .copyright {
       text-align: center;
@@ -417,7 +410,7 @@
 </div>
 
 <main>
-  <!-- Hero Section -->
+  <!-- Hero Section – exactly as described in image -->
   <div class="container">
     <div class="hero reveal">
       <div class="hero-content">
@@ -477,17 +470,41 @@
   </section>
 </main>
 
+<!-- Footer – exactly matches the image content (Frost, Explore, Support, Connect) -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-col"><h4>Frost</h4><p style="color:#cbd5e1;">Scooping joy since 2024</p></div>
-      <div class="footer-col"><h4>Explore</h4><a href="#">Our story</a><a href="#">Flavors</a><a href="#">Locations</a></div>
-      <div class="footer-col"><h4>Support</h4><a href="#">FAQ</a><a href="#">Contact</a><a href="#">Shipping</a></div>
-      <div class="footer-col"><h4>Connect</h4><div class="social-icons"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-tiktok"></i></a></div></div>
+      <div class="footer-col">
+        <h4>Frost</h4>
+        <p>Scooping joy since 2024</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#">Our story</a>
+        <a href="#">Flavors</a>
+        <a href="#">Locations</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#">FAQ</a>
+        <a href="#">Contact</a>
+        <a href="#">Shipping</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
     </div>
-    <div class="copyright"><i class="far fa-copyright"></i> 2026 Frost — Premium ice cream studio</div>
+    <div class="copyright">
+      <i class="far fa-copyright"></i> 2026 Frost — Premium ice cream studio
+    </div>
   </div>
 </footer>
+
 <div id="toastMessage" class="toast"></div>
 
 <script>
