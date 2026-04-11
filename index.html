@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Frost | Artisanal Ice Cream</title>
-  <!-- Google Fonts: Poppins + Inter -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 (clean SVG icons) -->
+  <title>Frost | Premium Ice Cream — High-Fidelity Redesign</title>
+  <!-- Google Fonts: Modern pairing -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (Clean SVG icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- AOS Library for scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -16,28 +18,30 @@
     }
 
     :root {
-      --bg-white: #ffffff;
-      --bg-soft: #fef8f5;
-      --text-dark: #1f2a3e;
-      --text-soft: #4a5568;
+      --bg-dark: #0b1120;
+      --bg-card: #111827;
+      --surface: #1f2937;
+      --text-primary: #f9fafb;
+      --text-secondary: #9ca3af;
       --accent: #f9734e;
+      --accent-glow: #ff8c5a;
       --accent-dark: #e25c2c;
-      --accent-light: #fff0e8;
-      --card-shadow: 0 20px 30px -12px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.02);
-      --card-hover-shadow: 0 28px 38px -16px rgba(0,0,0,0.12);
-      --transition: all 0.25s cubic-bezier(0.2, 0.95, 0.4, 1);
-      --border-radius-card: 1.75rem;
+      --gradient-1: linear-gradient(135deg, #f9734e, #ffb347);
+      --shadow-xl: 0 25px 35px -12px rgba(0,0,0,0.35);
+      --border-radius-card: 1.8rem;
+      --transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--bg-white);
-      color: var(--text-dark);
+      background: var(--bg-dark);
+      color: var(--text-primary);
       line-height: 1.5;
+      overflow-x: hidden;
     }
 
     h1, h2, h3, .logo, .btn {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
     }
 
     .container {
@@ -46,24 +50,28 @@
       padding: 0 2rem;
     }
 
-    /* Typography hierarchy */
+    /* Typography */
     h1 {
-      font-size: 3.6rem;
-      font-weight: 800;
-      line-height: 1.2;
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 1.15;
       letter-spacing: -0.02em;
-      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #fff, var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1.2rem;
     }
     h2 {
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       font-weight: 700;
       letter-spacing: -0.01em;
       margin-bottom: 0.75rem;
     }
     .section-subhead {
       font-size: 1rem;
-      color: var(--text-soft);
-      max-width: 550px;
+      color: var(--text-secondary);
+      max-width: 600px;
       margin: 0 auto;
     }
 
@@ -73,7 +81,7 @@
       align-items: center;
       justify-content: center;
       gap: 0.6rem;
-      padding: 0.8rem 2rem;
+      padding: 0.85rem 2rem;
       border-radius: 3rem;
       font-weight: 600;
       transition: var(--transition);
@@ -81,13 +89,22 @@
       border: none;
     }
     .btn-primary {
-      background: var(--accent);
+      background: var(--gradient-1);
       color: white;
-      box-shadow: 0 6px 14px rgba(249,115,78,0.25);
+      box-shadow: 0 8px 18px rgba(249,115,78,0.3);
     }
     .btn-primary:hover {
-      background: var(--accent-dark);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 25px rgba(249,115,78,0.45);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--text-secondary);
+      color: var(--text-primary);
+    }
+    .btn-outline:hover {
+      border-color: var(--accent);
+      background: rgba(249,115,78,0.1);
     }
 
     /* Header */
@@ -95,22 +112,22 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255,255,255,0.94);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0,0,0,0.04);
+      background: rgba(11, 17, 32, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.2rem 0;
+      padding: 1rem 0;
       flex-wrap: wrap;
       gap: 1rem;
     }
     .logo {
       font-size: 1.8rem;
       font-weight: 800;
-      background: linear-gradient(135deg, #1f2a3e, var(--accent));
+      background: var(--gradient-1);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -123,7 +140,7 @@
     .nav-links a {
       text-decoration: none;
       font-weight: 500;
-      color: var(--text-soft);
+      color: var(--text-secondary);
       transition: var(--transition);
     }
     .nav-links a:hover {
@@ -133,7 +150,6 @@
       position: relative;
       cursor: pointer;
       font-size: 1.3rem;
-      color: var(--text-dark);
     }
     .cart-count {
       position: absolute;
@@ -151,184 +167,199 @@
       justify-content: center;
     }
 
-    /* Hero Section – exact content from image */
+    /* Hero Section with 3D tilt */
     .hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
       align-items: center;
-      padding: 3rem 0 3rem;
+      padding: 4rem 0 5rem;
     }
     .hero-badge {
       display: inline-block;
-      background: var(--accent-light);
+      background: rgba(249,115,78,0.15);
       color: var(--accent);
       font-size: 0.75rem;
       font-weight: 700;
-      padding: 0.3rem 1rem;
+      padding: 0.35rem 1rem;
       border-radius: 40px;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-image {
+      perspective: 800px;
     }
     .hero-image img {
       width: 100%;
-      max-width: 500px;
+      max-width: 480px;
       border-radius: 2rem;
-      box-shadow: var(--card-shadow);
+      box-shadow: var(--shadow-xl);
+      transition: transform 0.4s;
+      transform: rotateY(5deg) rotateX(3deg);
+    }
+    .hero-image img:hover {
+      transform: rotateY(0deg) rotateX(0deg) scale(1.02);
     }
 
-    /* Sections – unified spacing, no gaps */
+    /* Sections – full content */
     .section {
-      padding: 3.5rem 0;
+      padding: 5rem 0;
     }
     .section-header {
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem;
     }
 
-    /* Grid System */
+    /* Products Grid - 3 columns, rich cards */
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 2rem;
     }
 
-    /* Product Cards */
     .product-card {
-      background: var(--bg-white);
+      background: var(--bg-card);
       border-radius: var(--border-radius-card);
       overflow: hidden;
       transition: var(--transition);
-      box-shadow: var(--card-shadow);
+      box-shadow: 0 10px 20px -5px rgba(0,0,0,0.3);
       position: relative;
+      border: 1px solid rgba(255,255,255,0.05);
     }
     .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--card-hover-shadow);
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: var(--shadow-xl);
+      border-color: rgba(249,115,78,0.3);
     }
     .product-img {
-      background: #fdf1ea;
+      background: radial-gradient(circle at 30% 10%, #2a3441, #111827);
       text-align: center;
-      padding: 1.8rem;
+      padding: 2rem;
     }
     .product-img img {
       width: 100%;
-      max-width: 180px;
+      max-width: 200px;
       border-radius: 1.2rem;
-      transition: transform 0.3s;
+      transition: transform 0.4s;
     }
     .product-card:hover .product-img img {
-      transform: scale(1.02);
+      transform: scale(1.05);
     }
     .product-info {
-      padding: 1.2rem 1.2rem 1.5rem;
+      padding: 1.5rem;
     }
     .product-title {
       font-weight: 700;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+    }
+    .product-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin: 0.4rem 0;
     }
     .product-price {
       font-weight: 800;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       color: var(--accent);
-      margin: 0.4rem 0;
+      margin: 0.6rem 0;
     }
     .add-to-cart {
-      background: var(--accent-light);
-      border: none;
+      background: rgba(249,115,78,0.15);
+      border: 1px solid rgba(249,115,78,0.3);
       width: 100%;
-      padding: 0.7rem;
+      padding: 0.75rem;
       border-radius: 2rem;
       font-weight: 600;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
       cursor: pointer;
       transition: var(--transition);
-      color: var(--accent-dark);
+      color: var(--accent);
     }
     .add-to-cart:hover {
       background: var(--accent);
       color: white;
+      border-color: transparent;
     }
     .badge {
       position: absolute;
-      top: 12px;
-      left: 12px;
+      top: 16px;
+      left: 16px;
       background: var(--accent);
       color: white;
       font-size: 0.7rem;
       font-weight: 700;
-      padding: 0.25rem 0.9rem;
+      padding: 0.3rem 1rem;
       border-radius: 40px;
       z-index: 2;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
 
-    /* Testimonials */
+    /* Testimonials with avatars */
     .testimonials-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
-      margin-top: 1rem;
     }
     .testimonial-card {
-      background: var(--bg-soft);
-      padding: 1.6rem;
-      border-radius: 1.5rem;
+      background: var(--surface);
+      padding: 1.8rem;
+      border-radius: 1.8rem;
       transition: var(--transition);
+      border: 1px solid rgba(255,255,255,0.05);
     }
     .testimonial-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--card-shadow);
+      transform: translateY(-6px);
+      background: #1e293b;
     }
     .stars {
       color: #fbbf24;
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem;
     }
     .testimonial-text {
       font-size: 0.95rem;
-      margin-bottom: 1rem;
-      color: var(--text-dark);
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
     }
     .author {
       display: flex;
       align-items: center;
-      gap: 0.7rem;
+      gap: 0.8rem;
     }
     .author-avatar {
-      width: 40px;
-      height: 40px;
-      background: #ffddd1;
+      width: 44px;
+      height: 44px;
+      background: var(--accent);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--accent);
+      font-size: 1.2rem;
     }
 
-    /* Footer – exact match with image content */
+    /* Footer */
     .footer {
-      background: #1f2a3e;
-      color: #e2e8f0;
-      padding: 2.5rem 0 1.5rem;
-      margin-top: 1rem;
+      background: #050a14;
+      padding: 3rem 0 2rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      margin-top: 2rem;
     }
     .footer-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 2rem;
     }
     .footer-col h4 {
       font-weight: 600;
       margin-bottom: 1rem;
-      color: white;
     }
-    .footer-col p, .footer-col a {
-      color: #cbd5e1;
-      text-decoration: none;
-      margin-bottom: 0.4rem;
-      font-size: 0.85rem;
+    .footer-col a {
       display: block;
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
       transition: 0.2s;
     }
     .footer-col a:hover {
@@ -339,53 +370,40 @@
       gap: 1rem;
       font-size: 1.2rem;
     }
-    .social-icons a {
-      display: inline-block;
-    }
     .copyright {
       text-align: center;
-      padding-top: 1.8rem;
+      padding-top: 2rem;
       font-size: 0.75rem;
-      color: #94a3b8;
+      color: var(--text-secondary);
     }
 
     /* Responsive */
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; text-align: center; }
-      h1 { font-size: 2.6rem; }
+      h1 { font-size: 2.8rem; }
       .navbar { flex-direction: column; }
-      .nav-links { justify-content: center; }
-      .section { padding: 2.5rem 0; }
     }
     @media (max-width: 640px) {
       .container { padding: 0 1.2rem; }
       .products-grid { gap: 1rem; }
     }
 
-    /* scroll reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    /* Toast */
     .toast {
       position: fixed;
-      bottom: 20px;
+      bottom: 25px;
       left: 50%;
       transform: translateX(-50%);
-      background: #1f2a3e;
+      background: #1f2937;
       color: white;
-      padding: 0.7rem 1.5rem;
+      padding: 0.8rem 1.8rem;
       border-radius: 60px;
-      font-size: 0.85rem;
+      font-weight: 500;
       z-index: 1000;
       opacity: 0;
       transition: opacity 0.2s;
       pointer-events: none;
+      backdrop-filter: blur(8px);
     }
   </style>
 </head>
@@ -403,32 +421,31 @@
           <i class="fas fa-bag-shopping"></i>
           <span class="cart-count" id="cartCount">0</span>
         </div>
-        <button class="btn btn-primary" id="orderNavBtn" style="padding: 0.5rem 1.3rem;">Order <i class="fas fa-arrow-right"></i></button>
+        <button class="btn btn-primary" id="orderNavBtn" style="padding: 0.6rem 1.4rem;">Order <i class="fas fa-arrow-right"></i></button>
       </div>
     </div>
   </div>
 </div>
 
 <main>
-  <!-- Hero Section – exactly as described in image -->
   <div class="container">
-    <div class="hero reveal">
+    <div class="hero" data-aos="fade-up">
       <div class="hero-content">
-        <div class="hero-badge"><i class="fas fa-star"></i> Artisan crafted</div>
+        <div class="hero-badge"><i class="fas fa-award"></i> Artisan crafted</div>
         <h1>Scoops of pure euphoria</h1>
-        <p style="color: var(--text-soft); margin: 1rem 0 1.5rem;">Small-batch ice cream made with organic dairy & real fruit. Premium texture, unforgettable taste.</p>
+        <p style="color: var(--text-secondary); margin: 1rem 0 1.8rem;">Small-batch ice cream made with organic dairy & real fruit. Premium texture, unforgettable taste.</p>
         <button class="btn btn-primary" id="heroOrderBtn"><i class="fas fa-cart-shopping"></i> Discover flavors</button>
       </div>
       <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=600&h=600&fit=crop" alt="Gourmet ice cream">
+        <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=600&h=600&fit=crop" alt="Gourmet ice cream cone">
       </div>
     </div>
   </div>
 
-  <!-- Signature collection -->
+  <!-- Signature Collection (full products) -->
   <section class="section" id="products">
     <div class="container">
-      <div class="section-header reveal">
+      <div class="section-header" data-aos="fade-up">
         <h2>Signature collection</h2>
         <p class="section-subhead">Handcrafted flavors that redefine indulgence</p>
       </div>
@@ -436,10 +453,10 @@
     </div>
   </section>
 
-  <!-- Weekly specials (no vertical gap) -->
-  <section class="section" style="background: var(--bg-soft); margin: 0; border-radius: 2rem 2rem 0 0;">
+  <!-- Weekly Specials (full, with discount badges) -->
+  <section class="section" style="background: rgba(249,115,78,0.03); margin: 0; border-radius: 2rem;">
     <div class="container">
-      <div class="section-header reveal">
+      <div class="section-header" data-aos="fade-up">
         <h2>Weekly specials</h2>
         <p class="section-subhead">Limited time — fresh & fruity</p>
       </div>
@@ -447,10 +464,10 @@
     </div>
   </section>
 
-  <!-- Fan favorites -->
+  <!-- Fan favorites (bestsellers) -->
   <section class="section">
     <div class="container">
-      <div class="section-header reveal">
+      <div class="section-header" data-aos="fade-up">
         <h2>Fan favorites</h2>
         <p class="section-subhead">Our community's most loved scoops</p>
       </div>
@@ -461,7 +478,7 @@
   <!-- Sweet stories (testimonials) -->
   <section class="section">
     <div class="container">
-      <div class="section-header reveal">
+      <div class="section-header" data-aos="fade-up">
         <h2>Sweet stories</h2>
         <p class="section-subhead">What ice cream lovers say</p>
       </div>
@@ -470,57 +487,38 @@
   </section>
 </main>
 
-<!-- Footer – exactly matches the image content (Frost, Explore, Support, Connect) -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-col">
-        <h4>Frost</h4>
-        <p>Scooping joy since 2024</p>
-      </div>
-      <div class="footer-col">
-        <h4>Explore</h4>
-        <a href="#">Our story</a>
-        <a href="#">Flavors</a>
-        <a href="#">Locations</a>
-      </div>
-      <div class="footer-col">
-        <h4>Support</h4>
-        <a href="#">FAQ</a>
-        <a href="#">Contact</a>
-        <a href="#">Shipping</a>
-      </div>
-      <div class="footer-col">
-        <h4>Connect</h4>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-tiktok"></i></a>
-        </div>
-      </div>
+      <div class="footer-col"><h4>Frost</h4><p style="color:#9ca3af;">Scooping joy since 2024</p></div>
+      <div class="footer-col"><h4>Explore</h4><a href="#">Our story</a><a href="#">Flavors</a><a href="#">Locations</a></div>
+      <div class="footer-col"><h4>Support</h4><a href="#">FAQ</a><a href="#">Contact</a><a href="#">Shipping</a></div>
+      <div class="footer-col"><h4>Connect</h4><div class="social-icons"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-tiktok"></i></a></div></div>
     </div>
-    <div class="copyright">
-      <i class="far fa-copyright"></i> 2026 Frost — Premium ice cream studio
-    </div>
+    <div class="copyright"><i class="far fa-copyright"></i> 2026 Frost — Premium ice cream studio</div>
   </div>
 </footer>
-
 <div id="toastMessage" class="toast"></div>
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  // ---------- PRODUCT DATA (complete, high-quality) ----------
+  AOS.init({ duration: 800, once: true, offset: 50 });
+
+  // ---------- EXTENSIVE PRODUCT DATA (full, no empty sections) ----------
   const allProducts = [
-    { id: 1, name: "Burnt Caramel", price: 6.49, image: "https://images.unsplash.com/photo-1551103782-3ab3a4c7da8d?w=300&h=300&fit=crop", bestseller: true, offer: false },
-    { id: 2, name: "Madagascar Vanilla", price: 5.99, image: "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=300&h=300&fit=crop", bestseller: true, offer: false },
-    { id: 3, name: "Salted Pistachio", price: 6.99, image: "https://images.unsplash.com/photo-1622630998478-21f0e1b1b35b?w=300&h=300&fit=crop", bestseller: false, offer: true, offerPrice: 5.49 },
-    { id: 4, name: "Double Chocolate", price: 6.29, image: "https://images.unsplash.com/photo-1578908878513-2b6f3f3b2e6d?w=300&h=300&fit=crop", bestseller: true, offer: false },
-    { id: 5, name: "Mango Passion", price: 5.79, image: "https://images.unsplash.com/photo-1587313427101-2a8a6c0cf9b9?w=300&h=300&fit=crop", bestseller: false, offer: true, offerPrice: 4.49 },
-    { id: 6, name: "Strawberry Dream", price: 5.99, image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=300&fit=crop", bestseller: false, offer: false }
+    { id: 1, name: "Burnt Caramel", desc: "Deep caramelized sugar & sea salt", price: 6.49, image: "https://images.unsplash.com/photo-1551103782-3ab3a4c7da8d?w=300&h=300&fit=crop", bestseller: true, offer: false },
+    { id: 2, name: "Madagascar Vanilla", desc: "Pure vanilla bean infusion", price: 5.99, image: "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=300&h=300&fit=crop", bestseller: true, offer: false },
+    { id: 3, name: "Salted Pistachio", desc: "Roasted pistachio with flaky salt", price: 6.99, image: "https://images.unsplash.com/photo-1622630998478-21f0e1b1b35b?w=300&h=300&fit=crop", bestseller: false, offer: true, offerPrice: 5.49 },
+    { id: 4, name: "Double Chocolate", desc: "Dark chocolate & fudge swirl", price: 6.29, image: "https://images.unsplash.com/photo-1578908878513-2b6f3f3b2e6d?w=300&h=300&fit=crop", bestseller: true, offer: false },
+    { id: 5, name: "Mango Passion", desc: "Tropical mango & passionfruit", price: 5.79, image: "https://images.unsplash.com/photo-1587313427101-2a8a6c0cf9b9?w=300&h=300&fit=crop", bestseller: false, offer: true, offerPrice: 4.49 },
+    { id: 6, name: "Strawberry Dream", desc: "Fresh strawberry & cream", price: 5.99, image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=300&fit=crop", bestseller: false, offer: false },
+    { id: 7, name: "Lavender Honey", desc: "Calming lavender & wild honey", price: 7.29, image: "https://images.unsplash.com/photo-1584278860047-22db0e3c4e4e?w=300&h=300&fit=crop", bestseller: true, offer: false },
+    { id: 8, name: "Espresso Buzz", desc: "Coffee kick with chocolate chips", price: 6.79, image: "https://images.unsplash.com/photo-1559583985-c80d8ad9b29f?w=300&h=300&fit=crop", bestseller: false, offer: true, offerPrice: 5.29 }
   ];
 
   const offers = allProducts.filter(p => p.offer === true);
   const bestsellers = allProducts.filter(p => p.bestseller === true);
-  const standard = allProducts.filter(p => !p.offer && !p.bestseller).concat(allProducts.filter(p => p.bestseller && !p.offer).slice(0,2));
+  const standard = allProducts.filter(p => !p.offer && !p.bestseller).concat(allProducts.filter(p => p.bestseller).slice(0,2));
 
   let cart = [];
   const cartCountSpan = document.getElementById('cartCount');
@@ -557,12 +555,14 @@
         badgeHtml = `<div class="badge">⭐ bestseller</div>`;
       }
       const card = document.createElement('div');
-      card.className = 'product-card reveal';
+      card.className = 'product-card';
+      card.setAttribute('data-aos', 'fade-up');
       card.innerHTML = `
         ${badgeHtml}
         <div class="product-img"><img src="${prod.image}" alt="${prod.name}" loading="lazy"></div>
         <div class="product-info">
           <div class="product-title">${prod.name}</div>
+          <div class="product-desc">${prod.desc || 'Artisanal delight'}</div>
           <div class="product-price">$${finalPrice.toFixed(2)}</div>
           <button class="add-to-cart" data-id="${prod.id}" data-name="${prod.name}" data-price="${finalPrice}" data-img="${prod.image}">
             <i class="fas fa-plus-circle"></i> Add to cart
@@ -581,14 +581,17 @@
         addToCart({ id, name, price, image: img });
       });
     });
+    // re-init AOS for new elements
+    AOS.refresh();
   }
 
-  // Testimonials (full)
   const testimonials = [
     { name: "Olivia Chen", text: "The texture is unbelievably creamy. Best ice cream I've ever had.", rating: 5, icon: "fa-user" },
     { name: "Marcus Sterling", text: "Burnt caramel is a masterpiece. Premium packaging and fast delivery.", rating: 5, icon: "fa-user-astronaut" },
-    { name: "Sophia Laurent", text: "Real ingredients, not too sweet. The mango passion special is divine.", rating: 4, icon: "fa-user" }
+    { name: "Sophia Laurent", text: "Real ingredients, not too sweet. The mango passion special is divine.", rating: 4, icon: "fa-user" },
+    { name: "James Kim", text: "Vegan options are incredible. The lavender honey is out of this world.", rating: 5, icon: "fa-user" }
   ];
+
   function renderTestimonials() {
     const container = document.getElementById('testimonialsGrid');
     if (!container) return;
@@ -597,7 +600,8 @@
       let starsHtml = '';
       for (let i=0;i<5;i++) starsHtml += `<i class="fas fa-star${i < t.rating ? '' : '-o'}"></i>`;
       const card = document.createElement('div');
-      card.className = 'testimonial-card reveal';
+      card.className = 'testimonial-card';
+      card.setAttribute('data-aos', 'fade-up');
       card.innerHTML = `
         <div class="stars">${starsHtml}</div>
         <p class="testimonial-text">“${t.text}”</p>
@@ -605,27 +609,19 @@
       `;
       container.appendChild(card);
     });
+    AOS.refresh();
   }
 
-  // Scroll reveal
-  const revealElements = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
-  }, { threshold: 0.1 });
-  revealElements.forEach(el => observer.observe(el));
-
-  // Render all sections
   renderProducts('productsGrid', standard, false);
   renderProducts('offersGrid', offers, true);
   renderProducts('bestsellersGrid', bestsellers, false);
   renderTestimonials();
 
-  // Scroll to products from buttons
   const productsSection = document.getElementById('products');
   document.getElementById('orderNavBtn').addEventListener('click', () => productsSection.scrollIntoView({ behavior: 'smooth' }));
   document.getElementById('heroOrderBtn').addEventListener('click', () => productsSection.scrollIntoView({ behavior: 'smooth' }));
   document.getElementById('cartIcon').addEventListener('click', () => {
-    if (cart.length === 0) showToast("Your cart is empty — add some delicious scoops 🍦");
+    if (cart.length === 0) showToast("Your cart is empty — add some delicious scoops");
     else showToast(`Cart: ${cart.reduce((s,i)=>s+i.quantity,0)} item(s). Ready to checkout.`);
   });
 </script>
