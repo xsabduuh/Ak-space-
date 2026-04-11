@@ -80,6 +80,7 @@
     html {
       scroll-behavior: smooth;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden; /* منع التمرير الأفقي */
     }
 
     body {
@@ -89,6 +90,15 @@
       line-height: 1.6;
       overflow-x: hidden;
       min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* إزالة أي فراغات جانبية افتراضية */
+    body, html {
+      width: 100%;
+      margin: 0;
+      padding: 0;
     }
 
     .header, .mobile-nav, .cart-modal, .whatsapp-fab {
@@ -104,8 +114,19 @@
     ::-webkit-scrollbar-thumb { background: var(--surface); border-radius: var(--radius-full); border: 2px solid var(--bg-card); }
     ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
-    .container { width: 100%; max-width: var(--container-width); margin: 0 auto; padding: 0 1.5rem; }
-    @media (min-width: 640px) { .container { padding: 0 2rem; } }
+    /* الحاوية الرئيسية: تستخدم عرض الشاشة الكامل مع حشوة جانبية صغيرة جداً للمسافات الداخلية */
+    .container { 
+      width: 100%; 
+      max-width: var(--container-width); 
+      margin: 0 auto; 
+      padding: 0 0.75rem; /* تقليل الحشو لاستغلال عرض الشاشة أكثر */
+    }
+    @media (min-width: 640px) { 
+      .container { padding: 0 1.25rem; } 
+    }
+    @media (min-width: 1024px) {
+      .container { padding: 0 2rem; }
+    }
 
     /* أزرار */
     .btn {
@@ -133,6 +154,7 @@
       position: fixed; top: 0; right: 0; left: 0; z-index: 1000;
       background: rgba(11, 15, 23, 0.85); border-bottom: 1px solid rgba(255,255,255,0.05);
       transition: background var(--transition-base), box-shadow var(--transition-base);
+      width: 100%;
     }
     .header.scrolled { background: rgba(11, 15, 23, 0.98); box-shadow: var(--shadow-md); }
     .navbar { display: flex; align-items: center; justify-content: space-between; height: 80px; gap: 1.5rem; }
@@ -358,16 +380,41 @@
     .summary-row.total { font-size: 1.25rem; font-weight: 800; color: var(--text-primary); padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.1); }
     .checkout-btn { width: 100%; padding: 1rem; font-size: 1.1rem; }
 
-    /* WhatsApp FAB */
+    /* WhatsApp FAB - تم إصلاح الخط الظاهر */
     .whatsapp-fab {
-      position: fixed; bottom: 2rem; left: 2rem; width: 60px; height: 60px;
-      background: #25D366; color: #fff; border-radius: 50%; display: flex;
-      align-items: center; justify-content: center; font-size: 1.75rem;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.4); z-index: 999;
-      transition: all var(--transition-base); animation: pulse-whatsapp 2s infinite;
+      position: fixed; 
+      bottom: 2rem; 
+      left: 2rem; 
+      width: 60px; 
+      height: 60px;
+      background: #25D366; 
+      color: #fff; 
+      border-radius: 50%; 
+      display: flex;
+      align-items: center; 
+      justify-content: center; 
+      font-size: 1.75rem;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4); 
+      z-index: 999;
+      transition: all var(--transition-base); 
+      text-decoration: none;
+      outline: none;               /* إزالة الإطار الخارجي */
+      border: none;                /* تأكيد عدم وجود حدود */
+      animation: pulse-whatsapp 2s infinite;
     }
-    .whatsapp-fab:hover { transform: scale(1.1) rotate(5deg); box-shadow: 0 8px 30px rgba(37,211,102,0.6); }
-    @keyframes pulse-whatsapp { 0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,0.4);} 50%{box-shadow:0 0 0 15px rgba(37,211,102,0);} }
+    .whatsapp-fab:hover {
+      transform: scale(1.1) rotate(5deg); 
+      box-shadow: 0 8px 30px rgba(37,211,102,0.6);
+    }
+    .whatsapp-fab:focus,
+    .whatsapp-fab:active {
+      outline: none;               /* إزالة أي خط أزرق عند النقر */
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    }
+    @keyframes pulse-whatsapp { 
+      0%,100%{ box-shadow:0 0 0 0 rgba(37,211,102,0.4); } 
+      50%{ box-shadow:0 0 0 15px rgba(37,211,102,0); } 
+    }
 
     /* Toast */
     .toast-container {
@@ -532,8 +579,8 @@
   </div>
 </footer>
 
-<!-- WhatsApp FAB -->
-<a href="https://wa.me/966500000000?text=مرحباً%20فروست،%20أريد%20الطلب" class="whatsapp-fab" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<!-- WhatsApp FAB - تم إصلاح الخط الظاهر -->
+<a href="https://wa.me/966500000000?text=مرحباً%20فروست،%20أريد%20الطلب" class="whatsapp-fab" target="_blank" aria-label="تواصل عبر واتساب"><i class="fab fa-whatsapp"></i></a>
 
 <!-- Cart Modal -->
 <div class="modal-overlay" id="cartOverlay"></div>
