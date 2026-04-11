@@ -29,13 +29,29 @@
 
 html { scroll-behavior: smooth; }
 
+/* ── AOS FALLBACK: إذا فشل AOS يظهر المحتوى فوراً بدون animation ── */
+[data-aos] {
+  opacity: 1 !important;
+  transform: translate(0) scale(1) !important;
+}
+
 body {
   font-family: 'Tajawal','Almarai',sans-serif;
-  background: var(--bg-dark);
-  color: var(--text-primary);
+  background: #0b0f17 !important; /* explicit hex — مش variable */
+  color: #f8fafc;
   line-height: 1.6;
   overflow-x: hidden;
 }
+
+/* explicit backgrounds على كل العناصر الرئيسية — ضمان ضد GitHub Pages */
+main { background: #0b0f17; }
+.section { background: #0b0f17; }
+.offers-band { background: #0d1320 !important;
+  border-top: 1px solid rgba(249,115,78,.1) !important;
+  border-bottom: 1px solid rgba(249,115,78,.1) !important;
+}
+.hero { background: #0b0f17; }
+.hero-content { background: transparent; }
 
 h1,h2,h3,.logo,.btn { font-family: 'Almarai','Tajawal',sans-serif; }
 
@@ -285,9 +301,9 @@ h2 { font-size: clamp(1.6rem,3vw,2.2rem); font-weight: 700; margin-bottom: .75re
 
 /* ─── Footer ─── */
 .footer {
-  background: #050a12;
+  background: #050a12 !important;
   padding: 3.5rem 0 2rem;
-  border-top: 1px solid rgba(255,255,255,.05);
+  border-top: 1px solid rgba(255,255,255,.07);
   margin-top: 2rem;
 }
 .footer-grid {
@@ -295,20 +311,20 @@ h2 { font-size: clamp(1.6rem,3vw,2.2rem); font-weight: 700; margin-bottom: .75re
   grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
   gap: 2rem; margin-bottom: 2.5rem;
 }
-.footer-col h4 { font-weight: 800; margin-bottom: 1rem; }
-.footer-col p { color: var(--text-secondary); font-size: .85rem; line-height: 1.7; }
+.footer-col h4 { font-weight: 800; margin-bottom: 1rem; color: #f8fafc; }
+.footer-col p { color: #94a3b8; font-size: .85rem; line-height: 1.7; }
 .footer-col a {
-  display: block; color: var(--text-secondary);
+  display: block; color: #94a3b8 !important;
   text-decoration: none; margin-bottom: .5rem;
   font-size: .85rem; transition: color .2s, padding-right .2s;
 }
-.footer-col a:hover { color: var(--accent); padding-right: .4rem; }
+.footer-col a:hover { color: #f9734e !important; padding-right: .4rem; }
 .social-icons { display: flex; gap: .9rem; font-size: 1.3rem; }
-.social-icons a { color: var(--text-secondary); transition: color .2s, transform .2s; }
-.social-icons a:hover { color: var(--accent); transform: scale(1.2); }
+.social-icons a { color: #94a3b8; transition: color .2s, transform .2s; }
+.social-icons a:hover { color: #f9734e; transform: scale(1.2); }
 .copyright {
-  text-align: center; font-size: .8rem; color: var(--text-secondary);
-  border-top: 1px solid rgba(255,255,255,.05); padding-top: 1.8rem;
+  text-align: center; font-size: .8rem; color: #64748b;
+  border-top: 1px solid rgba(255,255,255,.06); padding-top: 1.8rem;
 }
 
 /* ─── Toast ─── */
@@ -579,7 +595,18 @@ target="_blank" rel="noopener" title="اطلب عبر واتساب">
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <script>
-  AOS.init({ duration: 800, once: true, offset: 50 });
+  /* لا نحتاج AOS init هنا — عندنا CSS fallback يضمن الظهور دايماً */
+  /* نشغّل AOS بعد تأكد تحميل الصفحة */
+  window.addEventListener('load', function() {
+    if (typeof AOS !== 'undefined') {
+      AOS.init({ duration: 700, once: true, offset: 40, disable: false });
+      /* بعد init نحذف الـ override حتى تشتغل animations */
+      var style = document.createElement('style');
+      style.textContent = '[data-aos] { opacity: unset !important; transform: unset !important; }';
+      document.head.appendChild(style);
+      AOS.refresh();
+    }
+  });
 
   /* ──────────────────────────────────────────
      بيانات المنتجات — صور مُصحَّحة ✅
