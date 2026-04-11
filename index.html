@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="rtl">
 
 <head>
   <!-- Basic -->
@@ -8,12 +8,12 @@
   <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
+  <meta name="keywords" content="مطعم, فيان, طعام سريع, برجر, بيتزا, باستا" />
+  <meta name="description" content="مطعم فيان - ألذ الأطباق السريعة" />
+  <meta name="author" content="Feane" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
 
-  <title> Feane </title>
+  <title> فيان | مطعم طعام سريع </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -30,13 +30,51 @@
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
 
+  <style>
+    /* تعديلات بسيطة لدعم الاتجاه RTL */
+    body {
+      text-align: right;
+    }
+    .navbar-nav {
+      padding-right: 0;
+    }
+    .navbar-nav .nav-link {
+      text-align: right;
+    }
+    .footer_social a {
+      margin-left: 5px;
+      margin-right: 0;
+    }
+    .contact_link_box a i {
+      margin-left: 5px;
+      margin-right: 0;
+    }
+    .filters_menu {
+      padding-right: 0;
+    }
+    .filters_menu li {
+      cursor: pointer;
+    }
+    .options a svg {
+      margin-right: 5px;
+    }
+    .carousel-indicators {
+      margin-right: 0;
+    }
+    .offer_section .detail-box a svg {
+      margin-right: 5px;
+    }
+    .form-control, .nice-select {
+      text-align: right;
+    }
+  </style>
 </head>
 
 <body>
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/hero-bg.jpg" alt="">
+      <img src="images/hero-bg.jpg" alt="خلفية">
     </div>
     <!-- header section strats -->
     <header class="header_section">
@@ -44,31 +82,31 @@
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.html">
             <span>
-              Feane
+              فيان
             </span>
           </a>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="تبديل القائمة">
             <span class=""> </span>
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.html">الرئيسية <span class="sr-only">(الحالية)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="menu.html">Menu</a>
+                <a class="nav-link" href="menu.html">القائمة</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="about.html">من نحن</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="book.html">Book Table</a>
+                <a class="nav-link" href="book.html">احجز طاولة</a>
               </li>
             </ul>
             <div class="user_option">
-              <a href="" class="user_link">
+              <a href="#" class="user_link">
                 <i class="fa fa-user" aria-hidden="true"></i>
               </a>
               <a class="cart_link" href="#">
@@ -130,8 +168,8 @@
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </form>
-              <a href="" class="order_online">
-                Order Online
+              <a href="#" class="order_online">
+                اطلب أونلاين
               </a>
             </div>
           </div>
@@ -149,14 +187,14 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      Fast Food Restaurant
+                      مطعم طعام سريع
                     </h1>
                     <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                      دولوريمك، إيتاك أبيريام فاسيليس ريروم، كومودي، تيمبوريبيوس سابيينتي أد موليتيا لابوروم كوام كويسكوام إيسي إيرور أوندي. تيمبورا إكس دولوريمك، لابوري، سونت ريبيلات دولوري، إيست ماجني كووس نيهيل دوسيموس ليبرو إبسام.
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
-                        Order Now
+                      <a href="#" class="btn1">
+                        اطلب الآن
                       </a>
                     </div>
                   </div>
@@ -170,14 +208,14 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      Fast Food Restaurant
+                      مطعم طعام سريع
                     </h1>
                     <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                      دولوريمك، إيتاك أبيريام فاسيليس ريروم، كومودي، تيمبوريبيوس سابيينتي أد موليتيا لابوروم كوام كويسكوام إيسي إيرور أوندي. تيمبورا إكس دولوريمك، لابوري، سونت ريبيلات دولوري، إيست ماجني كووس نيهيل دوسيموس ليبرو إبسام.
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
-                        Order Now
+                      <a href="#" class="btn1">
+                        اطلب الآن
                       </a>
                     </div>
                   </div>
@@ -191,14 +229,14 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      Fast Food Restaurant
+                      مطعم طعام سريع
                     </h1>
                     <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                      دولوريمك، إيتاك أبيريام فاسيليس ريروم، كومودي، تيمبوريبيوس سابيينتي أد موليتيا لابوروم كوام كويسكوام إيسي إيرور أوندي. تيمبورا إكس دولوريمك، لابوري، سونت ريبيلات دولوري، إيست ماجني كووس نيهيل دوسيموس ليبرو إبسام.
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
-                        Order Now
+                      <a href="#" class="btn1">
+                        اطلب الآن
                       </a>
                     </div>
                   </div>
@@ -229,17 +267,17 @@
           <div class="col-md-6  ">
             <div class="box ">
               <div class="img-box">
-                <img src="images/o1.jpg" alt="">
+                <img src="images/o1.jpg" alt="عرض الخميس">
               </div>
               <div class="detail-box">
                 <h5>
-                  Tasty Thursdays
+                  خميس النكهات
                 </h5>
                 <h6>
-                  <span>20%</span> Off
+                  <span>20%</span> خصم
                 </h6>
-                <a href="">
-                  Order Now <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                <a href="#">
+                  اطلب الآن <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                     <g>
                       <g>
                         <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
@@ -298,17 +336,17 @@
           <div class="col-md-6  ">
             <div class="box ">
               <div class="img-box">
-                <img src="images/o2.jpg" alt="">
+                <img src="images/o2.jpg" alt="أيام البيتزا">
               </div>
               <div class="detail-box">
                 <h5>
-                  Pizza Days
+                  أيام البيتزا
                 </h5>
                 <h6>
-                  <span>15%</span> Off
+                  <span>15%</span> خصم
                 </h6>
-                <a href="">
-                  Order Now <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                <a href="#">
+                  اطلب الآن <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                     <g>
                       <g>
                         <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
@@ -377,38 +415,39 @@
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          Our Menu
+          قائمتنا
         </h2>
       </div>
 
       <ul class="filters_menu">
-        <li class="active" data-filter="*">All</li>
-        <li data-filter=".burger">Burger</li>
-        <li data-filter=".pizza">Pizza</li>
-        <li data-filter=".pasta">Pasta</li>
-        <li data-filter=".fries">Fries</li>
+        <li class="active" data-filter="*">الكل</li>
+        <li data-filter=".burger">برجر</li>
+        <li data-filter=".pizza">بيتزا</li>
+        <li data-filter=".pasta">باستا</li>
+        <li data-filter=".fries">بطاطس مقلية</li>
       </ul>
 
       <div class="filters-content">
         <div class="row grid">
+          <!-- item pizza 1 -->
           <div class="col-sm-6 col-lg-4 all pizza">
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/f1.png" alt="">
+                  <img src="images/f1.png" alt="بيتزا لذيذة">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Pizza
+                    بيتزا لذيذة
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    فينيام ديبيتيس كواتيرات أوفيسيس كوازي كوبيديتيت كوو، كويسكوام فيليت، ماجنام فولوبتاتيم ريبيليندوس سيد إياكيو
                   </p>
                   <div class="options">
                     <h6>
                       $20
                     </h6>
-                    <a href="">
+                    <a href="#">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -467,24 +506,25 @@
               </div>
             </div>
           </div>
+          <!-- item burger 1 -->
           <div class="col-sm-6 col-lg-4 all burger">
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/f2.png" alt="">
+                  <img src="images/f2.png" alt="برجر لذيذ">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Burger
+                    برجر لذيذ
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    فينيام ديبيتيس كواتيرات أوفيسيس كوازي كوبيديتيت كوو، كويسكوام فيليت، ماجنام فولوبتاتيم ريبيليندوس سيد إياكيو
                   </p>
                   <div class="options">
                     <h6>
                       $15
                     </h6>
-                    <a href="">
+                    <a href="#">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -543,24 +583,25 @@
               </div>
             </div>
           </div>
+          <!-- item pizza 2 -->
           <div class="col-sm-6 col-lg-4 all pizza">
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/f3.png" alt="">
+                  <img src="images/f3.png" alt="بيتزا لذيذة">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Pizza
+                    بيتزا لذيذة
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    فينيام ديبيتيس كواتيرات أوفيسيس كوازي كوبيديتيت كوو، كويسكوام فيليت، ماجنام فولوبتاتيم ريبيليندوس سيد إياكيو
                   </p>
                   <div class="options">
                     <h6>
                       $17
                     </h6>
-                    <a href="">
+                    <a href="#">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -619,24 +660,25 @@
               </div>
             </div>
           </div>
+          <!-- item pasta 1 -->
           <div class="col-sm-6 col-lg-4 all pasta">
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/f4.png" alt="">
+                  <img src="images/f4.png" alt="باستا لذيذة">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Pasta
+                    باستا لذيذة
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    فينيام ديبيتيس كواتيرات أوفيسيس كوازي كوبيديتيت كوو، كويسكوام فيليت، ماجنام فولوبتاتيم ريبيليندوس سيد إياكيو
                   </p>
                   <div class="options">
                     <h6>
                       $18
                     </h6>
-                    <a href="">
+                    <a href="#">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -695,24 +737,25 @@
               </div>
             </div>
           </div>
+          <!-- item fries 1 -->
           <div class="col-sm-6 col-lg-4 all fries">
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/f5.png" alt="">
+                  <img src="images/f5.png" alt="بطاطس مقلية">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    French Fries
+                    بطاطس مقلية
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    فينيام ديبيتيس كواتيرات أوفيسيس كوازي كوبيديتيت كوو، كويسكوام فيليت، ماجنام فولوبتاتيم ريبيليندوس سيد إياكيو
                   </p>
                   <div class="options">
                     <h6>
                       $10
                     </h6>
-                    <a href="">
+                    <a href="#">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -771,24 +814,25 @@
               </div>
             </div>
           </div>
+          <!-- item pizza 3 -->
           <div class="col-sm-6 col-lg-4 all pizza">
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/f6.png" alt="">
+                  <img src="images/f6.png" alt="بيتزا لذيذة">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Pizza
+                    بيتزا لذيذة
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    فينيام ديبيتيس كواتيرات أوفيسيس كوازي كوبيديتيت كوو، كويسكوام فيليت، ماجنام فولوبتاتيم ريبيليندوس سيد إياكيو
                   </p>
                   <div class="options">
                     <h6>
                       $15
                     </h6>
-                    <a href="">
+                    <a href="#">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -847,24 +891,25 @@
               </div>
             </div>
           </div>
+          <!-- item burger 2 -->
           <div class="col-sm-6 col-lg-4 all burger">
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/f7.png" alt="">
+                  <img src="images/f7.png" alt="برجر شهي">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Tasty Burger
+                    برجر شهي
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    فينيام ديبيتيس كواتيرات أوفيسيس كوازي كوبيديتيت كوو، كويسكوام فيليت، ماجنام فولوبتاتيم ريبيليندوس سيد إياكيو
                   </p>
                   <div class="options">
                     <h6>
                       $12
                     </h6>
-                    <a href="">
+                    <a href="#">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -923,24 +968,25 @@
               </div>
             </div>
           </div>
+          <!-- item burger 3 -->
           <div class="col-sm-6 col-lg-4 all burger">
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/f8.png" alt="">
+                  <img src="images/f8.png" alt="برجر شهي">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Tasty Burger
+                    برجر شهي
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    فينيام ديبيتيس كواتيرات أوفيسيس كوازي كوبيديتيت كوو، كويسكوام فيليت، ماجنام فولوبتاتيم ريبيليندوس سيد إياكيو
                   </p>
                   <div class="options">
                     <h6>
                       $14
                     </h6>
-                    <a href="">
+                    <a href="#">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -999,24 +1045,25 @@
               </div>
             </div>
           </div>
+          <!-- item pasta 2 -->
           <div class="col-sm-6 col-lg-4 all pasta">
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/f9.png" alt="">
+                  <img src="images/f9.png" alt="باستا لذيذة">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Pasta
+                    باستا لذيذة
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    فينيام ديبيتيس كواتيرات أوفيسيس كوازي كوبيديتيت كوو، كويسكوام فيليت، ماجنام فولوبتاتيم ريبيليندوس سيد إياكيو
                   </p>
                   <div class="options">
                     <h6>
                       $10
                     </h6>
-                    <a href="">
+                    <a href="#">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -1078,8 +1125,8 @@
         </div>
       </div>
       <div class="btn-box">
-        <a href="">
-          View More
+        <a href="#">
+          عرض المزيد
         </a>
       </div>
     </div>
@@ -1095,24 +1142,21 @@
       <div class="row">
         <div class="col-md-6 ">
           <div class="img-box">
-            <img src="images/about-img.png" alt="">
+            <img src="images/about-img.png" alt="عن فيان">
           </div>
         </div>
         <div class="col-md-6">
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                We Are Feane
+                نحن فيان
               </h2>
             </div>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-              the middle of text. All
+              هناك العديد من الاختلافات لنصوص لوريم إيبسوم المتاحة، لكن الغالبية تعرضت للتعديل بشكل ما، إما عن طريق الفكاهة أو الكلمات العشوائية التي لا تبدو معقولة بشكل طفيف. إذا كنت ستستخدم مقطعاً من لوريم إيبسوم، يجب أن تتأكد من عدم وجود أي شيء محرج مخفي في وسط النص. كل
             </p>
-            <a href="">
-              Read More
+            <a href="#">
+              اقرأ المزيد
             </a>
           </div>
         </div>
@@ -1127,26 +1171,26 @@
     <div class="container">
       <div class="heading_container">
         <h2>
-          Book A Table
+          احجز طاولة
         </h2>
       </div>
       <div class="row">
         <div class="col-md-6">
           <div class="form_container">
-            <form action="">
+            <form action="#">
               <div>
-                <input type="text" class="form-control" placeholder="Your Name" />
+                <input type="text" class="form-control" placeholder="اسمك" />
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="Phone Number" />
+                <input type="text" class="form-control" placeholder="رقم الهاتف" />
               </div>
               <div>
-                <input type="email" class="form-control" placeholder="Your Email" />
+                <input type="email" class="form-control" placeholder="بريدك الإلكتروني" />
               </div>
               <div>
                 <select class="form-control nice-select wide">
                   <option value="" disabled selected>
-                    How many persons?
+                    كم عدد الأشخاص؟
                   </option>
                   <option value="">
                     2
@@ -1167,7 +1211,7 @@
               </div>
               <div class="btn_box">
                 <button>
-                  Book Now
+                  احجز الآن
                 </button>
               </div>
             </form>
@@ -1189,7 +1233,7 @@
     <div class="container">
       <div class="heading_container heading_center psudo_white_primary mb_45">
         <h2>
-          What Says Our Customers
+          ماذا يقول عملاؤنا
         </h2>
       </div>
       <div class="carousel-wrap row ">
@@ -1198,17 +1242,17 @@
             <div class="box">
               <div class="detail-box">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                  لوريم إيبسوم دولور سيت أميت، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
                 </p>
                 <h6>
-                  Moana Michell
+                  موانا ميشيل
                 </h6>
                 <p>
                   magna aliqua
                 </p>
               </div>
               <div class="img-box">
-                <img src="images/client1.jpg" alt="" class="box-img">
+                <img src="images/client1.jpg" alt="عميل" class="box-img">
               </div>
             </div>
           </div>
@@ -1216,17 +1260,17 @@
             <div class="box">
               <div class="detail-box">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                  لوريم إيبسوم دولور سيت أميت، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
                 </p>
                 <h6>
-                  Mike Hamell
+                  مايك هامل
                 </h6>
                 <p>
                   magna aliqua
                 </p>
               </div>
               <div class="img-box">
-                <img src="images/client2.jpg" alt="" class="box-img">
+                <img src="images/client2.jpg" alt="عميل" class="box-img">
               </div>
             </div>
           </div>
@@ -1244,22 +1288,22 @@
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
             <h4>
-              Contact Us
+              اتصل بنا
             </h4>
             <div class="contact_link_box">
-              <a href="">
+              <a href="#">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
-                  Location
+                  الموقع
                 </span>
               </a>
-              <a href="">
+              <a href="#">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+                  اتصل +01 1234567890
                 </span>
               </a>
-              <a href="">
+              <a href="#">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
                   demo@gmail.com
@@ -1270,26 +1314,26 @@
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="" class="footer-logo">
-              Feane
+            <a href="#" class="footer-logo">
+              فيان
             </a>
             <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+              ضروري، مما يجعله أول مولد حقيقي على الإنترنت. يستخدم قاموساً يضم أكثر من 200 كلمة لاتينية، بالإضافة إلى
             </p>
             <div class="footer_social">
-              <a href="">
+              <a href="#">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
               </a>
-              <a href="">
+              <a href="#">
                 <i class="fa fa-twitter" aria-hidden="true"></i>
               </a>
-              <a href="">
+              <a href="#">
                 <i class="fa fa-linkedin" aria-hidden="true"></i>
               </a>
-              <a href="">
+              <a href="#">
                 <i class="fa fa-instagram" aria-hidden="true"></i>
               </a>
-              <a href="">
+              <a href="#">
                 <i class="fa fa-pinterest" aria-hidden="true"></i>
               </a>
             </div>
@@ -1297,21 +1341,21 @@
         </div>
         <div class="col-md-4 footer-col">
           <h4>
-            Opening Hours
+            ساعات العمل
           </h4>
           <p>
-            Everyday
+            يومياً
           </p>
           <p>
-            10.00 Am -10.00 Pm
+            10:00 ص - 10:00 م
           </p>
         </div>
       </div>
       <div class="footer-info">
         <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Free Html Templates</a><br><br>
-          &copy; <span id="displayYear"></span> Distributed By
+          &copy; <span id="displayYear"></span> جميع الحقوق محفوظة لـ
+          <a href="https://html.design/">قوالب HTML المجانية</a><br><br>
+          &copy; <span id="displayYear"></span> توزيع بواسطة
           <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
         </p>
       </div>
