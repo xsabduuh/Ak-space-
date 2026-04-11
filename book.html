@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="rtl">
 
 <head>
   <!-- Basic -->
@@ -13,7 +13,7 @@
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
 
-  <title> Feane </title>
+  <title> فيان | احجز طاولة </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -30,13 +30,36 @@
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
 
+  <style>
+    /* تعديلات بسيطة لدعم الاتجاه RTL */
+    body {
+      text-align: right;
+    }
+    .navbar-nav {
+      padding-right: 0;
+    }
+    .navbar-nav .nav-link {
+      text-align: right;
+    }
+    .footer_social a {
+      margin-left: 5px;
+      margin-right: 0;
+    }
+    .contact_link_box a i {
+      margin-left: 5px;
+      margin-right: 0;
+    }
+    .form-control, .nice-select {
+      text-align: right;
+    }
+  </style>
 </head>
 
 <body class="sub_page">
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/hero-bg.jpg" alt="">
+      <img src="images/hero-bg.jpg" alt="خلفية">
     </div>
     <!-- header section strats -->
     <header class="header_section">
@@ -44,27 +67,27 @@
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.html">
             <span>
-              Feane
+              فيان
             </span>
           </a>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="تبديل القائمة">
             <span class=""> </span>
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item">
-                <a class="nav-link" href="index.html">Home </a>
+                <a class="nav-link" href="index.html">الرئيسية </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="menu.html">Menu</a>
+                <a class="nav-link" href="menu.html">القائمة</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="about.html">من نحن</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="book.html">Book Table <span class="sr-only">(current)</span> </a>
+                <a class="nav-link" href="book.html">احجز طاولة <span class="sr-only">(الحالية)</span> </a>
               </li>
             </ul>
             <div class="user_option">
@@ -131,7 +154,7 @@
                 </button>
               </form>
               <a href="" class="order_online">
-                Order Online
+                اطلب أونلاين
               </a>
             </div>
           </div>
@@ -146,7 +169,7 @@
     <div class="container">
       <div class="heading_container">
         <h2>
-          Book A Table
+          احجز طاولة
         </h2>
       </div>
       <div class="row">
@@ -154,18 +177,18 @@
           <div class="form_container">
             <form action="">
               <div>
-                <input type="text" class="form-control" placeholder="Your Name" />
+                <input type="text" class="form-control" placeholder="اسمك" />
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="Phone Number" />
+                <input type="text" class="form-control" placeholder="رقم الهاتف" />
               </div>
               <div>
-                <input type="email" class="form-control" placeholder="Your Email" />
+                <input type="email" class="form-control" placeholder="بريدك الإلكتروني" />
               </div>
               <div>
                 <select class="form-control nice-select wide">
                   <option value="" disabled selected>
-                    How many persons?
+                    كم عدد الأشخاص؟
                   </option>
                   <option value="">
                     2
@@ -186,7 +209,7 @@
               </div>
               <div class="btn_box">
                 <button>
-                  Book Now
+                  احجز الآن
                 </button>
               </div>
             </form>
@@ -209,19 +232,19 @@
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
             <h4>
-              Contact Us
+              اتصل بنا
             </h4>
             <div class="contact_link_box">
               <a href="">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
-                  Location
+                  الموقع
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+                  اتصل +01 1234567890
                 </span>
               </a>
               <a href="">
@@ -236,10 +259,10 @@
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
             <a href="" class="footer-logo">
-              Feane
+              فيان
             </a>
             <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+              ضروري، مما يجعله أول مولد حقيقي على الإنترنت. يستخدم قاموساً يضم أكثر من 200 كلمة لاتينية، بالإضافة إلى
             </p>
             <div class="footer_social">
               <a href="">
@@ -262,21 +285,21 @@
         </div>
         <div class="col-md-4 footer-col">
           <h4>
-            Opening Hours
+            ساعات العمل
           </h4>
           <p>
-            Everyday
+            يومياً
           </p>
           <p>
-            10.00 Am -10.00 Pm
+            10:00 ص - 10:00 م
           </p>
         </div>
       </div>
       <div class="footer-info">
         <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Free Html Templates</a><br><br>
-          &copy; <span id="displayYear"></span> Distributed By
+          &copy; <span id="displayYear"></span> جميع الحقوق محفوظة لـ
+          <a href="https://html.design/">قوالب HTML المجانية</a><br><br>
+          &copy; <span id="displayYear"></span> توزيع بواسطة
           <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
         </p>
       </div>
